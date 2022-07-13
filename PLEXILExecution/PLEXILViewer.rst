@@ -10,7 +10,7 @@ broken -- it has a number of startup and usage bugs. We hope to have
 someone working on this soon, but cannot guarantee anything. In the mean
 time, please use |PLEXIL| in its command-line form. If you are inclined to
 debug the viewer, the |PLEXIL| community welcomes any contributions!
-Please contact plexil-support@lists.sourceforge.net.
+Please contact plexildiscuss@gmail.com.
 
 .. contents::
 

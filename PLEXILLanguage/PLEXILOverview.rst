@@ -288,5 +288,5 @@ We have two mailing lists:
 -  *plexil-support* email will be sent only to the |PLEXIL| developers.
 
 Please feel free to add yourself to *plexil-discussion* using the
-`Sourceforge mailing lists <https://sourceforge.net/projects/plexil/support>`_
+`mailing lists <plexildiscuss@gmail.com>`_
 

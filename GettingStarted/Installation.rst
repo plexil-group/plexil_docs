@@ -20,7 +20,7 @@ There are two ways to get |PLEXIL|:
 -  Download a compressed archive (*tarball*) of the sources and prebuilt
    Java jars.
 -  Clone the source code from the ``git`` repository hosted here on
-   Sourceforge.
+   GitHub.
 
 In either case, the |PLEXIL| Executive must be compiled from source. The
 tarball format includes prebuilt Java jars for the Standard |PLEXIL| and
@@ -57,8 +57,8 @@ the archive will change accordingly.
 git
 ~~~
 
-|PLEXIL| source code may be checked out from the git repository on
-Sourceforge.
+|PLEXIL| source code may be checked out from the repository on
+GitHub.
 
 The following command will get the latest stable version of the source
 code (currently the ``releases/plexil-4`` branch):
