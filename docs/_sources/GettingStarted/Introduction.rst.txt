@@ -38,10 +38,10 @@ Part B: The |PLEXIL| Langauge
 
 -  Chapter 6: :ref:`Resource Model <ResourceModel>`
 
-   -  6.2 :ref:`Simple unary resources <SimpleUnaryResources>`
-   -  6.3 :ref:`Non-unary resources <NonUnaryResources>`
-   -  6.4 :ref:`Renewable resources <RenewableResources>`
-   -  6.5 :ref:`Hierarchical resources <HierarchialResources>`
+   -  6.1 :ref:`Simple unary resources <SimpleUnaryResources>`
+   -  6.2 :ref:`Non-unary resources <NonUnaryResources>`
+   -  6.3 :ref:`Renewable resources <RenewableResources>`
+   -  6.4 :ref:`Hierarchical resources <HierarchialResources>`
 
 Part C: |PLEXIL| Execution
 
@@ -53,8 +53,8 @@ Part C: |PLEXIL| Execution
 
 -  Chapter 10: :ref:`Communication <Communication>`
 
-   -  10.2 :ref:`Multi-Executive Applications <Inter-ExecutiveCommunication>`
-   -  10.3 :ref:`UDP-based Applications <UDPAdapter>`
+   -  10.1 :ref:`Multi-Executive Applications <Inter-ExecutiveCommunication>`
+   -  10.2 :ref:`UDP-based Applications <UDPAdapter>`
 
 -  Chapter 11: :ref:`Resource Arbiter <ResourceArbiter>`
 
@@ -62,8 +62,8 @@ Part D: |PLEXIL| Tools
 
 -  Chapter 12: :ref:`Plexilisp <Plexilisp>`
 
-   -  12.2 :ref:`Plexilisp Tutorial <PlexilispTutorial>`
-   -  12.3 :ref:`Plexilisp Reference Manual <PlexilispRefernceManual>`
+   -  12.1 :ref:`Plexilisp Tutorial <PlexilispTutorial>`
+   -  12.2 :ref:`Plexilisp Reference Manual <PlexilispRefernceManual>`
 
 -  Chapter 13: :ref:`Plexil Checker <PlexilChecker>`
 
@@ -73,12 +73,12 @@ Part E: Interfacing with External Systems
 
 -  Chapter 15: :ref:`Interfacing Overview <InterfacingOverview>`
 
-   -  15.2 :ref:`Standard Interface Libraries <StandardLibraries>`
-   -  15.3 :ref:`Interface Configuration File <InterfaceConfigurationFile>`
-   -  15.4 :ref:`The Application Framework <TheApplicationFramework>`
-   -  15.5 :ref:`Implementing Custom Interfaces <ImplementingCustomInterfaces>`
-   -  15.6 :ref:`Implementing Custom Applications <ImplementingCustomApplications>`
-   -  15.7 :ref:`API Reference <APIReference>`
+   -  15.1 :ref:`Standard Interface Libraries <StandardLibraries>`
+   -  15.2 :ref:`Interface Configuration File <InterfaceConfigurationFile>`
+   -  15.3 :ref:`The Application Framework <TheApplicationFramework>`
+   -  15.4 :ref:`Implementing Custom Interfaces <ImplementingCustomInterfaces>`
+   -  15.5 :ref:`Implementing Custom Applications <ImplementingCustomApplications>`
+   -  15.6 :ref:`API Reference <APIReference>`
 
 Appendices
 

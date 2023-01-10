@@ -277,7 +277,7 @@ of an empty node that declares some variables.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>So far we’ve using empty nodes as examples simply because we haven’t yet
+<p>So far we’ve been using empty nodes as examples simply because we haven’t yet
 introduced the other nodes. The example above is illustrative but would
 serve no practical purpose, since its variables cannot be used in any
 way.</p>
@@ -384,12 +384,12 @@ code can include comments to help document the code but that are not
 preserved in the translated Core <em>PLEXIL</em> XML output. These are notated in
 the C/C++ style syntax for block and single line comments. Examples of
 each are as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
- <span class="o">*</span> <span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">block</span> <span class="n">comment</span> <span class="n">example</span> <span class="n">which</span>
- <span class="o">*</span> <span class="n">allows</span> <span class="k">for</span> <span class="n">multiple</span> <span class="n">lines</span><span class="o">.</span>
- <span class="o">*/</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Here is a block comment example which</span>
+<span class="cm"> * allows for multiple lines.</span>
+<span class="cm"> */</span>
 
-<span class="o">//</span> <span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">single</span><span class="o">-</span><span class="n">line</span> <span class="n">comment</span> <span class="n">example</span> <span class="n">that</span> <span class="n">extends</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">the</span> <span class="n">line</span><span class="o">.</span>
+<span class="c1">// Here is a single-line comment example that extends to the end of the line.</span>
 </pre></div>
 </div>
 <p>Second, Plexil nodes have the option of including a single <code class="docutils literal notranslate"><span class="pre">Comment</span></code>
@@ -660,16 +660,8 @@ that calls <code class="docutils literal notranslate"><span class="pre">F</span>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These examples contain a declaration of the
-library node using the historic</p>
+library node using the historic <code class="docutils literal notranslate"><span class="pre">LibraryAction</span></code> form. A newer version of <em>PLEXIL</em> (not yet released) aliases this with <code class="docutils literal notranslate"><span class="pre">LibraryNode</span></code>.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryAction</span>
-</pre></div>
-</div>
-<p>form. A newer version of <em>PLEXIL</em> (not yet released) aliases this with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryNode</span>
-</pre></div>
-</div>
-<p>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">begin</span> <span class="n">F</span><span class="o">.</span><span class="n">ple</span> <span class="o">---</span>
 
 <span class="n">F</span><span class="p">:</span>
@@ -1449,7 +1441,7 @@ literal is taken from Common Lisp).</p>
 <li><p>Read an element: <code class="docutils literal notranslate"><span class="pre">X[&lt;index&gt;]</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;index&gt;</span></code> can be any integral
 expression. Array elements are a kind of expression, and thus may be
 used in any place where expressions are allowed.</p></li>
-<li><p>Assign an element: <code class="docutils literal notranslate"><span class="pre">X[&lt;index&gt;]</span> <span class="pre">=``&lt;expressin&gt;</span></code> . Assignments can occur only in
+<li><p>Assign an element: <code class="docutils literal notranslate"><span class="pre">X[&lt;index&gt;]</span> <span class="pre">=</span> <span class="pre">&lt;expression&gt;</span></code> . Assignments can occur only in
 assignment nodes.</p></li>
 <li><p>Assign an entire array: <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Y</span></code>, where Y is either an array
 variable or an array literal. It is an error if <code class="docutils literal notranslate"><span class="pre">Y</span></code> represents an
@@ -1612,23 +1604,23 @@ throughout the plan. Second, it enables <a class="reference internal" href="../P
 that your declarations are consistent and that all uses of declared
 items in the plan are correct.</p>
 <p>The following are examples of global declarations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">simple</span> <span class="n">command</span>
-<span class="n">Command</span> <span class="n">Stop</span><span class="p">();</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// simple command</span>
+<span class="n">Command</span><span class="w"> </span><span class="nf">Stop</span><span class="p">();</span>
 
-<span class="o">//</span> <span class="n">command</span> <span class="k">with</span> <span class="n">parameter</span> <span class="p">(</span><span class="n">name</span> <span class="ow">is</span> <span class="n">optional</span><span class="p">)</span>
-<span class="n">Command</span> <span class="n">Drive</span><span class="p">(</span><span class="n">Real</span> <span class="n">meters</span><span class="p">);</span>
+<span class="c1">// command with parameter (name is optional)</span>
+<span class="n">Command</span><span class="w"> </span><span class="nf">Drive</span><span class="p">(</span><span class="n">Real</span><span class="w"> </span><span class="n">meters</span><span class="p">);</span>
 
-<span class="o">//</span> <span class="n">command</span> <span class="k">with</span> <span class="k">return</span> <span class="n">value</span>
-<span class="n">Boolean</span> <span class="n">Command</span> <span class="n">TakePicture</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Real</span><span class="p">);</span>
+<span class="c1">// command with return value</span>
+<span class="n">Boolean</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="n">TakePicture</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Real</span><span class="p">);</span>
 
-<span class="o">//</span> <span class="n">state</span>
-<span class="n">Real</span> <span class="n">Lookup</span> <span class="n">Temperature</span><span class="p">;</span>
+<span class="c1">// state</span>
+<span class="n">Real</span><span class="w"> </span><span class="n">Lookup</span><span class="w"> </span><span class="n">Temperature</span><span class="p">;</span>
 
-<span class="o">//</span> <span class="n">state</span> <span class="k">with</span> <span class="n">parameter</span>
-<span class="n">Boolean</span> <span class="n">Lookup</span> <span class="n">At</span> <span class="p">(</span><span class="n">String</span> <span class="n">location</span><span class="p">);</span>
+<span class="c1">// state with parameter</span>
+<span class="n">Boolean</span><span class="w"> </span><span class="n">Lookup</span><span class="w"> </span><span class="n">At</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">location</span><span class="p">);</span>
 
-<span class="o">//</span> <span class="n">library</span> <span class="n">node</span>
-<span class="n">LibraryAction</span> <span class="n">LibTest</span><span class="p">(</span><span class="n">In</span> <span class="n">Real</span> <span class="n">i</span><span class="p">,</span> <span class="n">In</span> <span class="n">vals</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">j</span><span class="p">);</span>
+<span class="c1">// library node</span>
+<span class="n">LibraryAction</span><span class="w"> </span><span class="nf">LibTest</span><span class="p">(</span><span class="n">In</span><span class="w"> </span><span class="n">Real</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">vals</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="n">InOut</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -1642,7 +1634,7 @@ a single node. Your application may comprise many Plexil files; in this
 case, one file will contain the <em>top level</em> node, and the rest will
 contain library nodes.</p>
 <p>We strongly recommend that the top level node in a Standard <em>PLEXIL</em> file
-be named the same as the file, e.g. file HaltAndCatchFIre.ple should
+be named the same as the file, e.g. file HaltAndCatchFire.ple should
 contain the top level node named <code class="docutils literal notranslate"><span class="pre">HaltAndCatchFire</span></code>.</p>
 </section>
 <section id="plexilc-the-plexil-translator">
@@ -1785,7 +1777,7 @@ executing <em>PLEXIL</em> plans.</p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   

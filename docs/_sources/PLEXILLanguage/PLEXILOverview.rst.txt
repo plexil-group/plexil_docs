@@ -235,7 +235,7 @@ external variable, which at present is a unitless real number.
 Resources
 ~~~~~~~~~
 
-|PLEXIL| has a simple resource model, described in detail in :ref:`Chapter 5 <ResourceModel>`.
+|PLEXIL| has a simple resource model, described in detail in :ref:`Chapter 6 <ResourceModel>`.
 In short, resource requirements for commands
 (only) can be specified in command nodes, and these requirements are
 checked during execution via a resource arbitration mechanism. Simple
@@ -281,12 +281,11 @@ given in the chapter titled :ref:`PLEXIL, XML, and Emacs <XMLSchemaEmacs>`.
 The PLEXIL Community
 --------------------
 
-We have two mailing lists:
+We have a mailing list:
 
 -  *plexil-discussion* email will be sent to anyone interested in
    |PLEXIL|.
--  *plexil-support* email will be sent only to the |PLEXIL| developers.
 
 Please feel free to add yourself to *plexil-discussion* using the
-`mailing lists <plexildiscuss@gmail.com>`_
+`mailing list <plexildiscuss@gmail.com>`_
 

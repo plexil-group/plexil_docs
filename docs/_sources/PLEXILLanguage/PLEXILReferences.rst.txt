@@ -165,7 +165,7 @@ of an empty node that declares some variables.
     Real MaxTemp = 100.0;
     }
 
-So far we've using empty nodes as examples simply because we haven't yet
+So far we've been using empty nodes as examples simply because we haven't yet
 introduced the other nodes. The example above is illustrative but would
 serve no practical purpose, since its variables cannot be used in any
 way.
@@ -287,7 +287,7 @@ preserved in the translated Core |PLEXIL| XML output. These are notated in
 the C/C++ style syntax for block and single line comments. Examples of
 each are as follows.
 
-::
+.. code-block:: c++
 
    /*
     * Here is a block comment example which
@@ -625,19 +625,7 @@ that calls ``F``.
 .. note::
 
     These examples contain a declaration of the
-    library node using the historic
-
-::
-
-   LibraryAction
-
-form. A newer version of |PLEXIL| (not yet released) aliases this with
-
-::
-
-   LibraryNode
-
-.
+    library node using the historic ``LibraryAction`` form. A newer version of |PLEXIL| (not yet released) aliases this with ``LibraryNode``.
 
 ::
 
@@ -1586,7 +1574,7 @@ Arrays support the following operations. Assume an array named X.
 -  Read an element: ``X[<index>]``, where ``<index>`` can be any integral
    expression. Array elements are a kind of expression, and thus may be
    used in any place where expressions are allowed.
--  Assign an element: ``X[<index>] =``<expressin>`` . Assignments can occur only in
+-  Assign an element: ``X[<index>] = <expression>`` . Assignments can occur only in
    assignment nodes.
 -  Assign an entire array: ``X = Y``, where Y is either an array
    variable or an array literal. It is an error if ``Y`` represents an
@@ -1789,7 +1777,7 @@ items in the plan are correct.
 
 The following are examples of global declarations.
 
-::
+.. code-block:: c++
 
    // simple command
    Command Stop();
@@ -1826,7 +1814,7 @@ case, one file will contain the *top level* node, and the rest will
 contain library nodes.
 
 We strongly recommend that the top level node in a Standard |PLEXIL| file
-be named the same as the file, e.g. file HaltAndCatchFIre.ple should
+be named the same as the file, e.g. file HaltAndCatchFire.ple should
 contain the top level node named ``HaltAndCatchFire``.
 
 .. _plexilc_the_plexil_translator:

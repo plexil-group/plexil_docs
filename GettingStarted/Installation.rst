@@ -99,17 +99,16 @@ Basic installation
 
 These instructions presume a POSIX-compliant shell and GNU make.
 
-#. Unpack or clone the sources. See `Tarball <Tarball_>`_ or
-   `git <git_>`_ above.
+* Unpack or clone the sources. See `Tarball <Tarball_>`_ or `git <git_>`_ above.
 
 .. note::
 
     Plexil may not build correctly if installed in a directory that 
     is a symbolic link, such as ``/tmp`` in macOS.
 
-#. Change into the source directory.
+* Change into the source directory.
 
-#. Set up the environment. (This is not strictly necessary for the
+* Set up the environment. (This is not strictly necessary for the
    build, but will be for running programs.)
 
 ::
@@ -118,13 +117,13 @@ These instructions presume a POSIX-compliant shell and GNU make.
     export PLEXIL_HOME
     source "$PLEXIL_HOME/scripts/plexil-setup.sh"
 
-#. Build the desired components:
+* Build the desired components:
 
    #. For the |PLEXIL| Executive (universalExec), TestExec, compilers,
       checker, and |PLEXIL| Viewer: ``make tools``
    #. For all the above plus examples: ``make everything``
 
-#. The |PLEXIL| Executive and related programs will be installed into
+* The |PLEXIL| Executive and related programs will be installed into
    ``$PLEXIL_HOME/bin`` ; libraries are installed into ``$PLEXIL_HOME/lib``, and
    include files to ``$PLEXIL_HOME/include``. There are additional scripts
    (e.g. plexilexec, plexilc) in ``$PLEXIL_HOME/scripts`` .
