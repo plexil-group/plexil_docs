@@ -3,8 +3,7 @@
 Plexilisp Reference Manual
 ===========================
 
-*This wiki was automatically generated from "plexil.el" on Mon Feb 17
-15:47:11 2014 for version 3.2. Do not edit!*
+*10 Jan 2023*
 
 This is a complete reference for the Plexilisp language. It assumes a
 basic understanding of the |PLEXIL| language. Each construct in Plexilisp
@@ -1176,11 +1175,11 @@ List of Resource specifications.
 
 ::
 
-   (Resource name priority [ clause ] ...)
-   (resource name priority [ clause ] ...)
+   (Resource name priority [ upper-bound-clause ] )
+   (resource name priority [ upper-bound-clause ] )
 
-A Resource specification. Name and priority are required. The remaining
-clauses can be ``ResourceUpperBound`` or ``ResourceLowerBound``
+A Resource specification. Name and priority are required. An optional
+``ResourceUpperBound`` or ``resource-upper-bound`` may be supplied.
 
 --------------
 
@@ -1190,15 +1189,6 @@ clauses can be ``ResourceUpperBound`` or ``ResourceLowerBound``
    (resource-upper-bound x)
 
 A resource upper bound.
-
---------------
-
-::
-
-   (ResourceLowerBound x)
-   (resource-lower-bound x)
-
-A resource lower bound.
 
 .. _miscellaneous_node_clauses:
 
