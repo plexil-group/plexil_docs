@@ -20,7 +20,7 @@ Consider the resource hierarchy in this diagram:
 .. figure:: ../../_static/images/Hierarchicalresources.jpg
 
 The relationships in the diagram are reflected in an example resource
-data file, in plexil/examples/resources/resource.data, whose contents
+data file, in plexil/examples/resources/resource3.data, whose contents
 are:
 
 ::
