@@ -20,7 +20,7 @@
 import os
 import sys
 import sphinx_readable_theme
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('_venv/lib'))
 
 
 # -- General configuration ------------------------------------------------
@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'PLEXIL'
-copyright = 'Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved'
+copyright = 'Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved'
 author = 'NASA AMES RESEARCH CENTER'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -70,7 +70,7 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', '_venv', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
