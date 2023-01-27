@@ -3,7 +3,7 @@
 ResourceArbiter
 =================
 
-*10/4/10*
+*26 Jan 2023*
 
 This chapter describes in greater detail |PLEXIL|'s *resource arbiter*,
 which was introduced in the :ref:`Resource Model <ResourceModel>` chapter.
@@ -13,101 +13,108 @@ which was introduced in the :ref:`Resource Model <ResourceModel>` chapter.
 Design
 ------
 
-The |PLEXIL| language provides constructs to list resource requirements
-for a command. The Resource Arbiter, which is part of the |PLEXIL|
-Executive, implements the necessary logic that keeps track of the
-resources consumed and also performs the task of accepting or rejecting
-commands based on the available resource level. This schematic shown
-below gives an overall idea of the resource model implemented in the
-executive. (Note: *UE*, which stands for *Universal Executive*, is an
-outdated name for the *PLEXIL Executive*).
+The Resource Arbiter, a component of the |PLEXIL| Executive, tracks
+resource usage during plan execution against resource limits, and
+prevents the execution of commands whose resource requirements would
+violate those limits.  The diagram below gives an overall idea of the
+resource model implemented in the executive. (Note: *UE*, which stands
+for *Universal Executive*, is an outdated name for the *PLEXIL
+Executive*).
 
 .. figure:: ../_static/images/Resourcemodel.jpg
+
+The resource arbiter sits between the Executive and the external
+interface, and mediates command execution.  The Executive sends
+commands and their resource requirements to the resource arbiter.  The
+arbiter's task is to select the largest subset of commands which can
+be executed without exceeding resource usage limits.  The selected
+commands are forward to the external interface; those commands not
+selected are marked as denied.  The plan can allow for this
+possibility, and attempt to retry denied commands at a later time.
 
 Capabilities
 ------------
 
-The resource model provides the following capabilities.
+The resource arbiter provides the following capabilities:
 
--  Implements consumable and renewable unary and non-unary resources.
--  Consumed resource levels are maintained by the resource arbiter. This
-   assumes that the consumption per command is known ahead of time and
-   fixed. Also tracks only resource consumption/production for commands
-   issued by the executive.
--  No assumptions are made about the duration of command etc. it is
-   assumed that whatever resource a command consumes or generates
-   happens at its start and similarly and resource release happens when
-   the command ends.
+-  Tracks resource usage throughout plan execution;
 
-The resource model does *not* provide querying of the external system
-for resource availability.
+-  Arbitrates commands competing for resources;
 
-The bulk of resource model implementation is the resource arbiter.
-Besides the language extension, the only other entity that is affected
-is the external interface. Instead of sending the commands directly to
-the external subsystem, the external interface has to first invoke the
-arbitration process and then forward only the accepted commands to the
-external sub-system.
+-  Takes command priority into account during arbitration;
 
-The resource arbiter is handed a list of commands along with the
-resources each of them require. The task of the arbiter then is to
-identify all the commands that can be executed so that the available
-maximum resource level is not exceeded. While doing so, the arbiter also
-needs to pay attention to the priority levels of the commands for the
-reason that when two or more commands vie for the same resource, the
-command with the higher priority value wins.
+-  Prevents resource over-allocation.
 
-The current implementation enforces the following restriction;
+The resource arbiter does not:
 
-#. All the resources required by a command have the same priority (which
-   is equal to the priority of the the command). Although the XML
-   specification allows for a priority value per resource, the arbiter
-   will pick the priority value of the first resource listed for the
-   command and use it for all the other resources used by the command.
-   NOTE: this could perhaps be enforced by the Standard Plexil compiler.
-#. The lower bound of the resource is ignored.
+-  Query the external system;
+
+-  Consider command duration.
 
 .. _the_basic_algorithm:
 
 The Basic Algorithm
 -------------------
 
-#. For a command to be accepted all its resource requirements have to be
-   met.
-#. Optimizes both on priority values and the total number of commands
-   accepted.
-#. A lower priority command will be accepted only if there is still some
-   resource left over after the higher priority commands have taken
-   their share or if a higher priority command gets rejected.
-#. If two commands have the same priority, they will be prioritized in
-   order in which they are batched at the end of the quiescence cycle.
-#. When a subset of the commands is accepted, its worst case resource
-   requirements should be not exceed the maximum allowable limits.
+#. The arbiter accepts a command only if *all* the command's resource
+   requests can be satisifed, at the instant the command is eligible
+   for execution.
+#. Requested resources are presumed to be consumed (generated) when
+   a command begins execution, and returned (removed) when that
+   command finishes execution.
+#. The arbiter evaluates resource requests in priority order, from
+   best (smallest numerical priority value) to worst (largest value).
+#. If multiple commands have the same priority, the arbiter will
+   evaluate their requests in an arbitrary order.
+#. The arbiter accepts the maximal subset of commands whose resource
+   requirements, combined with the resources already allocated to
+   previously executed commands, will not exceeed resource
+   limitations.
+
+Limitations of the current implementation
+------------------------------
+
+The current implementation of the resource arbiter differs from the
+|PLEXIL| language specification as follows:
+
+#. The resource arbiter uses the priority value of a command's first
+   resource requirement, and ignores the priorities of any remaining
+   requirements.
+#. Lower bounds of resource requirements are ignored.
+
+A future |PLEXIL| release will eliminate per-resource priorities and
+resource lower bounds from the language.
 
 .. _resource_configuration_file:
 
 Resource Configuration File
 ---------------------------
 
-By default, the resource arbiter obtains the identity of resources from
-the command itself and when commands that use a particular resource
-completes, the resource arbiter purges the resource from its database.
-The default (absolute) maximum consumable and renewable value is 1.0.
+The resource arbiter obtains the identity of resources from the
+command itself.  When all commands using a particular resource have
+completed, the resource arbiter purges the resource from its database.
 
-The user also has the option of gathering information about the
-resources identified in the system as well as their availability in a
-form of a configuration file that can then be read by the resource
-arbiter. This file must be named ``resource.data`` and filed in the
-directory from which the executive is run; see an example in
-``plexil/exampes/resource.data``.
+The default initial value for a resource is 1.0.
 
-Such a configuration file at the minimum can contain information such
-as the maximum consumable and renewable levels. In addition the
-configuration can also capture interdependencies between resources.
-Currently the resource arbiter can handle resource dependencies that
-can be represented in the form of a weighted Directed Acyclic Graph.
-The schematic shown below shows the general structure of such a graphs
-and the format of the configuration file. The weights represent the
-absolute value of the resource usage.
+*A priori* resource availability, and other properties, can be
+specified in a *resource data file*, read by the resource arbiter at
+|PLEXIL| Executive startup.  The default location for this file is
+``resource.data`` in the current working directory.  Other locations
+for the resource data file can be specified on the Executive command
+line by using the ``-r`` option.
+
+In its simplest form, the resource data file contains a list of
+resource names with their total availability.
+
+The resource file can also specify interdependencies between
+resources.  These dependencies can be represented in the form of a
+weighted Directed Acyclic Graph.  The schematic shown below shows the
+general structure of such a graph and the format of the configuration
+file. The weights represent the absolute value of the resource usage.
+
+**FIXME: this really needs more exposition**
   
 .. figure:: ../_static/images/Dagresources3.jpg
+
+Several example resource data files can be found in the directory
+``plexil/examples/resources``.
