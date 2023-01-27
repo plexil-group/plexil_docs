@@ -1,33 +1,43 @@
 .. _NonUnaryResources:
 
-Non-Unary Resources 
+Non-Unary Resources
 ======================
 
-*12 May 2015*
+*26 Jan 2023*
 
-This example (filed in ``plexil/examples/resource2.ple``) is similar to the
-unary resource example expect that the resource sys_memory is not
-treated as a unary resource. This is because of the manner in which the
-resource usage is specified, Including the lower and upper bounds
-implies that the resource is not unary. In particular,
+This example, which can be found in
+``plexil/examples/resources/resource2.ple``, differs from the unary
+resource example in that ``sys_memory`` is allocated in fractional
+amounts, rather than as a whole.  This is indicated by the keyword
+``UpperBound`` in the resource usage specification.  (If
+``UpperBound`` is not supplied, the requested amount defaults to 1.0.)
 
--  ``C1`` requires ``<arm, 10>`` and ``<sys_memory, 20, 0.5, 0.5>``
--  ``C2`` requires ``<sys_memory, 30, 0.3, 0.3>``
--  ``C3`` requires ``<vision_system, 10>``
+In this example,
 
-where the integer value in the resource pair denotes the priority (lower
-number implies higher priority) and the last two real values are the
-lower and upper bounds of the memory needed by the command. In our
-example, ``C1`` requires 0.5 units of memory and ``C2`` 0.3 units. By
-default let us assume that the maximum value is 1.0.
+- Node ``C1`` command ``c1`` requires ``arm`` and 0.5 of ``sys_memory`` at priority 20
+- Node ``C2`` command ``c2`` requires 0.3 of ``sys_memory`` at priority 30
+- Node ``C3`` command ``c3`` requires ``vision_system`` at priority 10
 
-The resulting outcome will be to accept commands all the commands
-since the cumulative memory requirements of ``C1`` and ``C2`` is less
-than 1.0.
+The file ``plexil/examples/resources/resource2.data`` specifies that
+1.0 units of each resource are available.
+
+::
+
+   %Contains the resource hierarchy
+   % name initial-resource [child-weight child-name]*
+   arm 1.0
+   sys_memory 1.0
+   vision_system 1.0
+
+As in the previous example, all 3 nodes and their respective commands
+are eligible to execute concurrently.  
+
+The resulting outcome will be to accept all the commands since the
+cumulative memory requirements of ``C1`` and ``C2`` is less than 1.0.
 
 .. figure:: ../../_static/images/Nonunaryresource3.jpg
 
-The entire PLEXIL plan is given below;
+The PLEXIL plan is shown below:
 
 ::
 
@@ -43,7 +53,6 @@ The entire PLEXIL plan is given below;
        EndCondition returnValue == 10;
        PostCondition C1.command_handle == COMMAND_SUCCESS;
        Resource Name = "sys_memory",
-         LowerBound = 0.5,
          UpperBound = 0.5,
          Priority = 20;
        Resource Name = "arm",
@@ -57,7 +66,6 @@ The entire PLEXIL plan is given below;
        PostCondition C2.command_handle == COMMAND_SUCCESS;
        EndCondition returnValue == 10;
        Resource Name = "sys_memory",
-         LowerBound = 0.3,
          UpperBound = 0.3,
          Priority = mem_priority;
        returnValue = c2();

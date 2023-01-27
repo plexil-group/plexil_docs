@@ -3,38 +3,73 @@
 Simple Unary Resources 
 =========================
 
-*12 May 2015*
+*13 Jan 2023*
 
-This example (filed in plexil/examples/resource1.ple) involves three
-command nodes that are eligible for execution and three unary resources.
-Two of the nodes vie for the same resource with different priorities.
-The node that has the higher resource priority (lower numeric value)
-gains access to the resource. A repeat condition in the lower priority
-node ensures that it executes when the resource it needs frees up.
+This example demonstrates how |PLEXIL| handles unary command
+resources, and how node priority is used to resolve contention for a
+shared resource.
 
-Specifically, we have three commands ``C1``, ``C2`` and ``C3`` scheduled
-to run concurrently. There are also three resources, ``arm``,
-``sys_memory`` and ``vision_system`` that are used by the commands. In
-particular,
+The example plan can be found at
+plexil/examples/resources/resource1.ple, its associated resource file
+at plexil/examples/resources/resource1.data, and a simulation script
+at plexil/examples/resources/scripts/resource1.pst.  The debug trace
+from running this example will be helpful in uderstanding how resource
+arbitration works.
 
--  ``C1`` requires ``<arm, 20>`` and ``<sys_memory, 20>``
--  ``C2`` requires ``<sys_memory, 30>``
--  ``C3`` requires ``<vision_system, 10>``
+This example makes use of 3 unary resources, ``arm``, ``sys_memory``,
+and ``vision_system``.  Each resource has a maximum quantity of 1.0.
 
-where the integer value in the resource pair denotes the priority (lower
-number implies higher priority).
+Three Command nodes, ``C1``, ``C2``, and ``C3``, are scheduled to
+start concurrently.  Each node's command has its own resource
+requirements:
 
-The resulting outcome will first be to accept commands ``C1`` and
-``C3`` and reject ``C2``. Then since ``C2`` is associated with a
-repeat condition, ``C2`` will be accepted after the completion of
-``C1``.
-  
+-  Node ``C1`` command ``c1`` requires resources ``arm`` and ``sys_memory``
+-  Node ``C2`` command ``c2`` requires resource ``sys_memory``
+-  Node ``C3`` command ``c3`` requires resource ``vision_system``
+
+Each node has been assigned a priority:
+
+-  Node ``C1`` has priority 20
+-  Node ``C2`` has priority 30 (the value of variable ``mem_priority``)
+-  Node ``C3`` has priority 10 (the value of variable ``vision_priority``)
+
 .. figure:: ../../_static/images/Unaryresources3.jpg
 
-The entire PLEXIL plan is shown below. Notice that values for the
-resource elements can be parameterized i.e., can either be variables
-or values. Parameterizing the resource elements makes it possible to
-determine them during the course of execution.
+At the first macro step, the resource arbiter receives all 3 requests,
+and considers them in priority order: best (numerically smallest) to
+worst (numerically larger).
+
+Node ``C3`` and its command ``c3`` at priority 10 are considered
+first.  The ``vision_system`` resource is available, so the resource
+arbiter allocates it and accepts command ``c3``.
+
+Next, the arbiter considers node ``C1`` and its command ``c1`` at
+priority 20.  The requested resources ``arm`` and ``sys_memory`` are
+both available, so the arbiter allocates both resources and accepts
+command ``c1``.
+
+Node ``C2`` and command ``c2`` at priority 30 are considered last.
+The request for ``sys_memory`` cannot be satisfied, as all of this
+resource is already allocated to command ``c1``.  So the arbiter
+denies its request.
+
+The result is that the |PLEXIL| Executive issues commands ``c1`` and
+``c3``, and sets the command handle of ``c2`` to ``COMMAND_DENIED``.
+This causes node ``C2`` to transition to ``ITERATION_ENDED``. Because
+the PostCondition on node ``C2`` evaluates to ``false``, its outcome
+is ``FAILED`` and its failure type is ``POST_CONDITION_FAILED``.
+
+At the next macro step, the RepeatCondition on node ``C2`` makes it
+eligible for execution.  But command ``c1`` has not finished
+executing, so the arbiter rejects command ``c2`` again.
+
+At the next macro step, command ``c1`` has finished, and the arbiter
+releases its resources ``arm`` and ``sys_memory``.  Node ``C2`` and
+command ``c2`` are eligible for execution again.  This time, because
+``sys_memory`` is available, the arbiter allocates it, and accepts
+``c2`` for execution.
+
+The entire PLEXIL plan is shown below.
 
 ::
 
