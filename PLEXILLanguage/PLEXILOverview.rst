@@ -51,7 +51,7 @@ Overview
 
 This section is a short overview of the |PLEXIL| language. It describes
 abstractly the main features of |PLEXIL|, and explains how one programs in
-|PLEXIL|. The next chapter, :ref:`PLEXIL Reference <PLEXILReferences>`,
+|PLEXIL|. The next chapter, :ref:`PLEXIL Reference <PLEXILReference>`,
 describes in detail the programming constructs of |PLEXIL|. The :ref:`Detailed Semantics <PLEXILSemantics>`
 chapter covers |PLEXIL| execution in
 greater depth.
@@ -100,7 +100,7 @@ Stacked in a column on the right side of the diagram are the kinds of
 -  The *OnMessage* and *OnCommand* nodes are used in multi-executive
    applications and specify response policies.
 
-Nodes are described in greater detail in the :ref:`Plexil Reference <PLEXILReferences>` chapter.
+Nodes are described in greater detail in the :ref:`Plexil Reference <PLEXILReference>` chapter.
 
 .. _core_plexil:
 
@@ -235,7 +235,7 @@ external variable, which at present is a unitless real number.
 Resources
 ~~~~~~~~~
 
-|PLEXIL| has a simple resource model, described in detail in :ref:`Chapter 5 <ResourceModel>`.
+|PLEXIL| has a simple resource model, described in detail in :ref:`Resource Model <ResourceModel>`.
 In short, resource requirements for commands
 (only) can be specified in command nodes, and these requirements are
 checked during execution via a resource arbitration mechanism. Simple
@@ -258,7 +258,7 @@ for authoring |PLEXIL| directly.
 The standard programming syntax for |PLEXIL| is described in this manual.
 It is simply called Plexil, or sometimes *standard Plexil*. A translator
 for Plexil, which converts user programs into Core |PLEXIL| XML, is
-described in the :ref:`next chapter <PLEXILReferences>`.
+described in the :ref:`next chapter <PLEXILReference>`.
 
 Note that the terms "PLEXIL" and "Plexil" can refer to the abstract
 |PLEXIL| language (nodes) and/or to its standard programming syntax.
