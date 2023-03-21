@@ -3,7 +3,7 @@
 ResourceArbiter
 =================
 
-*26 Jan 2023*
+*20 Mar 2023*
 
 This chapter describes in greater detail |PLEXIL|'s *resource arbiter*,
 which was introduced in the :ref:`Resource Model <ResourceModel>` chapter.
@@ -27,10 +27,11 @@ The resource arbiter sits between the Executive and the external
 interface, and mediates command execution.  The Executive sends
 commands and their resource requirements to the resource arbiter.  The
 arbiter's task is to select the largest subset of commands which can
-be executed without exceeding resource usage limits.  The selected
-commands are forward to the external interface; those commands not
-selected are marked as denied.  The plan can allow for this
-possibility, and attempt to retry denied commands at a later time.
+be executed without exceeding resource limits.  The selected commands
+are forwarded to the external interface; commands not selected are
+marked as denied.  The |PLEXIL| language allows a plan to check for
+this possibility, and to attempt to retry denied commands at a later
+time.
 
 Capabilities
 ------------
@@ -68,11 +69,14 @@ The Basic Algorithm
    evaluate their requests in an arbitrary order.
 #. The arbiter accepts the maximal subset of commands whose resource
    requirements, combined with the resources already allocated to
-   previously executed commands, will not exceeed resource
-   limitations.
+   previously executed commands, will not exceeed resource limits.
+#. Accepted commands are sent to the external system.
+#. Rejected commands have their command handle values set to
+   ``COMMAND_DENIED``.  Their Command nodes execute, but no commands
+   are issued to the external system.
 
 Limitations of the current implementation
-------------------------------
+-----------------------------------------
 
 The current implementation of the resource arbiter differs from the
 |PLEXIL| language specification as follows:
@@ -111,10 +115,32 @@ resources.  These dependencies can be represented in the form of a
 weighted Directed Acyclic Graph.  The schematic shown below shows the
 general structure of such a graph and the format of the configuration
 file. The weights represent the absolute value of the resource usage.
-
-**FIXME: this really needs more exposition**
   
 .. figure:: ../_static/images/Dagresources3.jpg
+
+Using the example above, whenever 1 unit of ``resource1`` is
+requested, *w1_2* units of ``resource2``, *w1_3* units of
+``resource3``, and *w1_4* units of ``resource4`` are also requested
+automatically.
+
+Because ``resource2`` has its own dependent resources, *w1_2* units of
+``resource5`` and ``resource6``, and *w1_2 x w2_7* units of
+``resource7`` are also requested.
+
+Similarly, ``resource3`` has a dependent resource ``resource8``, and
+for every unit of ``resource3`` requested, a unit of ``resource8`` is
+also requested.
+
+Summing up the above example, for every unit of ``resource1``
+requested, automatic requests are generated for:
+
+* *w1_2* units of ``resource2``,
+* *w1_3* units of ``resource3``,
+* *w1_4* units of ``resource4``,
+* *w1_2* units of ``resource5``,
+* *w1_2* units of ``resource6``,
+* *w1_2 x w2_7* units of ``resource7``, and
+* *w1_3* units of ``resource8``.
 
 Several example resource data files can be found in the directory
 ``plexil/examples/resources``.
