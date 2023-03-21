@@ -16,7 +16,8 @@ help:
 .PHONY: help Makefile
 
 bootstrap:
-	@${PYTHON} -m virtualenv _venv
+	@$(PYTHON) -m pip install virtualenv
+	@$(PYTHON) -m virtualenv _venv
 	@(source _venv/bin/activate ; python -m pip install sphinx sphinx_readable_theme)
 	@echo Type 'source _venv/bin/activate' prior to continuing
 
