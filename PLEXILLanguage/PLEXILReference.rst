@@ -1,6 +1,6 @@
-.. _PLEXILReferences:
+.. _PLEXILReference:
 
-PLEXIL References
+PLEXIL Reference
 ======================
 
 *20 Mar 2023*
