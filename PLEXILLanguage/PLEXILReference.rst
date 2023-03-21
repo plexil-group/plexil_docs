@@ -3,7 +3,7 @@
 PLEXIL References
 ======================
 
-*16 Aug 2021*
+*20 Mar 2023*
 
 .. contents::
 
@@ -12,20 +12,20 @@ PLEXIL References
 About this chapter
 ------------------
 
-This chapter documents the Standard |PLEXIL| programming language, and how
-to create and compile Plexil files for execution.
+This chapter documents the Standard |PLEXIL| plan language, and how to
+create and compile Plexil files for execution.
 
 We explain |PLEXIL| primarily though examples, using Standard |PLEXIL|
 syntax.
 
 This is not a rigorous treatment of |PLEXIL|, but hopefully -- in
-combination with the :ref:`Example PLEXIL Plans <ExamplePlans>`
+combination with the :ref:`Example PLEXIL Plans <ExamplePlans>` --
 provides enough to enable you to program in |PLEXIL| effectively.
 
 The |PLEXIL| langauge is summarized briefly in the previous chapter,
-:ref:`Overview <PLEXILOverview>`. Its execution semantics are explained more
-deeply in the following chapter, :ref:`Detailed Semantics <PLEXILSemantics>`,
-which cites papers that provide a
+:ref:`Overview <PLEXILOverview>`. Its execution semantics are
+explained more deeply in the following chapter, :ref:`Detailed
+Semantics <PLEXILSemantics>`, which cites papers that provide a
 rigorous formal definition of the language. The |PLEXIL| syntax is
 formalized in XML schemas found in the software distribution.
 
@@ -33,7 +33,7 @@ formalized in XML schemas found in the software distribution.
 
     Although this chapter focuses on the Standard |PLEXIL| language and
     its semantics, as independent from the exact behavior of a particular
-    implementation of Plexil, explanations of how the supplied Plexil
+    implementation of |PLEXIL|, explanations of how the supplied |PLEXIL|
     Executive behaves have been provided in places we felt this information
     helpful.
 
@@ -51,13 +51,13 @@ node is the empty node.
 
 ::
 
-    { }
+    { }
 
 We can give it a name:
 
 ::
 
-    DoNothing : { }
+    DoNothing: { }
 
 The node's name (also called its *Id*), denoted by an identifier and
 colon preceding the opening brace, is optional. An anonymous (nameless)
@@ -85,11 +85,11 @@ the following ways:
 
 ::
 
-    DoNothing: {
+    DoNothing: {
     }
 
 Through composition, nodes form a tree-shaped hierarchy. The root of the
-tree is the *root* or *top level* node. A Plexil source file must
+tree is the *root* or *top level* node. A |PLEXIL| source file must
 contain exactly one top level node.
 
 Nodes have two components: a set of *attributes* that drive the
@@ -115,30 +115,31 @@ opening curly brace.
 Variables
 ~~~~~~~~~
 
-A node may declare variables, which are local to the node. Plexil
-currently supports variables of type Boolean, integer, real, string, and
-arrays of these four basic types. Examples of declarations of the basic
-types are as follows.
+A node may declare variables, which are local to the node. |PLEXIL|
+currently supports variables of types ``Boolean``, ``Integer``,
+``Real``, ``String``, and arrays of these four basic types. Examples
+of declarations of the basic types are as follows.
 
 ::
 
-    Boolean isReset;
-    Integer n;
-    Real pi;
-    String message;
+    Boolean isReset;
+    Integer n;
+    Real pi;
+    String message;
 
 These examples of variable declarations do not specify initial values
 for the variables. Uninitialized variables of all types except arrays
-are given the value :ref:`Unknown <data_types_and_expressions>`. Here are
-the same variable declarations with initial values specified. Initial
-values must be literals -- expressions are not allowed.
+are given the value :ref:`Unknown <data_types_and_expressions>`. Here
+are the same variable declarations with initial values
+specified. Initial values must be literals -- expressions are not
+allowed. (This limitation will be removed in a forthcoming release.)
 
 ::
 
-    Boolean isReset = true;
-    Integer n = 123;
-    Real pi = 3.14159;
-    String message = "hello there";
+    Boolean isReset = true;
+    Integer n = 123;
+    Real pi = 3.14159;
+    String message = "hello there";
 
 Arrays are declared by following the variable name with square brackets
 containing the size of the array. Array variables do not default to
@@ -149,8 +150,8 @@ elements initialized (the remaining seven are Unknown).
 
 ::
 
-    Integer scores[100];
-    Real defaults[10] = #(1.3 2.0 3.5);
+    Integer scores[100];
+    Real defaults[10] = #(1.3 2.0 3.5);
 
 Variables have *lexical scope*, which mean they are visible only within
 the node and any descendants of the node. Scope can be explicitly
@@ -161,8 +162,8 @@ of an empty node that declares some variables.
 
     DoNothing1:
     {
-    String name = "Fred";
-    Real MaxTemp = 100.0;
+     String name = "Fred";
+     Real MaxTemp = 100.0;
     }
 
 So far we've using empty nodes as examples simply because we haven't yet
@@ -222,20 +223,21 @@ Conditions
 ~~~~~~~~~~
 
 A node can specify up to eight *conditions* that govern precisely how
-the node is executed. Exact details are described in the :ref:`Node State Transition Diagrams <NodeStateDiagrams>` document.
+the node is executed. Exact details are described in the :ref:`Node
+State Transition Diagrams <NodeStateDiagrams>` document.
 
 ::
 
-    StartCondition      // Node won't begin until this is true
-    EndCondition        // Node won't terminate until this is true
-    ExitCondition       // Node will terminate (if executing) or be skipped (if waiting) if this is true
-    RepeatCondition     // Node will repeat if this is true
-    SkipCondition       // Node will be skipped if this is true when node begins
-    PreCondition        // Node will fail if this is false when node begins
-    PostCondition       // Node will fail if this is false when node ends
-    InvariantCondition  // Node will fail if this is false while node is executing
+    StartCondition      // Node won't begin until this is true
+    EndCondition        // Node won't terminate until this is true
+    ExitCondition       // Node will terminate (if executing) or be skipped (if waiting) if this is true
+    RepeatCondition     // Node will repeat if this is true
+    SkipCondition       // Node will be skipped if this is true when node begins
+    PreCondition        // Node will fail if this is false when node begins
+    PostCondition       // Node will fail if this is false when node ends
+    InvariantCondition  // Node will fail if this is false while node is executing
 
-A condition specifies a Plexil *Boolean expression*. Expressions are
+A condition specifies a |PLEXIL| *Boolean expression*. Expressions are
 described in a section :ref:`below <data_types_and_expressions>`. Here are
 some varied examples of conditions:
 
@@ -270,13 +272,14 @@ conditions:
      InvariantCondition temperature < MaxTemp;
    }
 
-The conditions specify that this node should begin execution after node
-Step1 finishes, and that the temperature should remain less than MaxTemp
-throughout execution. (Note that Plexil does not provide *constants*,
-only variables). Incidentally, this an an example of a potentially
-useful empty node. Empty nodes are often used to *wait* for a condition
-(expressed through the start condition) and/or to test or *verify* a
-condition (expressed here through the invariant condition).
+The conditions specify that this node should begin execution after
+node Step1 finishes, and that the temperature should remain less than
+MaxTemp throughout execution. (Note that |PLEXIL| does not provide
+*named constants*, only variables). Incidentally, this an an example
+of a potentially useful empty node. Empty nodes are often used to
+*wait* for a condition (expressed through the start condition) and/or
+to test or *verify* a condition (expressed here through the invariant
+condition).
 
 Comments
 ~~~~~~~~
@@ -302,7 +305,9 @@ Here's an example:
 
 ::
 
-   Comment "This node verifies the robot's camera is functioning.";
+    {
+     Comment "This node verifies the robot's camera is functioning.";
+    }
 
 The ``Comment`` clause gets preserved in the compiled (XML) version of
 the plan, unlike other comments.
@@ -318,7 +323,7 @@ node's body is what immediately follows its attributes (described in the
 previous sections).
 
 Nodes that do not contain or decompose into child nodes form the leaves
-in a |PLEXIL| plan tree. These nodes are called *nodes* and are part of
+in a |PLEXIL| plan tree. These nodes are called *leaf nodes* and are part of
 Core |PLEXIL|, which is the subset of |PLEXIL| that is executed directly.
 
 .. _empty_node:
@@ -326,39 +331,37 @@ Core |PLEXIL|, which is the subset of |PLEXIL| that is executed directly.
 Empty Node
 ~~~~~~~~~~
 
-All the examples presented above are empty nodes (also called empty
-nodes). Empty nodes contain only attributes. They have no external
-behavior (i.e. no direct effect on an external system or a plan
-variable). In practice, empty nodes are quite useful and common. A
-typical use is for verification of a state in the external world. Here's
-a node that verifies a temperature reading.
+All the examples presented above are ``Empty`` nodes. Empty nodes
+contain only attributes. They have no external behavior (i.e. no
+direct effect on an external system or a plan variable). In practice,
+empty nodes are quite useful and common. A typical use is for
+verification of a state in the external world. Here's a node that
+verifies a temperature reading.
 
 ::
 
     VerifyTemp:
     {
-    PostCondition Lookup(engine_temperature) > 100.0;
+     PostCondition Lookup(engine_temperature) > 100.0;
     }
 
 Assignment
 ~~~~~~~~~~
 
-An assignment to a declared variable has the following form:
+An ``Assignment`` node has the following basic form:
 
 ::
 
      <variable> = <expression>;
 
-The ``<variable>`` part of the assignment, referred to as its left-hand side (LHS),
-must be a writable variable in the node's interface. The ``expression``,
-referred to as the right-hand side (RHS) of the assignment, can be any
-|PLEXIL| expression. Expressions are described below. The type of the
-expression must match the type of the variable.
+The ``<variable>`` part of the assignment, referred to as its
+left-hand side (LHS), must be a writable variable in the node's
+interface. The ``expression``, referred to as the right-hand side
+(RHS) of the assignment, can be any |PLEXIL| expression of a type
+compatible with the variable's type.
 
-An *assignment node*, is one that contains only an expression of this
-form in its body. The following are examples of assignment nodes. Note
-that some context, in particular the variables' declarations, are not
-shown.
+The following are examples of assignment nodes. Note that some
+context, in particular the variables' declarations, are not shown.
 
 ::
 
@@ -372,7 +375,7 @@ shown.
      TemperatureReadings[i] = x;
    }
 
-As with other nodes, Assignment nodes without attributes may omit the
+As with other nodes, ``Assignment`` nodes without attributes may omit the
 braces and/or names. The preceding examples could be rewritten as:
 
 ::
@@ -390,9 +393,11 @@ If two nodes in a |PLEXIL| plan attempt to assign the same variable
 simultaneously, this is an error condition. The |PLEXIL| compiler does not
 detect the possibility of concurrent assignment, and unfortunately the
 current |PLEXIL| executive behaves ungracefully when it is attempted: it
-issues a message about the conflict and then aborts. If your plan
-contains such nodes, this contention problem can be resolved with the
-``Priority`` clause. Here's a trivial contrived example:
+issues a message about the conflict and then aborts execution.
+
+If your plan contains such nodes, this contention problem can be
+resolved with the ``Priority`` clause. Here's a trivial contrived
+example:
 
 ::
 
@@ -416,17 +421,25 @@ contains such nodes, this contention problem can be resolved with the
 Without the ``Priority`` clauses, a runtime error would result. The
 ``Priority`` clause *orders* the execution of nodes from the lowest
 priority number to the highest. In this example, node A will execute
-first, then B, and the final value of ``x`` will be 1. Though it's
-possible that the ``Priority`` clause may have a legitimate application,
-it is probably best to design your plans such that potentially
-conflicting assignments are avoided.
+first, then B, and the final value of ``x`` will be 1.
+
+It is probably best to design your plans such that multiple
+assignments to the same variable are avoided.
+
+.. note::
+
+    A future release of |PLEXIL| will no longer abort the Executive
+    when multiple ``Assignment`` nodes on the same variable are
+    eligible to execute simultaneously. Instead, it will execute the
+    conflicting ``Assignment`` nodes one at a time, in an unspecified
+    order.
 
 .. _command:
 
 Command
 ~~~~~~~
 
-A *command* has the form:
+A ``Command`` node has the form:
 
 ::
 
@@ -444,20 +457,19 @@ The assignment of the command's return value (assuming it returns a
 value) to a variable is optional, and if specified, must be a writable
 variable in the node's interface.
 
-A *command node*, is one that contains only an expression of this form
-in its body. The following are examples of command nodes. Note that some
-context is not shown, e.g. the declaration of the command (discussed
-next) and that of the variable receiving the return value.
+The following are examples of command nodes. Note that some context is
+not shown, e.g. the declaration of the command (discussed next) and
+that of the variable receiving the return value.
 
 ::
 
    StopRover: { stop(); }
 
-   SetWaypoint: { set_waypoint (x,y,z); }
+   SetWaypoint: { set_waypoint (x, y, z); }
 
    GetSpeed: { speed = get_speed(); }
 
-   PrintSpeed: { print("Got speed: ",speed); }
+   PrintSpeed: { print("Got speed: ", speed); }
 
 As with assignment nodes, if no attributes are required, the braces may
 be omitted. Names may also be ommitted:
@@ -466,13 +478,13 @@ be omitted. Names may also be ommitted:
 
    StopRover: stop();
 
-   SetWaypoint: set_waypoint (x,y,z);
+   SetWaypoint: set_waypoint (x, y, z);
 
    GetSpeed: speed = get_speed();
 
-   print("Got speed: ",speed);
+   print("Got speed: ", speed);
 
-*Commands must be declared* at the top of the file in which they are
+Commands *must be declared* at the top of the file in which they are
 used. Here are declarations for the commands above, and a few more
 examples:
 
@@ -492,7 +504,7 @@ examples:
    // Ellipses specify that one or more arguments can be provided but don't restrict the types
    Command print(...);
 
-By default, a command node finishes when the executive receives a
+By default, a ``Command`` node finishes when the executive receives a
 *command handle* for its command, via the |PLEXIL| external interface (see
 the Interfacing section of this manual). See :ref:`Resource Model <ResourceModel>`
 for a description of command handles.
@@ -506,10 +518,10 @@ after the node finishes. We elaborate further on this point.
 Asynchronous command execution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Note that calls to commands do *not* wait, or block execution of the
-plan. Rather, the command executes in the external system asynchronously
-with the plan. To examine the progress of the command, the plan should
-inspect its handle.
+Note that commands do *not* wait, or block execution of the
+plan. Rather, the command executes in the external system
+asynchronously with the plan. To examine the progress of the command,
+the plan should inspect its handle.
 
 A command may take arbitrarily long to complete in the external system.
 If the command returns a value, and this value is assigned to a variable
@@ -565,7 +577,7 @@ Adapter <Standard_Interface_Libraries#Utility_Adapter>`_.
 Update
 ~~~~~~
 
-An Update node serves to relay information outside the executive. For
+An ``Update`` node serves to relay information outside the executive. For
 example, it can be used to update a planner or other system that has
 invoked the executive, with status about execution of the plan. The
 manner in which this information is sent is determined by the `external
@@ -605,10 +617,11 @@ A ``Library Call`` node has the following form as its body.
 
 ::
 
-    LibraryCall <Id> [<alias_list>];
+    LibraryCall <Callee> [<alias_list>];
 
-where ``<Id>`` is the ID of the invoked *library node*. The ``<alias_list>`` is an optional list
-of *aliases*, which are pairs of the form
+where ``<Callee>`` is the ID of the invoked *library node*. The
+``<alias_list>`` is an optional list of *aliases*, which are pairs of
+the form
 
 ::
 
@@ -618,26 +631,23 @@ An alias allows one to rename/assign a node parameter (i.e. a variable
 present in the interface of the library node) with an actual value or
 declared variable.
 
-Here's a contrived example of a call to trivial library node. The first
-file defines the library node ``F``, and the second file contains a node
-that calls ``F``. 
+Nodes called from a ``LibraryCall`` *must be declared* prior to the
+``LibraryCall``.  The declaration syntax is:
+
+::
+
+    LibraryNode <Callee>[(<parameter_list>)];
 
 .. note::
 
-    These examples contain a declaration of the
-    library node using the historic
+    Historically library nodes were declared using the
+    ``LibraryAction`` keyword. The ``LibraryNode`` keyword may be used
+    interchangeably with ``LibraryAction``, and is preferred going
+    forward.
 
-::
-
-   LibraryAction
-
-form. A newer version of |PLEXIL| (not yet released) aliases this with
-
-::
-
-   LibraryNode
-
-.
+Here's a contrived example of a call to trivial library node. The first
+file defines the library node ``F``, and the second file contains a node
+that calls ``F``. 
 
 ::
 
@@ -654,7 +664,7 @@ form. A newer version of |PLEXIL| (not yet released) aliases this with
 
    --- begin LibraryCallTest.ple ---
 
-   LibraryAction F (In Integer i, InOut Integer j);
+   LibraryNode F (In Integer i, InOut Integer j);
 
    LibraryCallTest:
    {
@@ -671,7 +681,7 @@ required, the containing braces may be omitted:
 
 ::
 
-   LibraryAction makePhoneCall(In Integer number);
+   LibraryNode makePhoneCall(In Integer number);
 
    CallHome: LibraryCall makePhoneCall(number=5551212);
 
@@ -693,7 +703,7 @@ library node can produce a large plan for execution.
 Compound Nodes
 --------------
 
-Compound nodes are translated into simple (Core PLEXIL) nodes prior to
+Compound nodes are translated into simple (Core |PLEXIL|) nodes prior to
 execution. A Core |PLEXIL| plan is a tree consisting of the leaf nodes
 described in the previous section, plus the List Node, described in this
 section under Concurrence.
@@ -701,7 +711,7 @@ section under Concurrence.
 Sequence
 ~~~~~~~~
 
-A Sequence executes its child nodes in the given order.
+A ``Sequence`` executes its child nodes in the given order.
 
 Because sequential execution is so often the intended and expected
 behavior of a plan, the ``Sequence`` keyword is optional:
@@ -716,24 +726,24 @@ behavior of a plan, the ``Sequence`` keyword is optional:
 
 .. note:: 
 
-    Sequence is currently an alias for CheckedSequence. Because of
+    ``Sequence`` is currently an alias for ``CheckedSequence``. Because of
     the overhead of checking for child node success, and the default
     behavior in other sequential languages is to continue sequential
     execution after a child node fails (e.g. shell scripting), future |PLEXIL|
     release may instead alias it to UncheckedSequence. To ensure your plans
     do not change behavior, please consider explicitly using either
-    CheckedSequence or UncheckedSequence.
+    ``CheckedSequence`` or ``UncheckedSequence``.
 
 CheckedSequence
 ~~~~~~~~~~~~~~~
 
-A CheckedSequence executes its child nodes in the given order. If any
+A ``CheckedSequence`` executes its child nodes in the given order. If any
 node fails (i.e. terminates with outcome ``FAILURE``), the
-CheckedSequence also terminates with outcome ``FAILURE`` and failure
-type ``INVARIANT_CONDITION_FAILED``. A CheckedSequence succeeds if and
-only if all its nodes succeed. An empty CheckedSequence always succeeds.
+``CheckedSequence`` also terminates with outcome ``FAILURE`` and failure
+type ``INVARIANT_CONDITION_FAILED``. A ``CheckedSequence`` succeeds if and
+only if all its nodes succeed. An empty ``CheckedSequence`` always succeeds.
 
-A CheckedSequence is denoted as follows.
+A ``CheckedSequence`` is denoted as follows.
 
 ::
 
@@ -749,8 +759,8 @@ A CheckedSequence is denoted as follows.
 Unchecked Sequence
 ~~~~~~~~~~~~~~~~~~
 
-An UncheckedSequence simply executes its child nodes in the given order.
-An UncheckedSequence succeeds by default.
+An ``UncheckedSequence`` simply executes its child nodes in the given order.
+An ``UncheckedSequence`` succeeds by default.
 
 ::
 
@@ -764,12 +774,12 @@ An UncheckedSequence succeeds by default.
 Concurrence
 ~~~~~~~~~~~
 
-A Concurrence encloses zero or more child nodes, which are executed
+A ``Concurrence`` encloses zero or more child nodes, which may execute
 *concurrently*. Precisely, there are no execution constraints on the
 child nodes other than those imposed by explicit conditions (those found
-in each child node as well as in the Concurrence form itself).
+in each child node as well as in the ``Concurrence`` form itself).
 
-Concurrence translates directly to a Core |PLEXIL| List node.
+Concurrence translates directly to a Core |PLEXIL| ``NodeList`` node.
 
 ::
 
@@ -780,11 +790,11 @@ Concurrence translates directly to a Core |PLEXIL| List node.
      <nodeN>;
    }
 
-A Concurrence finishes when all its children have finished. If a
+A ``Concurrence`` finishes when all its children have finished. If a
 different behavior is desired, such as ordering constraints between
 children, or finishing before all children have executed, this behavior
-must be specified explicitly through conditions in the Concurrence and
-its children. Here is a contrived example that illustrates a Concurrence
+must be specified explicitly through conditions in the ``Concurrence`` and
+its children. Here is a contrived example that illustrates a ``Concurrence``
 with a particular execution protocol:
 
 ::
@@ -839,11 +849,11 @@ InformFailure will execute, depending on the result.
 Try
 ~~~
 
-In a Try sequence, the child nodes are executed in sequence, *until* one
-succeeds. The remaining nodes are skipped. A Try succeeds if and only if
-one of its nodes succeed. An empty Try always fails.
+In a ``Try`` sequence, the child nodes are executed in sequence, *until* one
+succeeds. The remaining nodes are skipped. A ``Try`` succeeds if and only if
+one of its nodes succeed. An empty ``Try`` always fails.
 
-The |PLEXIL| Try is distinct from the try-catch idiom found in many
+The |PLEXIL| ``Try`` is distinct from the try-catch idiom found in many
 popular programming languages.
 
 ::
@@ -872,7 +882,7 @@ none of the conditions evaluates to true.
     Previous versions of the |PLEXIL| compiler required an ``endif``
     keyword to terminate the ``if`` node. This requirement has been
     eliminated since |PLEXIL| 4.5. The ``endif`` keyword is still accepted by
-    the compiler for backwards compatibility.
+    the compiler for backward compatibility.
 
 Each clause may have multiple child nodes.
 
@@ -1093,7 +1103,7 @@ Example:
 
 ::
 
-    OnMessage “ConnectionEstablished”
+    OnMessage “ConnectionEstablished”
        BeginProcess();
 
 This "handler" for messages can be invoked by the following command in
@@ -1135,40 +1145,151 @@ For more information, see :ref:`Inter-Executive Communication <Inter-ExecutiveCo
 Synchronous Command
 ~~~~~~~~~~~~~~~~~~~
 
-Plexil provides a convenient form for synchronous commands, which
-automatically waits for a return value if expected, otherwise a command
-handle indicating completion of the command.
+The ``SynchronousCommand`` Extended PLEXIL macro simplfies some common
+uses of ``Command`` nodes.  Simply put, a ``SynchronousCommand`` does
+not terminate until the command has completed.
 
-Furthermore a *timeout* can be given, which specifies the maximum amount
-of time (expressed as a unitless real number) to wait for the command to
-complete. When timeout is given, a real-valued *tolerance* can also be
-given; this specifies a minimum granularity for the time measurement.
+In Standard PLEXIL, its syntax is:
 
-Here are some examples. First, we call the command ``foo`` with no
-arguments:
+::
+
+    SynchronousCommand [<var> =] <command>([<arg> [, <arg>]*])
+                       [Checked]
+                       [Timeout <interval-expression> [, <tolerance-expression>]]
+                       ;
+
+
+The ``Checked`` and ``Timeout`` options can be combined in either
+order.
+
+The following example illustrates the most basic use of
+``SynchronousCommand``, when neither ``Checked`` nor ``Timeout``
+option is supplied, and the command return value is ignored:
 
 ::
 
      SynchronousCommand foo();
 
-Call ``foo`` with argument 1 and a timeout of 2.0 time units:
+This is expanded to:
 
 ::
 
-     SynchronousCommand foo(1) Timeout 2.0;
+    {
+     EndCondition self.command_handle == COMMAND_SUCCESS;
+     foo();
+    }
 
-Call ``foo``, assigning its return value to ``x``.
+When the command's return value is assigned, the expansion becomes a
+bit more complex:
 
 ::
 
+    {
+     Integer x;
      SynchronousCommand x = foo();
+    }
 
-Call ``foo``, assigning its return value to ``x``, with a timeout of 2.0
-with tolerance of 0.1 (i.e. check the time every 0.1 units if possible).
+In essence, this becomes:
 
 ::
 
-     SynchronousCommand x = foo() Timeout 2.0, 0.1;
+    {
+     Integer x;
+      Concurrence
+      {
+       Integer _temp_;
+        {
+         EndCondition self.command_handle = COMMAND_SUCCESS;
+         _temp_ = foo();
+        }
+        {
+         StartCondition isKnown(_temp_);
+         x = _temp_;
+        }
+      }
+    }
+
+When the ``Checked`` option is provided, the ``SynchronousCommand``
+fails if the command handle is anything but ``COMMAND_SUCCESS``:
+
+::
+
+     SynchronousCommand foo() Checked;
+
+Becomes:
+
+::
+
+    {
+     EndCondition self.command_handle == COMMAND_SUCCESS;
+     PostCondition self.command_handle == COMMAND_SUCCESS;
+     foo();
+    }
+
+E.g. if the command returns a command handle value of COMMAND_FAILED,
+the ``SynchronousCommand`` node will have an outcome of ``FAILURE``
+and a failure type of ``POSTCONDITION_FAILED``.
+
+Combining the Checked option with a return value assignment requires
+that the command returns both a command handle value of
+``COMMAND_SUCCESS`` and a known return value:
+
+::
+
+    {
+     Integer x;
+     SynchronousCommand x = foo() Checked;
+    }
+
+Effectively expands to:
+
+::
+
+    {
+     Integer x;
+      Concurrence
+      {
+       Integer _temp_;
+        {
+         InvariantCondition self.command_handle != COMMAND_DENIED
+                            && self.command_handle != COMMAND_FAILED
+                            && self.command_handle != COMMAND_INTERFACE_ERROR;
+         EndCondition self.command_handle = COMMAND_SUCCESS;
+         PostCondition isKnown(_temp_);
+         _temp_ = foo();
+        }
+        {
+         StartCondition isKnown(_temp_);
+         x = _temp_;
+        }
+      }
+    }
+
+In other words, this example will only have an outcome of ``SUCCESS``
+if the command returns a known value *and* a command handle of
+``COMMAND_SUCCESS``.
+
+The ``Timeout`` option causes ``SynchronousCommand`` to fail if the
+command does not return a command handle within the specified
+interval.
+
+::
+
+     SynchronousCommand foo() Timeout 2.0;
+
+Expands to:
+
+::
+
+    {
+     InvariantCondition Lookup(time) < self.EXECUTING.START + 2.0;
+     EndCondition self.command_handle == COMMAND_SUCCESS;
+     foo();
+    }
+
+If ``foo()`` fails to return a command handle value within 2.0 time
+units (usually seconds) of the node's start time, the node will have
+an outcome of ``FAILURE`` and a failure type of ``INVARIANT_FAILED``.
 
 This section begs elaboration of several aspects of |PLEXIL| not yet
 discussed in detail.
@@ -1176,7 +1297,7 @@ discussed in detail.
 -  Time. As mentioned in the :ref:`Overview <PLEXILOverview>`, time is not a
    special concept in |PLEXIL| -- it's just an external world state;
    specifically, a real-valued state variable named ``time``. This
-   variable may be referenced explicitly, e.g. ``Lookup (time, 1)``,
+   variable may be referenced explicitly, e.g. ``Lookup (time)``,
    though in most cases it is used implicitly: the Plexil executive
    reads it from the external world at every cycle and uses it for
    time-related computations in a plan, such as the timeout in
@@ -1199,12 +1320,14 @@ to pass:
 
 ::
 
-     Wait <time-units> [<tolerance>]
+     Wait <duration> [<tolerance>]
 
-where ``<time-units>`` is a unitless real number (the time unit this actually represents
-is application-specific), and so is ``tolerance``. Tolerance, which is
-optional and defaults to the , specifies the minimum amount of time that
-is of significance in the wait. Real-valued variables can also be used.
+where ``<duration>`` and ``<tolerance>`` are Real-valued expressions
+for the duration of the ``Wait``, and the interval at which the
+duration is checked.  (Time units are application-specific, but are
+typically seconds). ``<tolerance>`` is optional and defaults to
+``<interval>``.
+
 Examples:
 
 ::
@@ -1323,7 +1446,7 @@ Boolean Expressions
 ~~~~~~~~~~~~~~~~~~~
 
 |PLEXIL| employs a *ternary* logic, extending the usual Boolean logic with
-a third value, Unknown, described in a section above. Though strictly a
+a third value, **Unknown**, described in a section above. Though strictly a
 misnomer, the term Boolean is used throughout this manual and |PLEXIL|
 itself to describe operators, expressions, and values in this ternary
 logic.
@@ -1400,7 +1523,7 @@ Here are varied examples of logical expressions.
 
     Precedence and associativity rules for these operators are
     consistent with the standard rules for C and C++. Parentheses can be
-    used to make explicit the intended semantics.
+    used to make explicit the intended grouping.
 
 .. _string_expressions:
 

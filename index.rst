@@ -258,7 +258,7 @@ Image Credit: NASA/Ames
    :hidden:
 
    PLEXIL Overview <PLEXILLanguage/PLEXILOverview>
-   PLEXIL References <PLEXILLanguage/PLEXILReferences>
+   PLEXIL Reference <PLEXILLanguage/PLEXILReference>
    PLEXIL Semantics <PLEXILLanguage/PLEXILSemantics>
    Resource Model <PLEXILLanguage/ResourceModel>
 
