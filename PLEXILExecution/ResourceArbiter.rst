@@ -3,7 +3,7 @@
 ResourceArbiter
 =================
 
-*20 Mar 2023*
+*21 Mar 2023*
 
 This chapter describes in greater detail |PLEXIL|'s *resource arbiter*,
 which was introduced in the :ref:`Resource Model <ResourceModel>` chapter.
@@ -57,28 +57,44 @@ The resource arbiter does not:
 The Basic Algorithm
 -------------------
 
-#. The arbiter accepts a command only if *all* the command's resource
-   requests can be satisifed, at the instant the command is eligible
-   for execution.
-#. Requested resources are presumed to be consumed (generated) when
-   a command begins execution, and returned (removed) when that
-   command finishes execution.
+#. Commands may *consume* a positive quantity, or *produce* a negative
+   quantity, of a resource.
+#. Requested resources are considered to be consumed (produced) when a
+   command begins execution.
+#. Requested resources are considered returned (removed) when that
+   command finishes execution, if the resource request's
+   ``ReleaseAtTermination`` parameter is ``true`` (the default),
+   otherwise the resource allocation remains in effect indefinitely.
+#. The arbiter considers the resource requirements of all Command
+   nodes which have transitioned to ``EXECUTING`` in the same macro
+   step.
 #. The arbiter evaluates resource requests in priority order, from
    best (smallest numerical priority value) to worst (largest value).
-#. If multiple commands have the same priority, the arbiter will
-   evaluate their requests in an arbitrary order.
+   If multiple commands have the same priority, the arbiter will
+   evaluate their requests in an unspecified order.
+#. The arbiter considers resource consumption (positive requests) and
+   production (negative requests) separately during a single macro
+   step, starting from the amount of each resource allocated prior to
+   arbitration.
+#. The sum of the previous allocation of a resource, and a command's
+   consumptive (positive) request, may not exceed the resource's
+   declared maximum (default 1.0).
+#. The sum of the previous allocation of a resource, and a command's
+   productive (negative) request, may not go below 0.
+#. The arbiter accepts a command only if *all* the command's resource
+   requests can be satisifed at the instant its requests are evaluated.
 #. The arbiter accepts the maximal subset of commands whose resource
    requirements, combined with the resources already allocated to
-   previously executed commands, will not exceeed resource limits.
+   previously executed commands, will not violate resource limits.
 #. Accepted commands are sent to the external system.
 #. Rejected commands have their command handle values set to
-   ``COMMAND_DENIED``.  Their Command nodes execute, but no commands
-   are issued to the external system.
+   ``COMMAND_DENIED``.  Their Command *nodes* will have executed, but
+   no commands will be issued to the external system.
 
 Limitations of the current implementation
 -----------------------------------------
 
-The current implementation of the resource arbiter differs from the
+The implemented behavior of the resource arbiter differs from the
 |PLEXIL| language specification as follows:
 
 #. The resource arbiter uses the priority value of a command's first
