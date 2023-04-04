@@ -29,4 +29,5 @@ project page, at: https://github.com/plexil-group/plexil
    `_build/html/index.html`.
 
 6. When you are satisified with the results, publish the
-   documentation.  (To be supplied.)
+   documentation.  Copy the contents of the `_build/html` directory to
+   `docs`, then `git commit` and `git push` the results.
