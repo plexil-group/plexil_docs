@@ -4,16 +4,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Non-Unary Resources &#8212; PLEXIL  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/readable.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Renewable Resources" href="RenewableResources.html" />
@@ -50,29 +48,36 @@
             
   <section id="non-unary-resources">
 <span id="nonunaryresources"></span><h1>Non-Unary Resources<a class="headerlink" href="#non-unary-resources" title="Permalink to this heading">¶</a></h1>
-<p><em>12 May 2015</em></p>
-<p>This example (filed in <code class="docutils literal notranslate"><span class="pre">plexil/examples/resource2.ple</span></code>) is similar to the
-unary resource example expect that the resource sys_memory is not
-treated as a unary resource. This is because of the manner in which the
-resource usage is specified, Including the lower and upper bounds
-implies that the resource is not unary. In particular,</p>
+<p><em>26 Jan 2023</em></p>
+<p>This example, which can be found in
+<code class="docutils literal notranslate"><span class="pre">plexil/examples/resources/resource2.ple</span></code>, differs from the unary
+resource example in that <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> is allocated in fractional
+amounts, rather than as a whole.  This is indicated by the keyword
+<code class="docutils literal notranslate"><span class="pre">UpperBound</span></code> in the resource usage specification.  (If
+<code class="docutils literal notranslate"><span class="pre">UpperBound</span></code> is not supplied, the requested amount defaults to 1.0.)</p>
+<p>In this example,</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">C1</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;arm,</span> <span class="pre">10&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">20,</span> <span class="pre">0.5,</span> <span class="pre">0.5&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C2</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">30,</span> <span class="pre">0.3,</span> <span class="pre">0.3&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C3</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;vision_system,</span> <span class="pre">10&gt;</span></code></p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C1</span></code> command <code class="docutils literal notranslate"><span class="pre">c1</span></code> requires <code class="docutils literal notranslate"><span class="pre">arm</span></code> and 0.5 of <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> at priority 20</p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C2</span></code> command <code class="docutils literal notranslate"><span class="pre">c2</span></code> requires 0.3 of <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> at priority 30</p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C3</span></code> command <code class="docutils literal notranslate"><span class="pre">c3</span></code> requires <code class="docutils literal notranslate"><span class="pre">vision_system</span></code> at priority 10</p></li>
 </ul>
-<p>where the integer value in the resource pair denotes the priority (lower
-number implies higher priority) and the last two real values are the
-lower and upper bounds of the memory needed by the command. In our
-example, <code class="docutils literal notranslate"><span class="pre">C1</span></code> requires 0.5 units of memory and <code class="docutils literal notranslate"><span class="pre">C2</span></code> 0.3 units. By
-default let us assume that the maximum value is 1.0.</p>
-<p>The resulting outcome will be to accept commands all the commands
-since the cumulative memory requirements of <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> is less
-than 1.0.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">plexil/examples/resources/resource2.data</span></code> specifies that
+1.0 units of each resource are available.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">Contains</span> <span class="n">the</span> <span class="n">resource</span> <span class="n">hierarchy</span>
+<span class="o">%</span> <span class="n">name</span> <span class="n">initial</span><span class="o">-</span><span class="n">resource</span> <span class="p">[</span><span class="n">child</span><span class="o">-</span><span class="n">weight</span> <span class="n">child</span><span class="o">-</span><span class="n">name</span><span class="p">]</span><span class="o">*</span>
+<span class="n">arm</span> <span class="mf">1.0</span>
+<span class="n">sys_memory</span> <span class="mf">1.0</span>
+<span class="n">vision_system</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>As in the previous example, all 3 nodes and their respective commands
+are eligible to execute concurrently.</p>
+<p>The resulting outcome will be to accept all the commands since the
+cumulative memory requirements of <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> is less than 1.0.</p>
 <figure class="align-default">
 <img alt="../../_images/Nonunaryresource3.jpg" src="../../_images/Nonunaryresource3.jpg" />
 </figure>
-<p>The entire PLEXIL plan is given below;</p>
+<p>The PLEXIL plan is shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">Command</span> <span class="n">c1</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c2</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c3</span><span class="p">;</span>
@@ -85,7 +90,6 @@ than 1.0.</p>
     <span class="n">EndCondition</span> <span class="n">returnValue</span> <span class="o">==</span> <span class="mi">10</span><span class="p">;</span>
     <span class="n">PostCondition</span> <span class="n">C1</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;sys_memory&quot;</span><span class="p">,</span>
-      <span class="n">LowerBound</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
       <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
       <span class="n">Priority</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;arm&quot;</span><span class="p">,</span>
@@ -99,7 +103,6 @@ than 1.0.</p>
     <span class="n">PostCondition</span> <span class="n">C2</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
     <span class="n">EndCondition</span> <span class="n">returnValue</span> <span class="o">==</span> <span class="mi">10</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;sys_memory&quot;</span><span class="p">,</span>
-      <span class="n">LowerBound</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
       <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
       <span class="n">Priority</span> <span class="o">=</span> <span class="n">mem_priority</span><span class="p">;</span>
     <span class="n">returnValue</span> <span class="o">=</span> <span class="n">c2</span><span class="p">();</span>
@@ -199,7 +202,7 @@ than 1.0.</p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   

@@ -4,16 +4,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Simple Unary Resources &#8212; PLEXIL  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/readable.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Non-Unary Resources" href="NonUnaryResources.html" />
@@ -50,35 +48,63 @@
             
   <section id="simple-unary-resources">
 <span id="simpleunaryresources"></span><h1>Simple Unary Resources<a class="headerlink" href="#simple-unary-resources" title="Permalink to this heading">¶</a></h1>
-<p><em>12 May 2015</em></p>
-<p>This example (filed in plexil/examples/resource1.ple) involves three
-command nodes that are eligible for execution and three unary resources.
-Two of the nodes vie for the same resource with different priorities.
-The node that has the higher resource priority (lower numeric value)
-gains access to the resource. A repeat condition in the lower priority
-node ensures that it executes when the resource it needs frees up.</p>
-<p>Specifically, we have three commands <code class="docutils literal notranslate"><span class="pre">C1</span></code>, <code class="docutils literal notranslate"><span class="pre">C2</span></code> and <code class="docutils literal notranslate"><span class="pre">C3</span></code> scheduled
-to run concurrently. There are also three resources, <code class="docutils literal notranslate"><span class="pre">arm</span></code>,
-<code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> and <code class="docutils literal notranslate"><span class="pre">vision_system</span></code> that are used by the commands. In
-particular,</p>
+<p><em>13 Jan 2023</em></p>
+<p>This example demonstrates how <em>PLEXIL</em> handles unary command
+resources, and how node priority is used to resolve contention for a
+shared resource.</p>
+<p>The example plan can be found at
+plexil/examples/resources/resource1.ple, its associated resource file
+at plexil/examples/resources/resource1.data, and a simulation script
+at plexil/examples/resources/scripts/resource1.pst.  The debug trace
+from running this example will be helpful in uderstanding how resource
+arbitration works.</p>
+<p>This example makes use of 3 unary resources, <code class="docutils literal notranslate"><span class="pre">arm</span></code>, <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">vision_system</span></code>.  Each resource has a maximum quantity of 1.0.</p>
+<p>Three Command nodes, <code class="docutils literal notranslate"><span class="pre">C1</span></code>, <code class="docutils literal notranslate"><span class="pre">C2</span></code>, and <code class="docutils literal notranslate"><span class="pre">C3</span></code>, are scheduled to
+start concurrently.  Each node’s command has its own resource
+requirements:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">C1</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;arm,</span> <span class="pre">20&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">20&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C2</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">30&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C3</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;vision_system,</span> <span class="pre">10&gt;</span></code></p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C1</span></code> command <code class="docutils literal notranslate"><span class="pre">c1</span></code> requires resources <code class="docutils literal notranslate"><span class="pre">arm</span></code> and <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code></p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C2</span></code> command <code class="docutils literal notranslate"><span class="pre">c2</span></code> requires resource <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code></p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C3</span></code> command <code class="docutils literal notranslate"><span class="pre">c3</span></code> requires resource <code class="docutils literal notranslate"><span class="pre">vision_system</span></code></p></li>
 </ul>
-<p>where the integer value in the resource pair denotes the priority (lower
-number implies higher priority).</p>
-<p>The resulting outcome will first be to accept commands <code class="docutils literal notranslate"><span class="pre">C1</span></code> and
-<code class="docutils literal notranslate"><span class="pre">C3</span></code> and reject <code class="docutils literal notranslate"><span class="pre">C2</span></code>. Then since <code class="docutils literal notranslate"><span class="pre">C2</span></code> is associated with a
-repeat condition, <code class="docutils literal notranslate"><span class="pre">C2</span></code> will be accepted after the completion of
-<code class="docutils literal notranslate"><span class="pre">C1</span></code>.</p>
+<p>Each node has been assigned a priority:</p>
+<ul class="simple">
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C1</span></code> has priority 20</p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C2</span></code> has priority 30 (the value of variable <code class="docutils literal notranslate"><span class="pre">mem_priority</span></code>)</p></li>
+<li><p>Node <code class="docutils literal notranslate"><span class="pre">C3</span></code> has priority 10 (the value of variable <code class="docutils literal notranslate"><span class="pre">vision_priority</span></code>)</p></li>
+</ul>
 <figure class="align-default">
 <img alt="../../_images/Unaryresources3.jpg" src="../../_images/Unaryresources3.jpg" />
 </figure>
-<p>The entire PLEXIL plan is shown below. Notice that values for the
-resource elements can be parameterized i.e., can either be variables
-or values. Parameterizing the resource elements makes it possible to
-determine them during the course of execution.</p>
+<p>At the first macro step, the resource arbiter receives all 3 requests,
+and considers them in priority order: best (numerically smallest) to
+worst (numerically larger).</p>
+<p>Node <code class="docutils literal notranslate"><span class="pre">C3</span></code> and its command <code class="docutils literal notranslate"><span class="pre">c3</span></code> at priority 10 are considered
+first.  The <code class="docutils literal notranslate"><span class="pre">vision_system</span></code> resource is available, so the resource
+arbiter allocates it and accepts command <code class="docutils literal notranslate"><span class="pre">c3</span></code>.</p>
+<p>Next, the arbiter considers node <code class="docutils literal notranslate"><span class="pre">C1</span></code> and its command <code class="docutils literal notranslate"><span class="pre">c1</span></code> at
+priority 20.  The requested resources <code class="docutils literal notranslate"><span class="pre">arm</span></code> and <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> are
+both available, so the arbiter allocates both resources and accepts
+command <code class="docutils literal notranslate"><span class="pre">c1</span></code>.</p>
+<p>Node <code class="docutils literal notranslate"><span class="pre">C2</span></code> and command <code class="docutils literal notranslate"><span class="pre">c2</span></code> at priority 30 are considered last.
+The request for <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> cannot be satisfied, as all of this
+resource is already allocated to command <code class="docutils literal notranslate"><span class="pre">c1</span></code>.  So the arbiter
+denies its request.</p>
+<p>The result is that the <em>PLEXIL</em> Executive issues commands <code class="docutils literal notranslate"><span class="pre">c1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">c3</span></code>, and sets the command handle of <code class="docutils literal notranslate"><span class="pre">c2</span></code> to <code class="docutils literal notranslate"><span class="pre">COMMAND_DENIED</span></code>.
+This causes node <code class="docutils literal notranslate"><span class="pre">C2</span></code> to transition to <code class="docutils literal notranslate"><span class="pre">ITERATION_ENDED</span></code>. Because
+the PostCondition on node <code class="docutils literal notranslate"><span class="pre">C2</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, its outcome
+is <code class="docutils literal notranslate"><span class="pre">FAILED</span></code> and its failure type is <code class="docutils literal notranslate"><span class="pre">POST_CONDITION_FAILED</span></code>.</p>
+<p>At the next macro step, the RepeatCondition on node <code class="docutils literal notranslate"><span class="pre">C2</span></code> makes it
+eligible for execution.  But command <code class="docutils literal notranslate"><span class="pre">c1</span></code> has not finished
+executing, so the arbiter rejects command <code class="docutils literal notranslate"><span class="pre">c2</span></code> again.</p>
+<p>At the next macro step, command <code class="docutils literal notranslate"><span class="pre">c1</span></code> has finished, and the arbiter
+releases its resources <code class="docutils literal notranslate"><span class="pre">arm</span></code> and <code class="docutils literal notranslate"><span class="pre">sys_memory</span></code>.  Node <code class="docutils literal notranslate"><span class="pre">C2</span></code> and
+command <code class="docutils literal notranslate"><span class="pre">c2</span></code> are eligible for execution again.  This time, because
+<code class="docutils literal notranslate"><span class="pre">sys_memory</span></code> is available, the arbiter allocates it, and accepts
+<code class="docutils literal notranslate"><span class="pre">c2</span></code> for execution.</p>
+<p>The entire PLEXIL plan is shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">Command</span> <span class="n">c1</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c2</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c3</span><span class="p">;</span>
@@ -197,7 +223,7 @@ determine them during the course of execution.</p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   

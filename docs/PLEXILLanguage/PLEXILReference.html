@@ -4,16 +4,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>PLEXIL References &#8212; PLEXIL  documentation</title>
+    <title>PLEXIL Reference &#8212; PLEXIL  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PLEXIL Semantics" href="PLEXILSemantics.html" />
@@ -38,7 +36,7 @@
           <a href="PLEXILOverview.html" title="PLEXIL Overview"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">PLEXIL  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">PLEXIL References</a></li> 
+        <li class="nav-item nav-item-this"><a href="">PLEXIL Reference</a></li> 
       </ul>
     </div>  
 
@@ -47,13 +45,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="plexil-references">
-<span id="plexilreferences"></span><h1><a class="toc-backref" href="#id47" role="doc-backlink">PLEXIL References</a><a class="headerlink" href="#plexil-references" title="Permalink to this heading">¶</a></h1>
-<p><em>16 Aug 2021</em></p>
+  <section id="plexil-reference">
+<span id="plexilreference"></span><h1><a class="toc-backref" href="#id47" role="doc-backlink">PLEXIL Reference</a><a class="headerlink" href="#plexil-reference" title="Permalink to this heading">¶</a></h1>
+<p><em>20 Mar 2023</em></p>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#plexil-references" id="id47">PLEXIL References</a></p>
+<li><p><a class="reference internal" href="#plexil-reference" id="id47">PLEXIL Reference</a></p>
 <ul>
 <li><p><a class="reference internal" href="#about-this-chapter" id="id48">About this chapter</a></p></li>
 <li><p><a class="reference internal" href="#nodes" id="id49">Nodes</a></p></li>
@@ -157,24 +155,24 @@
 </nav>
 <section id="about-this-chapter">
 <span id="id1"></span><h2><a class="toc-backref" href="#id48" role="doc-backlink">About this chapter</a><a class="headerlink" href="#about-this-chapter" title="Permalink to this heading">¶</a></h2>
-<p>This chapter documents the Standard <em>PLEXIL</em> programming language, and how
-to create and compile Plexil files for execution.</p>
+<p>This chapter documents the Standard <em>PLEXIL</em> plan language, and how to
+create and compile Plexil files for execution.</p>
 <p>We explain <em>PLEXIL</em> primarily though examples, using Standard <em>PLEXIL</em>
 syntax.</p>
 <p>This is not a rigorous treatment of <em>PLEXIL</em>, but hopefully – in
-combination with the <a class="reference internal" href="../Appendices/ExamplePlans.html#exampleplans"><span class="std std-ref">Example PLEXIL Plans</span></a>
+combination with the <a class="reference internal" href="../Appendices/ExamplePlans.html#exampleplans"><span class="std std-ref">Example PLEXIL Plans</span></a> –
 provides enough to enable you to program in <em>PLEXIL</em> effectively.</p>
 <p>The <em>PLEXIL</em> langauge is summarized briefly in the previous chapter,
-<a class="reference internal" href="PLEXILOverview.html#plexiloverview"><span class="std std-ref">Overview</span></a>. Its execution semantics are explained more
-deeply in the following chapter, <a class="reference internal" href="PLEXILSemantics.html#plexilsemantics"><span class="std std-ref">Detailed Semantics</span></a>,
-which cites papers that provide a
+<a class="reference internal" href="PLEXILOverview.html#plexiloverview"><span class="std std-ref">Overview</span></a>. Its execution semantics are
+explained more deeply in the following chapter, <a class="reference internal" href="PLEXILSemantics.html#plexilsemantics"><span class="std std-ref">Detailed
+Semantics</span></a>, which cites papers that provide a
 rigorous formal definition of the language. The <em>PLEXIL</em> syntax is
 formalized in XML schemas found in the software distribution.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Although this chapter focuses on the Standard <em>PLEXIL</em> language and
 its semantics, as independent from the exact behavior of a particular
-implementation of Plexil, explanations of how the supplied Plexil
+implementation of <em>PLEXIL</em>, explanations of how the supplied <em>PLEXIL</em>
 Executive behaves have been provided in places we felt this information
 helpful.</p>
 </div>
@@ -186,11 +184,11 @@ nodes. A node is a structure specifying a certain kind of behavior.</p>
 <p>A node is notated by a pair of curly braces containing the node’s
 specification, preceded optionally by a name for the node. The simplest
 node is the empty node.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>We can give it a name:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DoNothing</span> <span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DoNothing</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>The node’s name (also called its <em>Id</em>), denoted by an identifier and
@@ -213,12 +211,12 @@ the following ways:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DoNothing</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DoNothing</span><span class="p">:</span> <span class="p">{</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Through composition, nodes form a tree-shaped hierarchy. The root of the
-tree is the <em>root</em> or <em>top level</em> node. A Plexil source file must
+tree is the <em>root</em> or <em>top level</em> node. A <em>PLEXIL</em> source file must
 contain exactly one top level node.</p>
 <p>Nodes have two components: a set of <em>attributes</em> that drive the
 execution of the node, and a “body” which specifies what the execution
@@ -235,25 +233,26 @@ must occur <em>first</em> in node’s form, i.e. immediately following the
 opening curly brace.</p>
 <section id="variables">
 <span id="id4"></span><h3><a class="toc-backref" href="#id51" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h3>
-<p>A node may declare variables, which are local to the node. Plexil
-currently supports variables of type Boolean, integer, real, string, and
-arrays of these four basic types. Examples of declarations of the basic
-types are as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Boolean</span> <span class="n">isReset</span><span class="p">;</span>
-<span class="n">Integer</span> <span class="n">n</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">pi</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">message</span><span class="p">;</span>
+<p>A node may declare variables, which are local to the node. <em>PLEXIL</em>
+currently supports variables of types <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">Integer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Real</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and arrays of these four basic types. Examples
+of declarations of the basic types are as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Boolean</span> <span class="n">isReset</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">Real</span> <span class="n">pi</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">message</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>These examples of variable declarations do not specify initial values
 for the variables. Uninitialized variables of all types except arrays
-are given the value <a class="reference internal" href="#data-types-and-expressions"><span class="std std-ref">Unknown</span></a>. Here are
-the same variable declarations with initial values specified. Initial
-values must be literals – expressions are not allowed.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Boolean</span> <span class="n">isReset</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-<span class="n">Integer</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;hello there&quot;</span><span class="p">;</span>
+are given the value <a class="reference internal" href="#data-types-and-expressions"><span class="std std-ref">Unknown</span></a>. Here
+are the same variable declarations with initial values
+specified. Initial values must be literals – expressions are not
+allowed. (This limitation will be removed in a forthcoming release.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Boolean</span> <span class="n">isReset</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="n">Real</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;hello there&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Arrays are declared by following the variable name with square brackets
@@ -262,8 +261,8 @@ Unknown, but rather to an allocated array, all of whose <em>elements</em> are
 Unknown. The first example below declares an array of 100 integers. The
 second declares a smaller array of real numbers, with the first three
 elements initialized (the remaining seven are Unknown).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">scores</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-<span class="n">Real</span> <span class="n">defaults</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="c1">#(1.3 2.0 3.5);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">scores</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="n">Real</span> <span class="n">defaults</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="c1">#(1.3 2.0 3.5);</span>
 </pre></div>
 </div>
 <p>Variables have <em>lexical scope</em>, which mean they are visible only within
@@ -272,12 +271,12 @@ limited using the Interface clause described below. Here is an example
 of an empty node that declares some variables.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DoNothing1</span><span class="p">:</span>
 <span class="p">{</span>
-<span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fred&quot;</span><span class="p">;</span>
-<span class="n">Real</span> <span class="n">MaxTemp</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
+ <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fred&quot;</span><span class="p">;</span>
+ <span class="n">Real</span> <span class="n">MaxTemp</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>So far we’ve using empty nodes as examples simply because we haven’t yet
+<p>So far we’ve been using empty nodes as examples simply because we haven’t yet
 introduced the other nodes. The example above is illustrative but would
 serve no practical purpose, since its variables cannot be used in any
 way.</p>
@@ -327,18 +326,19 @@ in a node definition. They can be intermixed.</p>
 <section id="conditions">
 <span id="id5"></span><h3><a class="toc-backref" href="#id53" role="doc-backlink">Conditions</a><a class="headerlink" href="#conditions" title="Permalink to this heading">¶</a></h3>
 <p>A node can specify up to eight <em>conditions</em> that govern precisely how
-the node is executed. Exact details are described in the <a class="reference internal" href="../Appendices/NodeStateDiagrams.html#nodestatediagrams"><span class="std std-ref">Node State Transition Diagrams</span></a> document.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StartCondition</span>      <span class="o">//</span> <span class="n">Node</span> <span class="n">won</span><span class="s1">&#39;t begin until this is true</span>
-<span class="n">EndCondition</span>        <span class="o">//</span> <span class="n">Node</span> <span class="n">won</span><span class="s1">&#39;t terminate until this is true</span>
-<span class="n">ExitCondition</span>       <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">terminate</span> <span class="p">(</span><span class="k">if</span> <span class="n">executing</span><span class="p">)</span> <span class="ow">or</span> <span class="n">be</span> <span class="n">skipped</span> <span class="p">(</span><span class="k">if</span> <span class="n">waiting</span><span class="p">)</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">true</span>
-<span class="n">RepeatCondition</span>     <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">repeat</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">true</span>
-<span class="n">SkipCondition</span>       <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">be</span> <span class="n">skipped</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">true</span> <span class="n">when</span> <span class="n">node</span> <span class="n">begins</span>
-<span class="n">PreCondition</span>        <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">fail</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">false</span> <span class="n">when</span> <span class="n">node</span> <span class="n">begins</span>
-<span class="n">PostCondition</span>       <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">fail</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">false</span> <span class="n">when</span> <span class="n">node</span> <span class="n">ends</span>
-<span class="n">InvariantCondition</span>  <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">fail</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">false</span> <span class="k">while</span> <span class="n">node</span> <span class="ow">is</span> <span class="n">executing</span>
+the node is executed. Exact details are described in the <a class="reference internal" href="../Appendices/NodeStateDiagrams.html#nodestatediagrams"><span class="std std-ref">Node
+State Transition Diagrams</span></a> document.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StartCondition</span>      <span class="o">//</span> <span class="n">Node</span> <span class="n">won</span><span class="s1">&#39;t begin until this is true</span>
+<span class="n">EndCondition</span>        <span class="o">//</span> <span class="n">Node</span> <span class="n">won</span><span class="s1">&#39;t terminate until this is true</span>
+<span class="n">ExitCondition</span>       <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">terminate</span> <span class="p">(</span><span class="k">if</span> <span class="n">executing</span><span class="p">)</span> <span class="ow">or</span> <span class="n">be</span> <span class="n">skipped</span> <span class="p">(</span><span class="k">if</span> <span class="n">waiting</span><span class="p">)</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">true</span>
+<span class="n">RepeatCondition</span>     <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">repeat</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">true</span>
+<span class="n">SkipCondition</span>       <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">be</span> <span class="n">skipped</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">true</span> <span class="n">when</span> <span class="n">node</span> <span class="n">begins</span>
+<span class="n">PreCondition</span>        <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">fail</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">false</span> <span class="n">when</span> <span class="n">node</span> <span class="n">begins</span>
+<span class="n">PostCondition</span>       <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">fail</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">false</span> <span class="n">when</span> <span class="n">node</span> <span class="n">ends</span>
+<span class="n">InvariantCondition</span>  <span class="o">//</span> <span class="n">Node</span> <span class="n">will</span> <span class="n">fail</span> <span class="k">if</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">false</span> <span class="k">while</span> <span class="n">node</span> <span class="ow">is</span> <span class="n">executing</span>
 </pre></div>
 </div>
-<p>A condition specifies a Plexil <em>Boolean expression</em>. Expressions are
+<p>A condition specifies a <em>PLEXIL</em> <em>Boolean expression</em>. Expressions are
 described in a section <a class="reference internal" href="#data-types-and-expressions"><span class="std std-ref">below</span></a>. Here are
 some varied examples of conditions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StartCondition</span> <span class="n">Node1</span><span class="o">.</span><span class="n">outcome</span> <span class="o">==</span> <span class="n">SUCCESS</span><span class="p">;</span>
@@ -369,13 +369,14 @@ conditions:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The conditions specify that this node should begin execution after node
-Step1 finishes, and that the temperature should remain less than MaxTemp
-throughout execution. (Note that Plexil does not provide <em>constants</em>,
-only variables). Incidentally, this an an example of a potentially
-useful empty node. Empty nodes are often used to <em>wait</em> for a condition
-(expressed through the start condition) and/or to test or <em>verify</em> a
-condition (expressed here through the invariant condition).</p>
+<p>The conditions specify that this node should begin execution after
+node Step1 finishes, and that the temperature should remain less than
+MaxTemp throughout execution. (Note that <em>PLEXIL</em> does not provide
+<em>named constants</em>, only variables). Incidentally, this an an example
+of a potentially useful empty node. Empty nodes are often used to
+<em>wait</em> for a condition (expressed through the start condition) and/or
+to test or <em>verify</em> a condition (expressed here through the invariant
+condition).</p>
 </section>
 <section id="comments">
 <h3><a class="toc-backref" href="#id54" role="doc-backlink">Comments</a><a class="headerlink" href="#comments" title="Permalink to this heading">¶</a></h3>
@@ -384,18 +385,12 @@ code can include comments to help document the code but that are not
 preserved in the translated Core <em>PLEXIL</em> XML output. These are notated in
 the C/C++ style syntax for block and single line comments. Examples of
 each are as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
- <span class="o">*</span> <span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">block</span> <span class="n">comment</span> <span class="n">example</span> <span class="n">which</span>
- <span class="o">*</span> <span class="n">allows</span> <span class="k">for</span> <span class="n">multiple</span> <span class="n">lines</span><span class="o">.</span>
- <span class="o">*/</span>
-
-<span class="o">//</span> <span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">single</span><span class="o">-</span><span class="n">line</span> <span class="n">comment</span> <span class="n">example</span> <span class="n">that</span> <span class="n">extends</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">the</span> <span class="n">line</span><span class="o">.</span>
-</pre></div>
-</div>
 <p>Second, Plexil nodes have the option of including a single <code class="docutils literal notranslate"><span class="pre">Comment</span></code>
 clause, which must be the first item in the node’s attribute section.
 Here’s an example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Comment</span> <span class="s2">&quot;This node verifies the robot&#39;s camera is functioning.&quot;</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">Comment</span> <span class="s2">&quot;This node verifies the robot&#39;s camera is functioning.&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Comment</span></code> clause gets preserved in the compiled (XML) version of
@@ -409,38 +404,36 @@ nodes. The type of a given node is identified by the node’s <em>body</em>. A
 node’s body is what immediately follows its attributes (described in the
 previous sections).</p>
 <p>Nodes that do not contain or decompose into child nodes form the leaves
-in a <em>PLEXIL</em> plan tree. These nodes are called <em>nodes</em> and are part of
+in a <em>PLEXIL</em> plan tree. These nodes are called <em>leaf nodes</em> and are part of
 Core <em>PLEXIL</em>, which is the subset of <em>PLEXIL</em> that is executed directly.</p>
 <section id="empty-node">
 <span id="id7"></span><h3><a class="toc-backref" href="#id56" role="doc-backlink">Empty Node</a><a class="headerlink" href="#empty-node" title="Permalink to this heading">¶</a></h3>
-<p>All the examples presented above are empty nodes (also called empty
-nodes). Empty nodes contain only attributes. They have no external
-behavior (i.e. no direct effect on an external system or a plan
-variable). In practice, empty nodes are quite useful and common. A
-typical use is for verification of a state in the external world. Here’s
-a node that verifies a temperature reading.</p>
+<p>All the examples presented above are <code class="docutils literal notranslate"><span class="pre">Empty</span></code> nodes. Empty nodes
+contain only attributes. They have no external behavior (i.e. no
+direct effect on an external system or a plan variable). In practice,
+empty nodes are quite useful and common. A typical use is for
+verification of a state in the external world. Here’s a node that
+verifies a temperature reading.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VerifyTemp</span><span class="p">:</span>
 <span class="p">{</span>
-<span class="n">PostCondition</span> <span class="n">Lookup</span><span class="p">(</span><span class="n">engine_temperature</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">100.0</span><span class="p">;</span>
+ <span class="n">PostCondition</span> <span class="n">Lookup</span><span class="p">(</span><span class="n">engine_temperature</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">100.0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="assignment">
 <h3><a class="toc-backref" href="#id57" role="doc-backlink">Assignment</a><a class="headerlink" href="#assignment" title="Permalink to this heading">¶</a></h3>
-<p>An assignment to a declared variable has the following form:</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">Assignment</span></code> node has the following basic form:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">variable</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code> part of the assignment, referred to as its left-hand side (LHS),
-must be a writable variable in the node’s interface. The <code class="docutils literal notranslate"><span class="pre">expression</span></code>,
-referred to as the right-hand side (RHS) of the assignment, can be any
-<em>PLEXIL</em> expression. Expressions are described below. The type of the
-expression must match the type of the variable.</p>
-<p>An <em>assignment node</em>, is one that contains only an expression of this
-form in its body. The following are examples of assignment nodes. Note
-that some context, in particular the variables’ declarations, are not
-shown.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code> part of the assignment, referred to as its
+left-hand side (LHS), must be a writable variable in the node’s
+interface. The <code class="docutils literal notranslate"><span class="pre">expression</span></code>, referred to as the right-hand side
+(RHS) of the assignment, can be any <em>PLEXIL</em> expression of a type
+compatible with the variable’s type.</p>
+<p>The following are examples of assignment nodes. Note that some
+context, in particular the variables’ declarations, are not shown.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IncrementCounter</span><span class="p">:</span>
 <span class="p">{</span>
   <span class="n">ExecutionCount</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">ExecutionCount</span><span class="p">;</span>
@@ -452,7 +445,7 @@ shown.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As with other nodes, Assignment nodes without attributes may omit the
+<p>As with other nodes, <code class="docutils literal notranslate"><span class="pre">Assignment</span></code> nodes without attributes may omit the
 braces and/or names. The preceding examples could be rewritten as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IncrementCounter</span><span class="p">:</span> <span class="n">ExecutionCount</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">ExecutionCount</span><span class="p">;</span>
 
@@ -465,9 +458,10 @@ braces and/or names. The preceding examples could be rewritten as:</p>
 simultaneously, this is an error condition. The <em>PLEXIL</em> compiler does not
 detect the possibility of concurrent assignment, and unfortunately the
 current <em>PLEXIL</em> executive behaves ungracefully when it is attempted: it
-issues a message about the conflict and then aborts. If your plan
-contains such nodes, this contention problem can be resolved with the
-<code class="docutils literal notranslate"><span class="pre">Priority</span></code> clause. Here’s a trivial contrived example:</p>
+issues a message about the conflict and then aborts execution.</p>
+<p>If your plan contains such nodes, this contention problem can be
+resolved with the <code class="docutils literal notranslate"><span class="pre">Priority</span></code> clause. Here’s a trivial contrived
+example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ConcurrentAssignment</span><span class="p">:</span> <span class="n">Concurrence</span>
 <span class="p">{</span>
   <span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
@@ -489,15 +483,22 @@ contains such nodes, this contention problem can be resolved with the
 <p>Without the <code class="docutils literal notranslate"><span class="pre">Priority</span></code> clauses, a runtime error would result. The
 <code class="docutils literal notranslate"><span class="pre">Priority</span></code> clause <em>orders</em> the execution of nodes from the lowest
 priority number to the highest. In this example, node A will execute
-first, then B, and the final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 1. Though it’s
-possible that the <code class="docutils literal notranslate"><span class="pre">Priority</span></code> clause may have a legitimate application,
-it is probably best to design your plans such that potentially
-conflicting assignments are avoided.</p>
+first, then B, and the final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 1.</p>
+<p>It is probably best to design your plans such that multiple
+assignments to the same variable are avoided.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A future release of <em>PLEXIL</em> will no longer abort the Executive
+when multiple <code class="docutils literal notranslate"><span class="pre">Assignment</span></code> nodes on the same variable are
+eligible to execute simultaneously. Instead, it will execute the
+conflicting <code class="docutils literal notranslate"><span class="pre">Assignment</span></code> nodes one at a time, in an unspecified
+order.</p>
+</div>
 </section>
 </section>
 <section id="command">
 <span id="id9"></span><h3><a class="toc-backref" href="#id59" role="doc-backlink">Command</a><a class="headerlink" href="#command" title="Permalink to this heading">¶</a></h3>
-<p>A <em>command</em> has the form:</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Command</span></code> node has the form:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">variable</span><span class="o">&gt;</span> <span class="o">=</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">command_name</span><span class="o">&gt;</span> <span class="p">([</span><span class="o">&lt;</span><span class="n">argument_list</span><span class="o">&gt;</span><span class="p">]);</span>
 </pre></div>
 </div>
@@ -512,31 +513,30 @@ element references (other kinds of expressions are not supported).</p></li>
 <p>The assignment of the command’s return value (assuming it returns a
 value) to a variable is optional, and if specified, must be a writable
 variable in the node’s interface.</p>
-<p>A <em>command node</em>, is one that contains only an expression of this form
-in its body. The following are examples of command nodes. Note that some
-context is not shown, e.g. the declaration of the command (discussed
-next) and that of the variable receiving the return value.</p>
+<p>The following are examples of command nodes. Note that some context is
+not shown, e.g. the declaration of the command (discussed next) and
+that of the variable receiving the return value.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StopRover</span><span class="p">:</span> <span class="p">{</span> <span class="n">stop</span><span class="p">();</span> <span class="p">}</span>
 
-<span class="n">SetWaypoint</span><span class="p">:</span> <span class="p">{</span> <span class="n">set_waypoint</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">SetWaypoint</span><span class="p">:</span> <span class="p">{</span> <span class="n">set_waypoint</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span> <span class="p">}</span>
 
 <span class="n">GetSpeed</span><span class="p">:</span> <span class="p">{</span> <span class="n">speed</span> <span class="o">=</span> <span class="n">get_speed</span><span class="p">();</span> <span class="p">}</span>
 
-<span class="n">PrintSpeed</span><span class="p">:</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got speed: &quot;</span><span class="p">,</span><span class="n">speed</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">PrintSpeed</span><span class="p">:</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got speed: &quot;</span><span class="p">,</span> <span class="n">speed</span><span class="p">);</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>As with assignment nodes, if no attributes are required, the braces may
 be omitted. Names may also be ommitted:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StopRover</span><span class="p">:</span> <span class="n">stop</span><span class="p">();</span>
 
-<span class="n">SetWaypoint</span><span class="p">:</span> <span class="n">set_waypoint</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">);</span>
+<span class="n">SetWaypoint</span><span class="p">:</span> <span class="n">set_waypoint</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
 
 <span class="n">GetSpeed</span><span class="p">:</span> <span class="n">speed</span> <span class="o">=</span> <span class="n">get_speed</span><span class="p">();</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got speed: &quot;</span><span class="p">,</span><span class="n">speed</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got speed: &quot;</span><span class="p">,</span> <span class="n">speed</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><em>Commands must be declared</em> at the top of the file in which they are
+<p>Commands <em>must be declared</em> at the top of the file in which they are
 used. Here are declarations for the commands above, and a few more
 examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Command</span> <span class="n">stop</span><span class="p">();</span>
@@ -554,7 +554,7 @@ examples:</p>
 <span class="n">Command</span> <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>By default, a command node finishes when the executive receives a
+<p>By default, a <code class="docutils literal notranslate"><span class="pre">Command</span></code> node finishes when the executive receives a
 <em>command handle</em> for its command, via the <em>PLEXIL</em> external interface (see
 the Interfacing section of this manual). See <a class="reference internal" href="ResourceModel.html#resourcemodel"><span class="std std-ref">Resource Model</span></a>
 for a description of command handles.</p>
@@ -563,10 +563,10 @@ finishing of the command itself; command execution may be ongoing even
 after the node finishes. We elaborate further on this point.</p>
 <section id="asynchronous-command-execution">
 <span id="id10"></span><h4><a class="toc-backref" href="#id60" role="doc-backlink">Asynchronous command execution</a><a class="headerlink" href="#asynchronous-command-execution" title="Permalink to this heading">¶</a></h4>
-<p>Note that calls to commands do <em>not</em> wait, or block execution of the
-plan. Rather, the command executes in the external system asynchronously
-with the plan. To examine the progress of the command, the plan should
-inspect its handle.</p>
+<p>Note that commands do <em>not</em> wait, or block execution of the
+plan. Rather, the command executes in the external system
+asynchronously with the plan. To examine the progress of the command,
+the plan should inspect its handle.</p>
 <p>A command may take arbitrarily long to complete in the external system.
 If the command returns a value, and this value is assigned to a variable
 in the command node, the node should <em>wait</em> for the value, i.e. the
@@ -614,7 +614,7 @@ Adapter</a>.</p>
 </section>
 <section id="update">
 <h3><a class="toc-backref" href="#id62" role="doc-backlink">Update</a><a class="headerlink" href="#update" title="Permalink to this heading">¶</a></h3>
-<p>An Update node serves to relay information outside the executive. For
+<p>An <code class="docutils literal notranslate"><span class="pre">Update</span></code> node serves to relay information outside the executive. For
 example, it can be used to update a planner or other system that has
 invoked the executive, with status about execution of the plan. The
 manner in which this information is sent is determined by the <a class="reference external" href="Interfacing_Overview">external
@@ -643,33 +643,33 @@ containing braces may be omitted.</p>
 <section id="library-call">
 <span id="id12"></span><h3><a class="toc-backref" href="#id63" role="doc-backlink">Library Call</a><a class="headerlink" href="#library-call" title="Permalink to this heading">¶</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">Library</span> <span class="pre">Call</span></code> node has the following form as its body.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryCall</span> <span class="o">&lt;</span><span class="n">Id</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">alias_list</span><span class="o">&gt;</span><span class="p">];</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryCall</span> <span class="o">&lt;</span><span class="n">Callee</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">alias_list</span><span class="o">&gt;</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;Id&gt;</span></code> is the ID of the invoked <em>library node</em>. The <code class="docutils literal notranslate"><span class="pre">&lt;alias_list&gt;</span></code> is an optional list
-of <em>aliases</em>, which are pairs of the form</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;Callee&gt;</span></code> is the ID of the invoked <em>library node</em>. The
+<code class="docutils literal notranslate"><span class="pre">&lt;alias_list&gt;</span></code> is an optional list of <em>aliases</em>, which are pairs of
+the form</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">parameter</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>An alias allows one to rename/assign a node parameter (i.e. a variable
 present in the interface of the library node) with an actual value or
 declared variable.</p>
+<p>Nodes called from a <code class="docutils literal notranslate"><span class="pre">LibraryCall</span></code> <em>must be declared</em> prior to the
+<code class="docutils literal notranslate"><span class="pre">LibraryCall</span></code>.  The declaration syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryNode</span> <span class="o">&lt;</span><span class="n">Callee</span><span class="o">&gt;</span><span class="p">[(</span><span class="o">&lt;</span><span class="n">parameter_list</span><span class="o">&gt;</span><span class="p">)];</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Historically library nodes were declared using the
+<code class="docutils literal notranslate"><span class="pre">LibraryAction</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">LibraryNode</span></code> keyword may be used
+interchangeably with <code class="docutils literal notranslate"><span class="pre">LibraryAction</span></code>, and is preferred going
+forward.</p>
+</div>
 <p>Here’s a contrived example of a call to trivial library node. The first
 file defines the library node <code class="docutils literal notranslate"><span class="pre">F</span></code>, and the second file contains a node
 that calls <code class="docutils literal notranslate"><span class="pre">F</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These examples contain a declaration of the
-library node using the historic</p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryAction</span>
-</pre></div>
-</div>
-<p>form. A newer version of <em>PLEXIL</em> (not yet released) aliases this with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryNode</span>
-</pre></div>
-</div>
-<p>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">begin</span> <span class="n">F</span><span class="o">.</span><span class="n">ple</span> <span class="o">---</span>
 
 <span class="n">F</span><span class="p">:</span>
@@ -683,7 +683,7 @@ library node using the historic</p>
 
 <span class="o">---</span> <span class="n">begin</span> <span class="n">LibraryCallTest</span><span class="o">.</span><span class="n">ple</span> <span class="o">---</span>
 
-<span class="n">LibraryAction</span> <span class="n">F</span> <span class="p">(</span><span class="n">In</span> <span class="n">Integer</span> <span class="n">i</span><span class="p">,</span> <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">j</span><span class="p">);</span>
+<span class="n">LibraryNode</span> <span class="n">F</span> <span class="p">(</span><span class="n">In</span> <span class="n">Integer</span> <span class="n">i</span><span class="p">,</span> <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">j</span><span class="p">);</span>
 
 <span class="n">LibraryCallTest</span><span class="p">:</span>
 <span class="p">{</span>
@@ -697,7 +697,7 @@ must be a <em>top level</em> node, that is, the outermost node in a file.
 Conversely, any top level node can be used as a library node.</p>
 <p>As with assignment, command, and update nodes, if no attributes are
 required, the containing braces may be omitted:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryAction</span> <span class="n">makePhoneCall</span><span class="p">(</span><span class="n">In</span> <span class="n">Integer</span> <span class="n">number</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LibraryNode</span> <span class="n">makePhoneCall</span><span class="p">(</span><span class="n">In</span> <span class="n">Integer</span> <span class="n">number</span><span class="p">);</span>
 
 <span class="n">CallHome</span><span class="p">:</span> <span class="n">LibraryCall</span> <span class="n">makePhoneCall</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">5551212</span><span class="p">);</span>
 </pre></div>
@@ -716,13 +716,13 @@ library node can produce a large plan for execution.</p>
 </section>
 <section id="compound-nodes">
 <span id="id14"></span><h2><a class="toc-backref" href="#id65" role="doc-backlink">Compound Nodes</a><a class="headerlink" href="#compound-nodes" title="Permalink to this heading">¶</a></h2>
-<p>Compound nodes are translated into simple (Core PLEXIL) nodes prior to
+<p>Compound nodes are translated into simple (Core <em>PLEXIL</em>) nodes prior to
 execution. A Core <em>PLEXIL</em> plan is a tree consisting of the leaf nodes
 described in the previous section, plus the List Node, described in this
 section under Concurrence.</p>
 <section id="sequence">
 <h3><a class="toc-backref" href="#id66" role="doc-backlink">Sequence</a><a class="headerlink" href="#sequence" title="Permalink to this heading">¶</a></h3>
-<p>A Sequence executes its child nodes in the given order.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> executes its child nodes in the given order.</p>
 <p>Because sequential execution is so often the intended and expected
 behavior of a plan, the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> keyword is optional:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -734,23 +734,23 @@ behavior of a plan, the <code class="docutils literal notranslate"><span class="
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Sequence is currently an alias for CheckedSequence. Because of
+<p><code class="docutils literal notranslate"><span class="pre">Sequence</span></code> is currently an alias for <code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code>. Because of
 the overhead of checking for child node success, and the default
 behavior in other sequential languages is to continue sequential
 execution after a child node fails (e.g. shell scripting), future <em>PLEXIL</em>
 release may instead alias it to UncheckedSequence. To ensure your plans
 do not change behavior, please consider explicitly using either
-CheckedSequence or UncheckedSequence.</p>
+<code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code> or <code class="docutils literal notranslate"><span class="pre">UncheckedSequence</span></code>.</p>
 </div>
 </section>
 <section id="checkedsequence">
 <h3><a class="toc-backref" href="#id67" role="doc-backlink">CheckedSequence</a><a class="headerlink" href="#checkedsequence" title="Permalink to this heading">¶</a></h3>
-<p>A CheckedSequence executes its child nodes in the given order. If any
+<p>A <code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code> executes its child nodes in the given order. If any
 node fails (i.e. terminates with outcome <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code>), the
-CheckedSequence also terminates with outcome <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code> and failure
-type <code class="docutils literal notranslate"><span class="pre">INVARIANT_CONDITION_FAILED</span></code>. A CheckedSequence succeeds if and
-only if all its nodes succeed. An empty CheckedSequence always succeeds.</p>
-<p>A CheckedSequence is denoted as follows.</p>
+<code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code> also terminates with outcome <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code> and failure
+type <code class="docutils literal notranslate"><span class="pre">INVARIANT_CONDITION_FAILED</span></code>. A <code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code> succeeds if and
+only if all its nodes succeed. An empty <code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code> always succeeds.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">CheckedSequence</span></code> is denoted as follows.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CheckedSequence</span>
 <span class="p">{</span>
   <span class="o">&lt;</span><span class="n">node1</span><span class="o">&gt;</span><span class="p">;</span>
@@ -762,8 +762,8 @@ only if all its nodes succeed. An empty CheckedSequence always succeeds.</p>
 </section>
 <section id="unchecked-sequence">
 <span id="id15"></span><h3><a class="toc-backref" href="#id68" role="doc-backlink">Unchecked Sequence</a><a class="headerlink" href="#unchecked-sequence" title="Permalink to this heading">¶</a></h3>
-<p>An UncheckedSequence simply executes its child nodes in the given order.
-An UncheckedSequence succeeds by default.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">UncheckedSequence</span></code> simply executes its child nodes in the given order.
+An <code class="docutils literal notranslate"><span class="pre">UncheckedSequence</span></code> succeeds by default.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UncheckedSequence</span>
 <span class="p">{</span>
   <span class="o">&lt;</span><span class="n">node1</span><span class="o">&gt;</span><span class="p">;</span>
@@ -775,11 +775,11 @@ An UncheckedSequence succeeds by default.</p>
 </section>
 <section id="concurrence">
 <h3><a class="toc-backref" href="#id69" role="doc-backlink">Concurrence</a><a class="headerlink" href="#concurrence" title="Permalink to this heading">¶</a></h3>
-<p>A Concurrence encloses zero or more child nodes, which are executed
+<p>A <code class="docutils literal notranslate"><span class="pre">Concurrence</span></code> encloses zero or more child nodes, which may execute
 <em>concurrently</em>. Precisely, there are no execution constraints on the
 child nodes other than those imposed by explicit conditions (those found
-in each child node as well as in the Concurrence form itself).</p>
-<p>Concurrence translates directly to a Core <em>PLEXIL</em> List node.</p>
+in each child node as well as in the <code class="docutils literal notranslate"><span class="pre">Concurrence</span></code> form itself).</p>
+<p>Concurrence translates directly to a Core <em>PLEXIL</em> <code class="docutils literal notranslate"><span class="pre">NodeList</span></code> node.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Concurrence</span>
 <span class="p">{</span>
   <span class="o">&lt;</span><span class="n">node1</span><span class="o">&gt;</span><span class="p">;</span>
@@ -788,11 +788,11 @@ in each child node as well as in the Concurrence form itself).</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>A Concurrence finishes when all its children have finished. If a
+<p>A <code class="docutils literal notranslate"><span class="pre">Concurrence</span></code> finishes when all its children have finished. If a
 different behavior is desired, such as ordering constraints between
 children, or finishing before all children have executed, this behavior
-must be specified explicitly through conditions in the Concurrence and
-its children. Here is a contrived example that illustrates a Concurrence
+must be specified explicitly through conditions in the <code class="docutils literal notranslate"><span class="pre">Concurrence</span></code> and
+its children. Here is a contrived example that illustrates a <code class="docutils literal notranslate"><span class="pre">Concurrence</span></code>
 with a particular execution protocol:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Command</span> <span class="n">inform</span><span class="p">(</span><span class="n">String</span> <span class="n">message</span><span class="p">);</span>
 <span class="n">Boolean</span> <span class="n">Command</span> <span class="n">DoIt</span><span class="p">(</span><span class="n">Integer</span> <span class="n">n</span><span class="p">);</span>
@@ -844,10 +844,10 @@ in the plan.</p>
 </section>
 <section id="try">
 <h3><a class="toc-backref" href="#id70" role="doc-backlink">Try</a><a class="headerlink" href="#try" title="Permalink to this heading">¶</a></h3>
-<p>In a Try sequence, the child nodes are executed in sequence, <em>until</em> one
-succeeds. The remaining nodes are skipped. A Try succeeds if and only if
-one of its nodes succeed. An empty Try always fails.</p>
-<p>The <em>PLEXIL</em> Try is distinct from the try-catch idiom found in many
+<p>In a <code class="docutils literal notranslate"><span class="pre">Try</span></code> sequence, the child nodes are executed in sequence, <em>until</em> one
+succeeds. The remaining nodes are skipped. A <code class="docutils literal notranslate"><span class="pre">Try</span></code> succeeds if and only if
+one of its nodes succeed. An empty <code class="docutils literal notranslate"><span class="pre">Try</span></code> always fails.</p>
+<p>The <em>PLEXIL</em> <code class="docutils literal notranslate"><span class="pre">Try</span></code> is distinct from the try-catch idiom found in many
 popular programming languages.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Try</span>
 <span class="p">{</span>
@@ -871,7 +871,7 @@ none of the conditions evaluates to true.</p>
 <p>Previous versions of the <em>PLEXIL</em> compiler required an <code class="docutils literal notranslate"><span class="pre">endif</span></code>
 keyword to terminate the <code class="docutils literal notranslate"><span class="pre">if</span></code> node. This requirement has been
 eliminated since <em>PLEXIL</em> 4.5. The <code class="docutils literal notranslate"><span class="pre">endif</span></code> keyword is still accepted by
-the compiler for backwards compatibility.</p>
+the compiler for backward compatibility.</p>
 </div>
 <p>Each clause may have multiple child nodes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">C1</span>
@@ -1048,7 +1048,7 @@ by the command <code class="docutils literal notranslate"><span class="pre">Send
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;node&gt;</span></code> is an action to be performed upon receiving that message.</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>OnMessage “ConnectionEstablished”
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>OnMessage “ConnectionEstablished”
    BeginProcess();
 </pre></div>
 </div>
@@ -1080,38 +1080,131 @@ an outcome of <code class="docutils literal notranslate"><span class="pre">FAILU
 </section>
 <section id="synchronous-command">
 <span id="id26"></span><h3><a class="toc-backref" href="#id82" role="doc-backlink">Synchronous Command</a><a class="headerlink" href="#synchronous-command" title="Permalink to this heading">¶</a></h3>
-<p>Plexil provides a convenient form for synchronous commands, which
-automatically waits for a return value if expected, otherwise a command
-handle indicating completion of the command.</p>
-<p>Furthermore a <em>timeout</em> can be given, which specifies the maximum amount
-of time (expressed as a unitless real number) to wait for the command to
-complete. When timeout is given, a real-valued <em>tolerance</em> can also be
-given; this specifies a minimum granularity for the time measurement.</p>
-<p>Here are some examples. First, we call the command <code class="docutils literal notranslate"><span class="pre">foo</span></code> with no
-arguments:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SynchronousCommand</span></code> Extended PLEXIL macro simplfies some common
+uses of <code class="docutils literal notranslate"><span class="pre">Command</span></code> nodes.  Simply put, a <code class="docutils literal notranslate"><span class="pre">SynchronousCommand</span></code> does
+not terminate until the command has completed.</p>
+<p>In Standard PLEXIL, its syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span> <span class="o">=</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span><span class="p">([</span><span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;</span> <span class="p">[,</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;</span><span class="p">]</span><span class="o">*</span><span class="p">])</span>
+                   <span class="p">[</span><span class="n">Checked</span><span class="p">]</span>
+                   <span class="p">[</span><span class="n">Timeout</span> <span class="o">&lt;</span><span class="n">interval</span><span class="o">-</span><span class="n">expression</span><span class="o">&gt;</span> <span class="p">[,</span> <span class="o">&lt;</span><span class="n">tolerance</span><span class="o">-</span><span class="n">expression</span><span class="o">&gt;</span><span class="p">]]</span>
+                   <span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Checked</span></code> and <code class="docutils literal notranslate"><span class="pre">Timeout</span></code> options can be combined in either
+order.</p>
+<p>The following example illustrates the most basic use of
+<code class="docutils literal notranslate"><span class="pre">SynchronousCommand</span></code>, when neither <code class="docutils literal notranslate"><span class="pre">Checked</span></code> nor <code class="docutils literal notranslate"><span class="pre">Timeout</span></code>
+option is supplied, and the command return value is ignored:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="n">foo</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Call <code class="docutils literal notranslate"><span class="pre">foo</span></code> with argument 1 and a timeout of 2.0 time units:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Timeout</span> <span class="mf">2.0</span><span class="p">;</span>
+<p>This is expanded to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">EndCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+ <span class="n">foo</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>Call <code class="docutils literal notranslate"><span class="pre">foo</span></code>, assigning its return value to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+<p>When the command’s return value is assigned, the expansion becomes a
+bit more complex:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
+ <span class="n">SynchronousCommand</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>Call <code class="docutils literal notranslate"><span class="pre">foo</span></code>, assigning its return value to <code class="docutils literal notranslate"><span class="pre">x</span></code>, with a timeout of 2.0
-with tolerance of 0.1 (i.e. check the time every 0.1 units if possible).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">()</span> <span class="n">Timeout</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">;</span>
+<p>In essence, this becomes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
+  <span class="n">Concurrence</span>
+  <span class="p">{</span>
+   <span class="n">Integer</span> <span class="n">_temp_</span><span class="p">;</span>
+    <span class="p">{</span>
+     <span class="n">EndCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">=</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+     <span class="n">_temp_</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="p">{</span>
+     <span class="n">StartCondition</span> <span class="n">isKnown</span><span class="p">(</span><span class="n">_temp_</span><span class="p">);</span>
+     <span class="n">x</span> <span class="o">=</span> <span class="n">_temp_</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">Checked</span></code> option is provided, the <code class="docutils literal notranslate"><span class="pre">SynchronousCommand</span></code>
+fails if the command handle is anything but <code class="docutils literal notranslate"><span class="pre">COMMAND_SUCCESS</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="n">foo</span><span class="p">()</span> <span class="n">Checked</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Becomes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">EndCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+ <span class="n">PostCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+ <span class="n">foo</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>E.g. if the command returns a command handle value of COMMAND_FAILED,
+the <code class="docutils literal notranslate"><span class="pre">SynchronousCommand</span></code> node will have an outcome of <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code>
+and a failure type of <code class="docutils literal notranslate"><span class="pre">POSTCONDITION_FAILED</span></code>.</p>
+<p>Combining the Checked option with a return value assignment requires
+that the command returns both a command handle value of
+<code class="docutils literal notranslate"><span class="pre">COMMAND_SUCCESS</span></code> and a known return value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
+ <span class="n">SynchronousCommand</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">()</span> <span class="n">Checked</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Effectively expands to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
+  <span class="n">Concurrence</span>
+  <span class="p">{</span>
+   <span class="n">Integer</span> <span class="n">_temp_</span><span class="p">;</span>
+    <span class="p">{</span>
+     <span class="n">InvariantCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">!=</span> <span class="n">COMMAND_DENIED</span>
+                        <span class="o">&amp;&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">!=</span> <span class="n">COMMAND_FAILED</span>
+                        <span class="o">&amp;&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">!=</span> <span class="n">COMMAND_INTERFACE_ERROR</span><span class="p">;</span>
+     <span class="n">EndCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">=</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+     <span class="n">PostCondition</span> <span class="n">isKnown</span><span class="p">(</span><span class="n">_temp_</span><span class="p">);</span>
+     <span class="n">_temp_</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="p">{</span>
+     <span class="n">StartCondition</span> <span class="n">isKnown</span><span class="p">(</span><span class="n">_temp_</span><span class="p">);</span>
+     <span class="n">x</span> <span class="o">=</span> <span class="n">_temp_</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In other words, this example will only have an outcome of <code class="docutils literal notranslate"><span class="pre">SUCCESS</span></code>
+if the command returns a known value <em>and</em> a command handle of
+<code class="docutils literal notranslate"><span class="pre">COMMAND_SUCCESS</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Timeout</span></code> option causes <code class="docutils literal notranslate"><span class="pre">SynchronousCommand</span></code> to fail if the
+command does not return a command handle within the specified
+interval.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SynchronousCommand</span> <span class="n">foo</span><span class="p">()</span> <span class="n">Timeout</span> <span class="mf">2.0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Expands to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">InvariantCondition</span> <span class="n">Lookup</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXECUTING</span><span class="o">.</span><span class="n">START</span> <span class="o">+</span> <span class="mf">2.0</span><span class="p">;</span>
+ <span class="n">EndCondition</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+ <span class="n">foo</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">foo()</span></code> fails to return a command handle value within 2.0 time
+units (usually seconds) of the node’s start time, the node will have
+an outcome of <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code> and a failure type of <code class="docutils literal notranslate"><span class="pre">INVARIANT_FAILED</span></code>.</p>
 <p>This section begs elaboration of several aspects of <em>PLEXIL</em> not yet
 discussed in detail.</p>
 <ul class="simple">
 <li><p>Time. As mentioned in the <a class="reference internal" href="PLEXILOverview.html#plexiloverview"><span class="std std-ref">Overview</span></a>, time is not a
 special concept in <em>PLEXIL</em> – it’s just an external world state;
 specifically, a real-valued state variable named <code class="docutils literal notranslate"><span class="pre">time</span></code>. This
-variable may be referenced explicitly, e.g. <code class="docutils literal notranslate"><span class="pre">Lookup</span> <span class="pre">(time,</span> <span class="pre">1)</span></code>,
+variable may be referenced explicitly, e.g. <code class="docutils literal notranslate"><span class="pre">Lookup</span> <span class="pre">(time)</span></code>,
 though in most cases it is used implicitly: the Plexil executive
 reads it from the external world at every cycle and uses it for
 time-related computations in a plan, such as the timeout in
@@ -1130,14 +1223,15 @@ COMMAND_FAILED, COMMAND_DENIED.</p></li>
 <h3><a class="toc-backref" href="#id83" role="doc-backlink">Wait</a><a class="headerlink" href="#wait" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Wait</span></code> node does just that – waits for a specified amount of time
 to pass:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Wait</span> <span class="o">&lt;</span><span class="n">time</span><span class="o">-</span><span class="n">units</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">tolerance</span><span class="o">&gt;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Wait</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">tolerance</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;time-units&gt;</span></code> is a unitless real number (the time unit this actually represents
-is application-specific), and so is <code class="docutils literal notranslate"><span class="pre">tolerance</span></code>. Tolerance, which is
-optional and defaults to the , specifies the minimum amount of time that
-is of significance in the wait. Real-valued variables can also be used.
-Examples:</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;duration&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;tolerance&gt;</span></code> are Real-valued expressions
+for the duration of the <code class="docutils literal notranslate"><span class="pre">Wait</span></code>, and the interval at which the
+duration is checked.  (Time units are application-specific, but are
+typically seconds). <code class="docutils literal notranslate"><span class="pre">&lt;tolerance&gt;</span></code> is optional and defaults to
+<code class="docutils literal notranslate"><span class="pre">&lt;interval&gt;</span></code>.</p>
+<p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 <span class="n">Real</span> <span class="n">rdelay</span> <span class="o">=</span> <span class="mf">1.414</span><span class="p">;</span>
 </pre></div>
@@ -1233,7 +1327,7 @@ UNKNOWN if the supplied Real is not exactly an integer value.</p>
 <section id="id30">
 <span id="id31"></span><h3><a class="toc-backref" href="#id88" role="doc-backlink">Boolean Expressions</a><a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h3>
 <p><em>PLEXIL</em> employs a <em>ternary</em> logic, extending the usual Boolean logic with
-a third value, Unknown, described in a section above. Though strictly a
+a third value, <strong>Unknown</strong>, described in a section above. Though strictly a
 misnomer, the term Boolean is used throughout this manual and <em>PLEXIL</em>
 itself to describe operators, expressions, and values in this ternary
 logic.</p>
@@ -1298,7 +1392,7 @@ node3.state == FINISHED &amp;&amp; node3.outcome == SUCCESS
 <p class="admonition-title">Note</p>
 <p>Precedence and associativity rules for these operators are
 consistent with the standard rules for C and C++. Parentheses can be
-used to make explicit the intended semantics.</p>
+used to make explicit the intended grouping.</p>
 </div>
 </section>
 <section id="string-expressions">
@@ -1449,7 +1543,7 @@ literal is taken from Common Lisp).</p>
 <li><p>Read an element: <code class="docutils literal notranslate"><span class="pre">X[&lt;index&gt;]</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;index&gt;</span></code> can be any integral
 expression. Array elements are a kind of expression, and thus may be
 used in any place where expressions are allowed.</p></li>
-<li><p>Assign an element: <code class="docutils literal notranslate"><span class="pre">X[&lt;index&gt;]</span> <span class="pre">=``&lt;expressin&gt;</span></code> . Assignments can occur only in
+<li><p>Assign an element: <code class="docutils literal notranslate"><span class="pre">X[&lt;index&gt;]</span> <span class="pre">=``&lt;expression&gt;</span></code> . Assignments can occur only in
 assignment nodes.</p></li>
 <li><p>Assign an entire array: <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Y</span></code>, where Y is either an array
 variable or an array literal. It is an error if <code class="docutils literal notranslate"><span class="pre">Y</span></code> represents an
@@ -1612,25 +1706,6 @@ throughout the plan. Second, it enables <a class="reference internal" href="../P
 that your declarations are consistent and that all uses of declared
 items in the plan are correct.</p>
 <p>The following are examples of global declarations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">simple</span> <span class="n">command</span>
-<span class="n">Command</span> <span class="n">Stop</span><span class="p">();</span>
-
-<span class="o">//</span> <span class="n">command</span> <span class="k">with</span> <span class="n">parameter</span> <span class="p">(</span><span class="n">name</span> <span class="ow">is</span> <span class="n">optional</span><span class="p">)</span>
-<span class="n">Command</span> <span class="n">Drive</span><span class="p">(</span><span class="n">Real</span> <span class="n">meters</span><span class="p">);</span>
-
-<span class="o">//</span> <span class="n">command</span> <span class="k">with</span> <span class="k">return</span> <span class="n">value</span>
-<span class="n">Boolean</span> <span class="n">Command</span> <span class="n">TakePicture</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Real</span><span class="p">);</span>
-
-<span class="o">//</span> <span class="n">state</span>
-<span class="n">Real</span> <span class="n">Lookup</span> <span class="n">Temperature</span><span class="p">;</span>
-
-<span class="o">//</span> <span class="n">state</span> <span class="k">with</span> <span class="n">parameter</span>
-<span class="n">Boolean</span> <span class="n">Lookup</span> <span class="n">At</span> <span class="p">(</span><span class="n">String</span> <span class="n">location</span><span class="p">);</span>
-
-<span class="o">//</span> <span class="n">library</span> <span class="n">node</span>
-<span class="n">LibraryAction</span> <span class="n">LibTest</span><span class="p">(</span><span class="n">In</span> <span class="n">Real</span> <span class="n">i</span><span class="p">,</span> <span class="n">In</span> <span class="n">vals</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">j</span><span class="p">);</span>
-</pre></div>
-</div>
 </section>
 <section id="programming-in-plexil">
 <span id="id42"></span><h2><a class="toc-backref" href="#id100" role="doc-backlink">Programming in Plexil</a><a class="headerlink" href="#programming-in-plexil" title="Permalink to this heading">¶</a></h2>
@@ -1642,7 +1717,7 @@ a single node. Your application may comprise many Plexil files; in this
 case, one file will contain the <em>top level</em> node, and the rest will
 contain library nodes.</p>
 <p>We strongly recommend that the top level node in a Standard <em>PLEXIL</em> file
-be named the same as the file, e.g. file HaltAndCatchFIre.ple should
+be named the same as the file, e.g. file HaltAndCatchFire.ple should
 contain the top level node named <code class="docutils literal notranslate"><span class="pre">HaltAndCatchFire</span></code>.</p>
 </section>
 <section id="plexilc-the-plexil-translator">
@@ -1726,7 +1801,7 @@ executing <em>PLEXIL</em> plans.</p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PLEXIL References</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ResourceModel.html">Resource Model</a></li>
 </ul>
@@ -1785,7 +1860,7 @@ executing <em>PLEXIL</em> plans.</p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   

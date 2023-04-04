@@ -4,16 +4,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Renewable Resources &#8212; PLEXIL  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/readable.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Hierarchial Resources" href="HierarchialResources.html" />
@@ -50,66 +48,65 @@
             
   <section id="renewable-resources">
 <span id="renewableresources"></span><h1>Renewable Resources<a class="headerlink" href="#renewable-resources" title="Permalink to this heading">¶</a></h1>
-<p><em>12 May 2015</em></p>
-<p>It is possible for a command to <em>generate</em> resources, as opposed to
-consuming them.</p>
-<p>Consider the case when there are, say, 2 units of memory left out of a
-maximum of 5 units. Consider the following resource requirement.</p>
+<p><em>21 Mar 2023</em></p>
+<p>Commands may <em>produce</em>, or <em>renew</em>, resources, in addition to
+consuming resources. Consider the resource requirements of these
+commands:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">C1</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;arm,</span> <span class="pre">10&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">20,</span> <span class="pre">0.8,</span> <span class="pre">0.8&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C2</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">30,</span> <span class="pre">0.3,</span> <span class="pre">0.3&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C3</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">10,</span> <span class="pre">-0.1,</span> <span class="pre">-0.1&gt;</span></code></p></li>
+<li><p>Command <code class="docutils literal notranslate"><span class="pre">c1</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">0.75&gt;</span></code></p></li>
+<li><p>Command <code class="docutils literal notranslate"><span class="pre">c2</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">-0.125&gt;</span></code></p></li>
+<li><p>Command <code class="docutils literal notranslate"><span class="pre">c3</span></code> requires <code class="docutils literal notranslate"><span class="pre">&lt;sys_memory,</span> <span class="pre">0.375&gt;</span></code></p></li>
 </ul>
-<p>where the integer value in the resource pair denotes the priority (lower
-number implies higher priority) and the last two real values are the
-lower and upper bounds of the memory needed by the command. In our
-example, <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> <em>consume</em> 0.8 and <code class="docutils literal notranslate"><span class="pre">C2</span></code> 0.3 units of memory
-respectively, while <code class="docutils literal notranslate"><span class="pre">C3</span></code> <em>generates</em> 0.1 units of memory.</p>
-<p>The resulting outcome will be to accept commands all the commands
-since the cumulative memory requirements is less than 5.0.</p>
-<figure class="align-default">
-<img alt="../../_images/Renewableresources4.jpg" src="../../_images/Renewableresources4.jpg" />
-</figure>
+<p>In our example, commands <code class="docutils literal notranslate"><span class="pre">c1</span></code> and <code class="docutils literal notranslate"><span class="pre">c3</span></code> <em>consume</em> 0.75 and 0.375
+units of sys_memory respectively, while <code class="docutils literal notranslate"><span class="pre">c2</span></code> <em>produces</em> 0.125 units of
+sys_memory.</p>
+<p>Commands <code class="docutils literal notranslate"><span class="pre">c1</span></code> and <code class="docutils literal notranslate"><span class="pre">c3</span></code> can’t execute simultaneously, because their
+total sys_memory usage, 1.125, would exceed the limit of 1.0. But if
+<code class="docutils literal notranslate"><span class="pre">c2</span></code> is started after <code class="docutils literal notranslate"><span class="pre">c1</span></code>, its production of sys_memory reduces
+total usage enough to allow <code class="docutils literal notranslate"><span class="pre">c3</span></code> to execute.</p>
+<p>Note that this can only work if the commands are started on successive
+macro steps. Resource consumption and production are accounted for
+separately by the resource arbiter, starting from the resources
+already allocated at the beginning of the macro step.  If all 3 nodes
+begin execution at once, no matter how the resource priorities are
+arranged, the resource arbiter will reject 2 of the 3 commands.</p>
 <p>The entire PLEXIL plan (filed in plexil/examples/resource4.ple) is
 given below.</p>
-<p><em>PLEASE NOTE that this example does not seem to work as advertised in
-the current version of the PLEXIL executive. We are investigating;
-please drop us a line if you need this feature.</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">Command</span> <span class="n">c1</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c2</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c3</span><span class="p">;</span>
 
 <span class="n">SimpleTask</span><span class="p">:</span>
-<span class="n">Concurrence</span> <span class="p">{</span>
+<span class="n">Concurrence</span>
+<span class="p">{</span>
   <span class="n">C1</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">Integer</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="n">EndCondition</span> <span class="n">returnValue</span> <span class="o">==</span> <span class="mi">10</span><span class="p">;</span>
     <span class="n">PostCondition</span> <span class="n">C1</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;sys_memory&quot;</span><span class="p">,</span>
-      <span class="n">LowerBound</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
-      <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+      <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span>
       <span class="n">Priority</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
     <span class="n">returnValue</span> <span class="o">=</span> <span class="n">c1</span><span class="p">();</span>
   <span class="p">}</span>
   <span class="n">C2</span><span class="p">:</span> <span class="p">{</span>
-    <span class="n">Integer</span> <span class="n">mem_priority</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
     <span class="n">Integer</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="n">PostCondition</span> <span class="n">C2</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+    <span class="n">StartCondition</span> <span class="n">Sibling</span><span class="p">(</span><span class="n">C1</span><span class="p">)</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">EXECUTING</span><span class="p">;</span>
     <span class="n">EndCondition</span> <span class="n">returnValue</span> <span class="o">==</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">PostCondition</span> <span class="n">C2</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;sys_memory&quot;</span><span class="p">,</span>
-      <span class="n">LowerBound</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
-      <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
-      <span class="n">Priority</span> <span class="o">=</span> <span class="n">mem_priority</span><span class="p">;</span>
+      <span class="n">UpperBound</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.125</span><span class="p">,</span>
+      <span class="n">Priority</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
     <span class="n">returnValue</span> <span class="o">=</span> <span class="n">c2</span><span class="p">();</span>
   <span class="p">}</span>
   <span class="n">C3</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">Integer</span> <span class="n">mem_priority</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
     <span class="n">Integer</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="n">PostCondition</span> <span class="n">C3</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
+    <span class="n">StartCondition</span> <span class="n">Sibling</span><span class="p">(</span><span class="n">C2</span><span class="p">)</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">EXECUTING</span><span class="p">;</span>
     <span class="n">EndCondition</span> <span class="n">returnValue</span> <span class="o">==</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">PostCondition</span> <span class="n">C3</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;sys_memory&quot;</span><span class="p">,</span>
-      <span class="n">LowerBound</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>
-      <span class="n">UpperBound</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>
-      <span class="n">Priority</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+      <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.375</span><span class="p">,</span>
+      <span class="n">Priority</span> <span class="o">=</span> <span class="n">mem_priority</span><span class="p">;</span>
     <span class="n">returnValue</span> <span class="o">=</span> <span class="n">c3</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -139,7 +136,7 @@ please drop us a line if you need this feature.</em></p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../ResourceModel.html">Resource Model</a></li>
 </ul>
@@ -198,7 +195,7 @@ please drop us a line if you need this feature.</em></p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   

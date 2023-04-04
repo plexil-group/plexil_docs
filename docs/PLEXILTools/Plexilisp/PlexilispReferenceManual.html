@@ -4,16 +4,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Plexilisp Reference Manual &#8212; PLEXIL  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/readable.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="PLEXIL Checker" href="../PLEXILChecker.html" />
@@ -50,8 +48,7 @@
             
   <section id="plexilisp-reference-manual">
 <span id="plexilispreferncemanual"></span><h1><a class="toc-backref" href="#id17" role="doc-backlink">Plexilisp Reference Manual</a><a class="headerlink" href="#plexilisp-reference-manual" title="Permalink to this heading">¶</a></h1>
-<p><em>This wiki was automatically generated from “plexil.el” on Mon Feb 17
-15:47:11 2014 for version 3.2. Do not edit!</em></p>
+<p><em>10 Jan 2023</em></p>
 <p>This is a complete reference for the Plexilisp language. It assumes a
 basic understanding of the <em>PLEXIL</em> language. Each construct in Plexilisp
 has at least two aliases (e.g. <code class="docutils literal notranslate"><span class="pre">CommandNode</span></code> and <code class="docutils literal notranslate"><span class="pre">command-node</span></code>).
@@ -906,24 +903,18 @@ similar to LET in Lisp.</p>
 </div>
 <p>List of Resource specifications.</p>
 <hr class="docutils" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Resource</span> <span class="n">name</span> <span class="n">priority</span> <span class="p">[</span> <span class="n">clause</span> <span class="p">]</span> <span class="o">...</span><span class="p">)</span>
-<span class="p">(</span><span class="n">resource</span> <span class="n">name</span> <span class="n">priority</span> <span class="p">[</span> <span class="n">clause</span> <span class="p">]</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Resource</span> <span class="n">name</span> <span class="n">priority</span> <span class="p">[</span> <span class="n">upper</span><span class="o">-</span><span class="n">bound</span><span class="o">-</span><span class="n">clause</span> <span class="p">]</span> <span class="p">)</span>
+<span class="p">(</span><span class="n">resource</span> <span class="n">name</span> <span class="n">priority</span> <span class="p">[</span> <span class="n">upper</span><span class="o">-</span><span class="n">bound</span><span class="o">-</span><span class="n">clause</span> <span class="p">]</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p>A Resource specification. Name and priority are required. The remaining
-clauses can be <code class="docutils literal notranslate"><span class="pre">ResourceUpperBound</span></code> or <code class="docutils literal notranslate"><span class="pre">ResourceLowerBound</span></code></p>
+<p>A Resource specification. Name and priority are required. An optional
+<code class="docutils literal notranslate"><span class="pre">ResourceUpperBound</span></code> or <code class="docutils literal notranslate"><span class="pre">resource-upper-bound</span></code> may be supplied.</p>
 <hr class="docutils" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ResourceUpperBound</span> <span class="n">x</span><span class="p">)</span>
 <span class="p">(</span><span class="n">resource</span><span class="o">-</span><span class="n">upper</span><span class="o">-</span><span class="n">bound</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A resource upper bound.</p>
-<hr class="docutils" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ResourceLowerBound</span> <span class="n">x</span><span class="p">)</span>
-<span class="p">(</span><span class="n">resource</span><span class="o">-</span><span class="n">lower</span><span class="o">-</span><span class="n">bound</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>A resource lower bound.</p>
 </section>
 <section id="miscellaneous-node-clauses">
 <span id="id13"></span><h1><a class="toc-backref" href="#id34" role="doc-backlink">Miscellaneous Node Clauses</a><a class="headerlink" href="#miscellaneous-node-clauses" title="Permalink to this heading">¶</a></h1>
@@ -1213,7 +1204,7 @@ must return this (using the <code class="docutils literal notranslate"><span cla
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   

@@ -4,16 +4,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Hierarchial Resources &#8212; PLEXIL  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/readable.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="PLEXIL Executive" href="../../PLEXILExecution/PLEXILExecutive.html" />
@@ -50,34 +48,48 @@
             
   <section id="hierarchial-resources">
 <span id="hierarchialresources"></span><h1>Hierarchial Resources<a class="headerlink" href="#hierarchial-resources" title="Permalink to this heading">¶</a></h1>
-<p><em>12 May 2015</em></p>
-<p>There are several situations where the resources needed by a command are
-related. When a large number of resource elements are involved, it might
-be cumbersome to specify each resource element in the plan although such
-an approach is entirely possible. The resource arbiter allows for the
-user to load a configuration file when the resource interdependence can
-be captured via a weighted directed acyclic graph. When the user
-specifies a particular resource requirement in the plan, all the
-children of that resource also get pulled in.</p>
-<p>In addition to resources that can be specified in the PLEXIL plan, the
-resource arbiter allows for loading a configuration file that captures
-the inter-relationships between the resources. Consider the structure
-given below.</p>
+<p><em>10 Jan 2023</em></p>
+<p>In applications where a large number of command resources are used,
+and some of the resources are interdependent, it might be cumbersome
+to specify each resource element in the plan individually.</p>
+<p>The <em>PLEXIL</em> resource file format allows interdependence between
+resources to be specified as a weighted directed acyclic graph. When a
+particular resource requirement is referenced in the plan, all the
+descendants of that resource also get pulled in; the descendants’
+requests are automatically scaled by the specified weights.</p>
+<p>Consider the resource hierarchy in this diagram:</p>
 <figure class="align-default">
 <img alt="../../_images/Hierarchicalresources.jpg" src="../../_images/Hierarchicalresources.jpg" />
 </figure>
-<p>Consider a plan (found in plexil/examples/resource3.ple) that has
-three commands <code class="docutils literal notranslate"><span class="pre">C1</span></code>, <code class="docutils literal notranslate"><span class="pre">C2</span></code> and <code class="docutils literal notranslate"><span class="pre">C3</span></code> where <code class="docutils literal notranslate"><span class="pre">C1</span></code> needs the
-<code class="docutils literal notranslate"><span class="pre">head</span></code> resource with priority 20, <code class="docutils literal notranslate"><span class="pre">C3</span></code> needs the <code class="docutils literal notranslate"><span class="pre">vision</span></code>
-resource with priority 30 and <code class="docutils literal notranslate"><span class="pre">C2</span></code> needs 0.3 units of the <code class="docutils literal notranslate"><span class="pre">memory</span></code>
-resource at a priority of 25.</p>
-<p>For the given resource structure since <code class="docutils literal notranslate"><span class="pre">C1</span></code> requires the head
-resource, it will also need all its children that includes the vision
-resource and in addition given the higher priority level, <code class="docutils literal notranslate"><span class="pre">C1</span></code> will
-end up locking out <code class="docutils literal notranslate"><span class="pre">C2</span></code>. The status of <code class="docutils literal notranslate"><span class="pre">C3</span></code> will depend on the the
-weight B2, which is the amount of memory that the head resource will
-need. It is easy to see that <code class="docutils literal notranslate"><span class="pre">C2</span></code> will be accepted if B2 &lt; (30-0.3).</p>
-<p>The entire PLEXIL plan is shown below;</p>
+<p>The relationships in the diagram are reflected in an example resource
+data file, in plexil/examples/resources/resource3.data, whose contents
+are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">Contains</span> <span class="n">the</span> <span class="n">resource</span> <span class="n">hierarchy</span>
+<span class="o">%</span> <span class="n">name</span> <span class="n">initial</span><span class="o">-</span><span class="n">resource</span> <span class="p">[</span><span class="n">child</span><span class="o">-</span><span class="n">weight</span> <span class="n">child</span><span class="o">-</span><span class="n">name</span><span class="p">]</span><span class="o">*</span>
+<span class="n">body</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">head</span> <span class="mf">1.0</span> <span class="n">arms</span> <span class="mf">1.0</span> <span class="n">legs</span>
+<span class="n">head</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">vision</span> <span class="mf">1.0</span> <span class="n">audio</span> <span class="mf">1.0</span> <span class="n">brain</span>
+<span class="n">vision</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">cameraL</span> <span class="mf">1.0</span> <span class="n">cameraR</span> <span class="mf">0.3</span> <span class="n">cpu</span>
+<span class="n">audio</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">sonar</span> <span class="mf">0.2</span> <span class="n">cpu</span>
+<span class="n">brain</span> <span class="mf">1.0</span> <span class="mf">0.5</span> <span class="n">cpu</span> <span class="mf">0.4</span> <span class="n">memory</span>
+<span class="n">arms</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">handL</span> <span class="mf">1.0</span> <span class="n">handR</span>
+<span class="n">handL</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">digitsL</span>
+<span class="n">handR</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">digitsR</span>
+<span class="n">legs</span> <span class="mf">1.0</span> <span class="mf">1.0</span> <span class="n">legL</span> <span class="mf">1.0</span> <span class="n">legR</span> <span class="mf">0.3</span> <span class="n">memory</span>
+<span class="n">digitsL</span> <span class="mf">5.0</span>
+<span class="n">digitsR</span> <span class="mf">5.0</span>
+<span class="n">legL</span> <span class="mf">1.0</span>
+<span class="n">legR</span> <span class="mf">1.0</span>
+<span class="n">cameraL</span> <span class="mf">1.0</span>
+<span class="n">cameraR</span> <span class="mf">1.0</span>
+<span class="n">sonar</span> <span class="mf">1.0</span>
+<span class="n">cpu</span> <span class="mf">1.0</span>
+<span class="n">memory</span> <span class="mf">1.0</span>
+<span class="n">sys_memory</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Now consider the plan below (found in
+plexil/examples/resources/resource3.ple) in the context of this
+resource file</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">Command</span> <span class="n">c1</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c2</span><span class="p">;</span>
 <span class="n">Integer</span> <span class="n">Command</span> <span class="n">c3</span><span class="p">;</span>
@@ -97,7 +109,6 @@ need. It is easy to see that <code class="docutils literal notranslate"><span cl
     <span class="n">PostCondition</span> <span class="n">C2</span><span class="o">.</span><span class="n">command_handle</span> <span class="o">==</span> <span class="n">COMMAND_SUCCESS</span><span class="p">;</span>
     <span class="n">EndCondition</span> <span class="n">returnValue</span> <span class="o">==</span> <span class="mi">10</span><span class="p">;</span>
     <span class="n">Resource</span> <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;memory&quot;</span><span class="p">,</span>
-      <span class="n">LowerBound</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
       <span class="n">UpperBound</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
       <span class="n">Priority</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
     <span class="n">returnValue</span> <span class="o">=</span> <span class="n">c2</span><span class="p">();</span>
@@ -112,6 +123,46 @@ need. It is easy to see that <code class="docutils literal notranslate"><span cl
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>The plan consists of three Command nodes executing concurrently:
+<code class="docutils literal notranslate"><span class="pre">C1</span></code>, <code class="docutils literal notranslate"><span class="pre">C2</span></code>, and <code class="docutils literal notranslate"><span class="pre">C3</span></code>. Node <code class="docutils literal notranslate"><span class="pre">C1</span></code> requires the <code class="docutils literal notranslate"><span class="pre">head</span></code> resource
+with priority 20, node <code class="docutils literal notranslate"><span class="pre">C3</span></code> requires the <code class="docutils literal notranslate"><span class="pre">vision</span></code> resource with
+priority 30, and node <code class="docutils literal notranslate"><span class="pre">C2</span></code> requires 0.3 units of the <code class="docutils literal notranslate"><span class="pre">memory</span></code>
+resource with priority 25.</p>
+<p>Let’s look at each of these commands’ respective requirements in the
+context of the above resource structure and the commands’ priorities.</p>
+<p>Node <code class="docutils literal notranslate"><span class="pre">C1</span></code> requires 1.0 units of the <code class="docutils literal notranslate"><span class="pre">head</span></code> resource, which in turn
+requires 1.0 units each of dependent resources <code class="docutils literal notranslate"><span class="pre">vision</span></code>, <code class="docutils literal notranslate"><span class="pre">audio</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">brain</span></code>. At the next level, each unit of <code class="docutils literal notranslate"><span class="pre">vision</span></code> requires 1.0
+units each of <code class="docutils literal notranslate"><span class="pre">cameraL</span></code> and <code class="docutils literal notranslate"><span class="pre">cameraR</span></code>, and V units of <code class="docutils literal notranslate"><span class="pre">cpu</span></code>.  In
+the resource data file above, V = 0.3. Next, each unit of <code class="docutils literal notranslate"><span class="pre">audio</span></code>
+requires 1.0 units of <code class="docutils literal notranslate"><span class="pre">sonar</span></code> and A units of <code class="docutils literal notranslate"><span class="pre">cpu</span></code>. Here A =
+0.2. Finishing out the indirect dependencies, each unit of <code class="docutils literal notranslate"><span class="pre">brain</span></code>
+requires B1 units of <code class="docutils literal notranslate"><span class="pre">cpu</span></code> and B2 units of <code class="docutils literal notranslate"><span class="pre">memory</span></code>. In the
+resource data above, B1 = 0.5 and B2 = 0.4.</p>
+<p>So the total resource requirements of node <code class="docutils literal notranslate"><span class="pre">C1</span></code> are: <code class="docutils literal notranslate"><span class="pre">head</span></code>: 1.0;
+<code class="docutils literal notranslate"><span class="pre">vision</span></code>: 1.0; <code class="docutils literal notranslate"><span class="pre">audio</span></code>: 1.0; <code class="docutils literal notranslate"><span class="pre">brain</span></code>: 1.0; <code class="docutils literal notranslate"><span class="pre">cameraL</span></code>: 1.0;
+<code class="docutils literal notranslate"><span class="pre">cameraR</span></code>: 1.0; <code class="docutils literal notranslate"><span class="pre">sonar</span></code>: 1.0; <code class="docutils literal notranslate"><span class="pre">cpu</span></code>: 0.3 + 0.2 + 0.4 = 0.9;
+<code class="docutils literal notranslate"><span class="pre">memory</span></code>: 0.4.</p>
+<p>Following the same chain of reasoning, node <code class="docutils literal notranslate"><span class="pre">C2</span></code> directly requires
+<code class="docutils literal notranslate"><span class="pre">memory</span></code>: 0.3.</p>
+<p>Node <code class="docutils literal notranslate"><span class="pre">C3</span></code> requires: <code class="docutils literal notranslate"><span class="pre">vision</span></code>: 1.0, <code class="docutils literal notranslate"><span class="pre">cameraL</span></code>: 1.0; <code class="docutils literal notranslate"><span class="pre">cameraR</span></code>:
+1.0; <code class="docutils literal notranslate"><span class="pre">cpu</span></code>: 0.3.</p>
+<p>Of the 3 nodes, <code class="docutils literal notranslate"><span class="pre">C1</span></code> has the best priority, 20. Therefore its
+requirements are processed before those of <code class="docutils literal notranslate"><span class="pre">C2</span></code> and <code class="docutils literal notranslate"><span class="pre">C3</span></code>. As all
+of its requirements can be satisfied from the available resources,
+<code class="docutils literal notranslate"><span class="pre">C1</span></code> is allowed to execute. This results in all of <code class="docutils literal notranslate"><span class="pre">head</span></code>,
+<code class="docutils literal notranslate"><span class="pre">vision</span></code>, <code class="docutils literal notranslate"><span class="pre">audio</span></code>, <code class="docutils literal notranslate"><span class="pre">brain</span></code>, <code class="docutils literal notranslate"><span class="pre">cameraL</span></code>, <code class="docutils literal notranslate"><span class="pre">cameraR</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">sonar</span></code>, 0.9 units of <code class="docutils literal notranslate"><span class="pre">cpu</span></code>, and 0.4 units of <code class="docutils literal notranslate"><span class="pre">memory</span></code> getting
+allocated to <code class="docutils literal notranslate"><span class="pre">C1</span></code>. 0.1 units of <code class="docutils literal notranslate"><span class="pre">cpu</span></code> and 29.6 units of <code class="docutils literal notranslate"><span class="pre">memory</span></code>
+remain available.</p>
+<p>Next in priority order, at priority 25, <code class="docutils literal notranslate"><span class="pre">C2</span></code> requires 0.3 units of
+<code class="docutils literal notranslate"><span class="pre">memory</span></code>. With 29.6 units remaining, this request can be satisfied,
+so the arbiter grants the allocation of <code class="docutils literal notranslate"><span class="pre">memory</span></code> to <code class="docutils literal notranslate"><span class="pre">C2</span></code>, and
+allows it to execute. This leaves 29.3 units of <code class="docutils literal notranslate"><span class="pre">memory</span></code> available.</p>
+<p>Last, at priority 30, several resources required by <code class="docutils literal notranslate"><span class="pre">C3</span></code> have
+already been completely allocated to <code class="docutils literal notranslate"><span class="pre">C1</span></code>; these are <code class="docutils literal notranslate"><span class="pre">vision</span></code>,
+<code class="docutils literal notranslate"><span class="pre">cameraL</span></code>, and <code class="docutils literal notranslate"><span class="pre">cameraR</span></code>. Therefore permission to execute <code class="docutils literal notranslate"><span class="pre">C3</span></code>
+is denied by the arbiter.</p>
 </section>
 
 
@@ -195,7 +246,7 @@ need. It is easy to see that <code class="docutils literal notranslate"><span cl
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright (c) 2006-2022, Universities Space Research Association (USRA). All rights reserved.
+    &copy; Copyright (c) 2006-2023, Universities Space Research Association (USRA). All rights reserved.
     
   </div>
   
