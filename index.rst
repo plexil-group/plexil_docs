@@ -1,11 +1,15 @@
-This is the main page for the PLEXIL wiki. For PLEXIL's main project
-page, which has downloads and other information, go here:
-https://github.com/plexil-group/plexil
+This is the main page of the user guide for PLEXIL Release 4.  Most
+but not all of this documentation also applies to Release 6.
+Documentation specific to Release 6 is in development.
 
-The documentation originally was hosted at:
-http://plexil.sourceforge.net/wiki/index.php/Main_Page and the main project was maintained at: https://sourceforge.net/projects/plexil/
+For PLEXIL's main project page, which has downloads and other
+information, go to https://github.com/plexil-group/plexil.
 
-*Updated 18 Aug 2021*
+This documentation originally was hosted at:
+http://plexil.sourceforge.net/wiki/index.php/Main_Page and the main
+project was maintained at: https://sourceforge.net/projects/plexil/
+
+*Updated 15 Nov 2023*
 
 .. contents::
 
