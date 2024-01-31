@@ -310,8 +310,9 @@ Image Credit: NASA/Ames
    :maxdepth: 1
    :hidden:
 
-   PLEXIL-4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
-
+   PLEXIL 4.6 Release Notes <ReleaseNotes/PLEXIL_4_6_ReleaseNotes>
+   PLEXIL 4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
+   
 .. toctree::
    :titlesonly:
    :caption: Appendices
