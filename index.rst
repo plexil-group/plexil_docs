@@ -1,11 +1,13 @@
-This is the main page for the PLEXIL wiki. For PLEXIL's main project
-page, which has downloads and other information, go here:
-https://github.com/plexil-group/plexil
+This is the main page for the PLEXIL wiki.  See PLEXIL's main project
+page at https://github.com/plexil-group/plexil for downloads and
+source code access.
 
-The documentation originally was hosted at:
-http://plexil.sourceforge.net/wiki/index.php/Main_Page and the main project was maintained at: https://sourceforge.net/projects/plexil/
+This documentation was previously hosted at
+http://plexil.sourceforge.net/wiki/index.php/Main_Page and the main
+project was located at https://sourceforge.net/projects/plexil/
+As of May 2023, the SourceForge site is no longer being maintained.
 
-*Updated 18 Aug 2021*
+*Updated 17 Jan 2024*
 
 .. contents::
 
@@ -304,7 +306,9 @@ Image Credit: NASA/Ames
    :maxdepth: 1
    :hidden:
 
-   PLEXIL-4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
+   PLEXIL 4.6 Release Notes <ReleaseNotes/PLEXIL_4_6_ReleaseNotes>
+   PLEXIL 4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
+
    
 .. toctree::
    :titlesonly:
