@@ -3,7 +3,7 @@
 PLEXIL Reference
 ======================
 
-*20 Mar 2023*
+*16 Jan 2024*
 
 .. contents::
 
@@ -116,7 +116,7 @@ Variables
 ~~~~~~~~~
 
 A node may declare variables, which are local to the node. |PLEXIL|
-currently supports variables of types ``Boolean``, ``Integer``,
+currently supports variables of scalar types ``Boolean``, ``Integer``,
 ``Real``, ``String``, and arrays of these four basic types. Examples
 of declarations of the basic types are as follows.
 
@@ -127,12 +127,13 @@ of declarations of the basic types are as follows.
     Real pi;
     String message;
 
-These examples of variable declarations do not specify initial values
-for the variables. Uninitialized variables of all types except arrays
-are given the value :ref:`Unknown <data_types_and_expressions>`. Here
-are the same variable declarations with initial values
-specified. Initial values must be literals -- expressions are not
-allowed. (This limitation will be removed in a forthcoming release.)
+Variables without a declared initial value are initialized to the
+value :ref:`Unknown <data_types_and_expressions>`.
+
+Variable declarations may optionally specify initial values.  Here are
+the same variable declarations with initial values specified. Initial
+values must be literals -- expressions are not allowed. (This
+limitation will be removed in a forthcoming release.)
 
 ::
 

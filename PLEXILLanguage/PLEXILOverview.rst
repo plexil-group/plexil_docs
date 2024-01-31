@@ -3,7 +3,7 @@
 PLEXIL Overview
 ====================
 
-*10 Apr 2021*
+*16 Jan 2024*
 
 .. contents::
 
@@ -47,7 +47,7 @@ applications of |PLEXIL|.
 .. _plexil_overview:
 
 Overview
----------------
+--------
 
 This section is a short overview of the |PLEXIL| language. It describes
 abstractly the main features of |PLEXIL|, and explains how one programs in
@@ -55,6 +55,51 @@ abstractly the main features of |PLEXIL|, and explains how one programs in
 describes in detail the programming constructs of |PLEXIL|. The :ref:`Detailed Semantics <PLEXILSemantics>`
 chapter covers |PLEXIL| execution in
 greater depth.
+
+.. _data_types:
+
+Data Types
+----------
+
+|PLEXIL| provides 4 *scalar* data types, one-dimensional *arrays*
+of each scalar type, and the distinguished value *unknown*.
+
+-  The **Boolean** type consists of two values, **true** and **false**,
+   which can also be represented as 1 and 0 respectively.
+-  The **Integer** type represents 32-bit two's complement integers. It
+   is equivalent to the C ``int32_t`` type.
+-  The **Real** type represents 64-bit IEEE 754 floating-point
+   numbers. It is equivalent to the C ``double`` type.
+-  The **String** type represents character strings of any length.
+   |PLEXIL| strings are represented internally as C++ ``std::string``
+   values.
+
+|PLEXIL| arrays are homogenous. They have a declared maximum size, and
+an actual size, which may be less than the maximum. Array elements are
+initialized to *unknown* by default.
+
+There is an additional "catch-all" type, **Any**, which is legal only
+in parameter declarations for Commands and Lookups.
+
+.. _expressions:
+
+Expressions
+-----------
+
+|PLEXIL| expressions are *strongly typed*.  The only implicit type
+conversion is from Integer to Real. Arithmetic expressions will be
+promoted to Real if any subexpression is of Real type. Arithmetic
+expressions of solely Integer values will yield Integer values. Note
+in particular that Integer division yields an Integer value, as in C.
+
+To convert a Real value to an Integer, one must use an explicit
+conversion operator such as ``round()``, ``floor()``, ``ceil()``, or
+``trunc()``.
+
+Any expression, irrespective of declared type, may evaluate to
+*unknown*. This includes Boolean expressions. The ``isKnown()``
+operator returns ``false`` if its argument is *unknown*, ``true``
+otherwise.
 
 Nodes
 ~~~~~
@@ -70,11 +115,11 @@ blocks from which arbitrarily complex behaviors can be specified. There
 are many kinds of nodes in |PLEXIL|, and each is a programming construct
 specifying a certain behavior.
 
-A |PLEXIL| plan is a tree of nodes with a single root node. This tree
-represents a hierarchical decomposition of tasks. High level tasks are
-closer to the root node, while leaf nodes represent primitive behaviors
-such as assigning to a variable or sending a command to the external
-system.
+A |PLEXIL| plan is a tree of nodes, with a single *root node*. This
+tree represents a hierarchical decomposition of tasks. High level
+tasks are closer to the root node, while leaf nodes represent
+primitive behaviors such as assigning to a variable or sending a
+command to the external system.
 
 The following diagram exemplifies a simple hierarchical plan. Its
 representation in |PLEXIL| would have a similar tree structure.
@@ -87,20 +132,6 @@ Let's meet the nodes. The following UML diagram illustrates the essence
 of |PLEXIL|.
 
 .. figure:: ../_static/images/Plexil-uml.jpg
-
-Stacked in a column on the right side of the diagram are the kinds of
-*compound nodes*, which specify high level behaviors.
-
--  The *Concurrence* node groups child nodes to be executed in parallel.
--  The *Sequence*, *Unchecked Sequence*, and *Try* nodes group child
-   nodes to be executed in the order listed, in various different ways.
--  The *IfThenElse*, *Do*, *While*, and *For* nodes provide conditional
-   and iterative execution of their child nodes as implied by their
-   names.
--  The *OnMessage* and *OnCommand* nodes are used in multi-executive
-   applications and specify response policies.
-
-Nodes are described in greater detail in the :ref:`Plexil Reference <PLEXILReference>` chapter.
 
 .. _core_plexil:
 
@@ -115,18 +146,8 @@ diagram are translated into a tree of simple nodes prior to execution.
 Only Core |PLEXIL| is directly executed by the |PLEXIL| executive; the final
 plan executed is a single tree of simple nodes.
 
-Historical note: Originally, Core |PLEXIL| was the entire |PLEXIL| language.
-Core |PLEXIL| was too primitive to write non-trivial plans, so it was
-extended with higher level constructs, essentially "macros" that
-translated into Core |PLEXIL| for execution; this extended language was
-called *Extended PLEXIL*. Today, the full language is simply called
-PLEXIL (or Plexil).
-
-There are six types of nodes comprising Core |PLEXIL|. The interior nodes
-in a plan are *List nodes*. List nodes have *child nodes* (or
-"children") which can be of any type. A List node is called the *parent
-node* (or "parent") of its child nodes. The remaining nodes are leaf
-nodes in a plan.
+Core |PLEXIL| consists of six node types. Four of these are *leaf*
+node types:
 
 -  An *empty node* can contain only attributes and performs no action.
 -  An *assignment node* performs a local computation, whose value is
@@ -134,18 +155,60 @@ nodes in a plan.
 -  A *command node* issues commands to the system being operated on.
 -  An *update node* provides information to the planning and
    decision-support interface.
--  A *library call node* invoke nodes located in an external library.
+
+There are two *interior* node types:
+
+-  *List nodes* can contain any number of *child nodes* (or "children")
+   of any node type. A List node is called the *parent node* (or
+   "parent") of its children. In the absence of explicit sequencing
+   conditions, all the children of a List node execute in parallel.
+-  A *library call node* invokes a node defined in an external
+   library. A Library Call node can be thought of as a macro call,
+   which is expanded into a copy of the called node when the plan is
+   loaded. Parameters are passed by reference into the called node.
+
+The top node in a plan is called its *root node*.
+
+.. _overview_extended_plexil:
+
+Extended PLEXIL
+---------------
+
+Stacked in a column on the right side of the diagram are the kinds of
+*compound nodes*, which specify higher level control constructs.
+
+-  *Concurrence* nodes group child nodes to be executed in parallel.
+-  *Sequence*, *Unchecked Sequence*, and *Try* nodes group child
+   nodes to be executed in the order listed, in various different ways.
+-  *IfThenElse* nodes conditionally execute their child nodes based
+   upon the values of one or more Boolean expressions.
+-  *Do*, *While*, and *For* nodes iterate over their child nodes as
+   implied by their names.
+-  The *OnMessage* and *OnCommand* nodes are used in multi-executive
+   applications. They specify behavior in response to a received
+   message or command, respectively.
+
+Nodes are described in greater detail in the :ref:`Plexil Reference <PLEXILReference>` chapter.
+
+.. _overview_conditions:
 
 Conditions
 ~~~~~~~~~~
 
-A node can specify up to eight *conditions*, which determine its
-execution and outcome. There are nominal control conditions that specify
-when the node should start executing, when it should finish executing,
-when it should be repeated, and when it can be "skipped". These are
-referred to collectively as the node's *gate conditions*.
+A node can specify up to eight explicit *conditions*. Conditions are
+Boolean expressions which dictate a node's execution and outcome. Note
+that |PLEXIL| implements a *ternary* logic in which Boolean expressions
+evaluate to one of True, False, or Unknown.
+
+There are nominal control conditions that specify when the node should
+start executing, when it should finish executing, when it should be
+repeated, and when it can be skipped. These are referred to
+collectively as the node's *gate conditions*.
 
 -  A *start condition* specifies when the node should start execution.
+
+-  A *skip condition* specifies when the node's execution should be
+   bypassed altogether.
 
 -  An *end condition* specifies when the node should finish its
    execution.
@@ -153,27 +216,25 @@ referred to collectively as the node's *gate conditions*.
 -  A *repeat condition* specifies when the node should be made eligible
    for a repeat execution.
 
--  A *skip condition* specifies when the node's execution should be
-   bypassed altogether.
-
 Next, there are failure conditions that identify when execution is not
 successful, and these are referred to collectively as a node's *check
 conditions*.
 
 -  A *precondition* is checked immediately after the start condition
    becomes true. If this check fails, the node will be aborted and have
-   an outcome of failure. Preconditions are often used to verify that it
+   an outcome of Failure. Preconditions are often used to verify that it
    is "safe" to execute the node.
 
 -  A *postcondition* is checked after the node has completed execution.
-   If this check fails, the node has an outcome of failure.
+   If this check fails, the node has an outcome of Failure.
    Postconditions are often used to verify that a node had the intended
    effect.
 
 -  An *invariant condition* is checked during node execution, and if it
-   fails at any point, the node will be aborted and have an outcome of
-   failure. Invariant conditions are often used to monitor conditions
-   that are needed for the safe continued execution of the node.
+   becomes False at any point, the node will be aborted and have an
+   outcome of Failure. Invariant conditions are often used to monitor
+   conditions that are needed for the safe continued execution of the
+   node.
 
 Finally, there is a condition that says when to terminate a node
 "prematurely" (i.e. before its end condition is satisfied), though
@@ -185,9 +246,7 @@ intentionally.
    cancellation. It is effectively the dual of the Invariant condition,
    which when false has the same effect but with a failure outcome.
 
-Each condition specifies a logical expression. |PLEXIL| employs a
-*ternary* logic in which logical expressions evaluate to one of True,
-False, or Unknown.
+.. _overview_variables:
 
 Variables
 ~~~~~~~~~
@@ -197,6 +256,13 @@ accessible to the node and all its descendants, but not siblings or
 ancestors. Access to variables (for reading or writing) can be
 restricted by use of *interfaces* in nodes. Interfaces are described in
 the next chapter.
+
+|PLEXIL| variables are *strongly typed*. They may only be assigned
+values of their declared types. The sole exception to this rule: Real
+variables may be assigned an Integer value, because every Integer can
+be exactly represented as a Real value.
+
+Variables lacking an explicit initial value are initialized to *unknown*.
 
 .. _state_outcome_and_introspection:
 
@@ -250,15 +316,10 @@ Programming in PLEXIL
 Standard Plexil
 ^^^^^^^^^^^^^^^
 
-There are several means of programming in |PLEXIL|. The executable form of
-|PLEXIL| is its XML representation. While many external applications have
-*generated* |PLEXIL| code in its XML form, the XML form is not practical
-for authoring |PLEXIL| directly.
-
-The standard programming syntax for |PLEXIL| is described in this manual.
-It is simply called Plexil, or sometimes *standard Plexil*. A translator
-for Plexil, which converts user programs into Core |PLEXIL| XML, is
-described in the :ref:`next chapter <PLEXILReference>`.
+The C-like syntax described in this manual is that of Standard
+|PLEXIL|.  The compiler for Standard |PLEXIL| translates user programs
+into Core |PLEXIL| XML. The compiler is described in the :ref:`next
+chapter <PLEXILReference>`.
 
 Note that the terms "PLEXIL" and "Plexil" can refer to the abstract
 |PLEXIL| language (nodes) and/or to its standard programming syntax.

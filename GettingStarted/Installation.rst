@@ -1,24 +1,31 @@
 .. _Installation:
 
+************
 Installation
-=============
+************
 
-*13 May 2021*
+*30 Jan 2024*
 
-This page describes how to get and install |PLEXIL|. Familiarity with a
-Unix-like operating system (e.g. Linux, macOS) is assumed.
+This page describes how to get and install |PLEXIL|.  Familiarity with
+command line usage on a Unix-like operating system (e.g. Linux, macOS)
+is assumed.
+
+This document describes the ``releases/plexil-4.6`` branch of
+|PLEXIL|.  Installation for other branches should be similar, but may
+have different prerequisites.
 
 .. contents::
 
 .. _getting_plexil:
 
 Getting PLEXIL
---------------
+==============
 
 There are two ways to get |PLEXIL|:
 
--  Download a compressed archive (*tarball*) of the sources and prebuilt
-   Java jars.
+-  Download a compressed archive (*tarball*) containing sources and
+   some prebuilt artifacts.
+
 -  Clone the source code from the ``git`` repository hosted here on
    GitHub.
 
@@ -28,24 +35,24 @@ Plexilscript compilers, the |PLEXIL| Viewer, and the |PLEXIL| static
 checker; therefore it is the recommended distribution format for
 exploring |PLEXIL| for the first time.
 
-.. _Tarbal:
+.. _Tarball:
 
 Tarball
 ~~~~~~~
 
-The most recent tarball (compressed source archive file) is available
-for download
-`here <https://sourceforge.net/projects/plexil/files/latest/download>`_.
-It is built with the GNU ``tar`` utility.
+PLEXIL release archive files are available for download from the
+`releases page <https://github.com/plexil-group/plexil/releases>`_
+at GitHub. They are built with the GNU ``tar`` utility, hence the
+nickname "tarball".
 
-The archive may be expanded by the archive utility on your platform, or
-at the command line:
+Downloaded archives may be expanded by the archive utility on your
+platform, or at the command line:
 
 ::
 
-    tar xzf plexil-4.5.0RC3.tar.gz
+    tar xzf plexil-4.6-alpha.tar.gz
 
-This will expand to a directory named ``plexil-4.5.0RC3`` with all the
+This will expand to a directory named ``plexil-4.6-alpha`` with all the
 source and example files. This is the directory to use as
 ``PLEXIL_HOME`` in the procedures below.
 
@@ -60,28 +67,29 @@ git
 |PLEXIL| source code may be checked out from the repository on
 GitHub.
 
-The following command will get the latest stable version of the source
-code (currently the ``releases/plexil-4`` branch):
+The following sequence of commands will get the latest stable version
+of the source code (currently the ``releases/plexil-4.6`` branch) and
+submodules into a new directory named ``plexil``::
 
-::
+    git clone -b releases/plexil-4.6 https://github.com/plexil-group/plexil.git plexil
+    cd plexil
+    git submodule update --init --recursive
 
-    git clone -b releases/plexil-4 https://github.com/plexil-group/plexil.git plexil
 
-This will create a directory named ``plexil`` with all the source files.
+.. _deprecated_repositories:
 
-.. _subversion_svn:
+Deprecated repositories
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Subversion (svn)
-~~~~~~~~~~~~~~~~
+|PLEXIL| was formerly hosted on SourceForge.  The SourceForge
+repositories are no longer maintained since 2023.  Please update any
+links to point to the GitHub repository instead.
 
-The original Subversion repository still exists, but has not been
-updated since the git repository was established. If you have been using
-SVN, we recommend you switch to git.
 
 .. _installing_plexil:
 
 Installing PLEXIL
------------------
+=================
 
 The |PLEXIL| Executive and its examples are buildable with either `GNU
 Make <https://www.gnu.org/software/make/>`_ or
@@ -97,18 +105,18 @@ building, and running |PLEXIL|.
 Basic installation
 ~~~~~~~~~~~~~~~~~~
 
-These instructions presume a POSIX-compliant shell and GNU make.
+These instructions presume a POSIX-compliant shell and GNU ``make``.
 
 * Unpack or clone the sources. See `Tarball <Tarball_>`_ or `git <git_>`_ above.
 
 .. note::
 
-    Plexil may not build correctly if installed in a directory that 
+    PLEXIL may not build correctly if installed in a directory that 
     is a symbolic link, such as ``/tmp`` in macOS.
 
 * Change into the source directory.
 
-* Set up the environment. (This is not strictly necessary for the
+* Set up the shell environment. (This is not strictly necessary for the
    build, but will be for running programs.)
 
 ::

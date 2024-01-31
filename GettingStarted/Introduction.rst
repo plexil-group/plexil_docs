@@ -3,6 +3,8 @@
 Introduction
 =============
 
+*16 Jan 2024*
+
 Welcome to |PLEXIL|!
 
 This is the reference manual for the |PLEXIL| language and related tools
@@ -25,59 +27,66 @@ Part A: Getting Started
 
 -  Chapter 1: :ref:`Introduction <Introduction>`
 
--  Chapter 2: :ref:`Download and Install <Installation>`
+-  Chapter 2: :ref:`Requirements <Requirements>`
 
-Part B: The |PLEXIL| Langauge
+-  Chapter 3: :ref:`Download and Install <Installation>`
 
--  Chapter 3: :ref:`Overview <PLEXILOverview>`
+Part B: The |PLEXIL| Language
 
--  Chapter 4: :ref:`Plexil Reference <PLEXILReferences>`
+-  Chapter 4: :ref:`Overview <PLEXILOverview>`
 
--  Chapter 5: :ref:`Detailed Semantics <PLEXILSemantics>`
+-  Chapter 5: :ref:`Plexil Reference <PLEXILReference>`
 
--  Chapter 6: :ref:`Resource Model <ResourceModel>`
+-  Chapter 6: :ref:`Detailed Semantics <PLEXILSemantics>`
 
-   -  6.1 :ref:`Simple unary resources <SimpleUnaryResources>`
-   -  6.2 :ref:`Non-unary resources <NonUnaryResources>`
-   -  6.3 :ref:`Renewable resources <RenewableResources>`
-   -  6.4 :ref:`Hierarchical resources <HierarchialResources>`
+-  Chapter 7: :ref:`Resource Model <ResourceModel>`
+
+   -  7.1 :ref:`Simple unary resources <SimpleUnaryResources>`
+   -  7.2 :ref:`Non-unary resources <NonUnaryResources>`
+   -  7.3 :ref:`Renewable resources <RenewableResources>`
+   -  7.4 :ref:`Hierarchical resources <HierarchialResources>`
 
 Part C: |PLEXIL| Execution
 
--  Chapter 7: :ref:`PLEXIL Executive <PLEXILExecutive>`
+-  Chapter 8: :ref:`PLEXIL Executive <PLEXILExecutive>`
 
--  Chapter 8: :ref:`Simulating Plan Execution <PLEXILSimulators>`
+-  Chapter 9: :ref:`Simulating Plan Execution <PLEXILSimulators>`
 
--  Chapter 9: :ref:`Viewing Plan Execution <PLEXILViewer>`
+-  Chapter 10: :ref:`Viewing Plan Execution <PLEXILViewer>`
 
--  Chapter 10: :ref:`Communication <Communication>`
+-  Chapter 11: :ref:`Communication <Communication>`
 
-   -  10.1 :ref:`Multi-Executive Applications <Inter-ExecutiveCommunication>`
-   -  10.2 :ref:`UDP-based Applications <UDPAdapter>`
+   -  11.1 :ref:`Multi-Executive Applications <Inter-ExecutiveCommunication>`
+   -  11.2 :ref:`UDP-based Applications <UDPAdapter>`
 
--  Chapter 11: :ref:`Resource Arbiter <ResourceArbiter>`
+-  Chapter 12: :ref:`Resource Arbiter <ResourceArbiter>`
 
 Part D: |PLEXIL| Tools
 
--  Chapter 12: :ref:`Plexilisp <Plexilisp>`
+-  Chapter 13: :ref:`Plexilisp <Plexilisp>`
 
-   -  12.1 :ref:`Plexilisp Tutorial <PlexilispTutorial>`
-   -  12.2 :ref:`Plexilisp Reference Manual <PlexilispRefernceManual>`
+   -  13.1 :ref:`Plexilisp Tutorial <PlexilispTutorial>`
+   -  13.2 :ref:`Plexilisp Reference Manual <PlexilispRefernceManual>`
 
--  Chapter 13: :ref:`Plexil Checker <PlexilChecker>`
+-  Chapter 14: :ref:`Plexil Checker <PlexilChecker>`
 
--  Chapter 14: :ref:`PLEXIL, XML, and Emacs <XMLSchemaEmacs>`
+-  Chapter 15: :ref:`PLEXIL, XML, and Emacs <XMLSchemaEmacs>`
 
 Part E: Interfacing with External Systems
 
--  Chapter 15: :ref:`Interfacing Overview <InterfacingOverview>`
+-  Chapter 16: :ref:`Interfacing Overview <InterfacingOverview>`
 
-   -  15.1 :ref:`Standard Interface Libraries <StandardLibraries>`
-   -  15.2 :ref:`Interface Configuration File <InterfaceConfigurationFile>`
-   -  15.3 :ref:`The Application Framework <TheApplicationFramework>`
-   -  15.4 :ref:`Implementing Custom Interfaces <ImplementingCustomInterfaces>`
-   -  15.5 :ref:`Implementing Custom Applications <ImplementingCustomApplications>`
-   -  15.6 :ref:`API Reference <APIReference>`
+   -  16.1 :ref:`Standard Interface Libraries <StandardLibraries>`
+   -  16.2 :ref:`Interface Configuration File <InterfaceConfigurationFile>`
+   -  16.3 :ref:`The Application Framework <TheApplicationFramework>`
+   -  16.4 :ref:`Implementing Custom Interfaces <ImplementingCustomInterfaces>`
+   -  16.5 :ref:`Implementing Custom Applications <ImplementingCustomApplications>`
+   -  16.6 :ref:`API Reference <APIReference>`
+
+Release Notes
+
+- :ref:`PLEXIL 4.6 Release Notes <PLEXIL_4_6_ReleaseNotes>`
+- :ref:`PLEXIL-4 Release Notes <PLEXIL4ReleaseNotes>`
 
 Appendices
 
