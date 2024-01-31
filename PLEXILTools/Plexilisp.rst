@@ -25,7 +25,7 @@ Lisp-like
 
 Plexil language support
 
--  Implements the :ref:`Extended PLEXIL <PlexilReferences>` syntax, and provides
+-  Implements the :ref:`Extended PLEXIL <PlexilReference>` syntax, and provides
    additional convenience forms and shortcuts.
 -  Provides a syntax for :ref:`simulation scripts <test_executive_simulation_script>` needed
    for testing PLEXIL plans with the :ref:`Test Executive <test_executive>`.

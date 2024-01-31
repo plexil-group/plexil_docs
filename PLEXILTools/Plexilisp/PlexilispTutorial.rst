@@ -73,7 +73,7 @@ buffers you created above, and either type '''``M-x plexil``''' or
 '''Control-C Control-C''' (the latter is a shortcut for the former).
 
 Plexilisp goes through a two-step "compilation" process. The first
-generates an :ref:`Extended PLEXIL <PLEXILReferences>` file, which has a
+generates an :ref:`Extended PLEXIL <PLEXILReference>` file, which has a
 file extension of ``.epx``. The second step compiles the Extended PLEXIL
 into Core PLEXIL, creating a ``.plx`` file. Buffers for both these files
 will be appear in your Emacs.

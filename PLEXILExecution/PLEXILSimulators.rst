@@ -76,7 +76,7 @@ as follows.
     plexiltest -plan foo.plx -script world.psx
     plexiltest -p foo.plx -s world.psx
 
-If your plan uses libraries (discussed in :ref:`Plexil Reference <PlexilReferences>`), they may be specified as well. In the
+If your plan uses libraries (discussed in :ref:`Plexil Reference <PlexilReference>`), they may be specified as well. In the
 following example, assume two library files named ``lib1.plx`` and
 ``lib2.plx``.
 

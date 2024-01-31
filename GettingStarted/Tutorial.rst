@@ -13,7 +13,7 @@ plans of automation. To help new users learn the language without having
 a system to automate, we have created the Robosim simulator. This
 tutorial will guide you through learning |PLEXIL| using this simulator.
 
-Throughout this tutorial links to the :ref:`PLEXIL Documentation <PLEXILReferences>`
+Throughout this tutorial links to the :ref:`PLEXIL Documentation <PLEXILReference>`
 will be provided so you can read more about the topics we explore.  
 
 .. _starting_the_simulation:

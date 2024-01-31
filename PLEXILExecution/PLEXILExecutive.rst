@@ -77,7 +77,7 @@ follows.
      plexilexec -plan foo.plx -config my-config.xml
      plexilexec -p foo.plx -c my-config.xml
 
-If your plan uses libraries (discussed in :ref:`Plexil Reference <PlexilReferences>`), they may be specified as well. In the
+If your plan uses libraries (discussed in :ref:`Plexil Reference <PlexilReference>`), they may be specified as well. In the
 following example, assume two library files named ``lib1.plx`` and
 ``lib2.plx``.
 

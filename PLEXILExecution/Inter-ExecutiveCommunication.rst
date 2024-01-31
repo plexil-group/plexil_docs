@@ -81,7 +81,7 @@ OnCommand and OnMessage
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 For detailed semantics of the OnCommand and OnMessage Extended |PLEXIL|
-constructs used for receiving commands and messages, see the :ref:`Plexil Reference <PlexilReferences>`.
+constructs used for receiving commands and messages, see the :ref:`Plexil Reference <PlexilReference>`.
 
 Lookups
 ~~~~~~~
