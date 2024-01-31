@@ -7,7 +7,7 @@ PLEXIL Semantics
 
 Clear semantics make it easier to verify and validate automated plans
 and to implement a lightweight executive that conforms to the semantics
-of execution. This chapter elaborates the :ref:`Plexil Reference <PLEXILReferences>` by describing detailed semantics for
+of execution. This chapter elaborates the :ref:`Plexil Reference <PLEXILReference>` by describing detailed semantics for
 various aspects of |PLEXIL| and its execution. The formal semantics
 presented here are based entirely on *Core PLEXIL*.
 
