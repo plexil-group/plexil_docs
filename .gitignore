@@ -1,1 +1,8 @@
+# Sphinx default build directory
 _build
+# macOS specific junk
+.DS_Store
+# Emacs temporary and backup files
+*~
+.*~
+\#*#
