@@ -1,15 +1,16 @@
-This is the main page of the user guide for PLEXIL Release 4.  Most
-but not all of this documentation also applies to Release 6.
+This is the main page of the user guide for PLEXIL and documents its
+releases 4.x.
+
+Most but not all of this documentation also applies to Release 6.
 Documentation specific to Release 6 is in development.
 
 For PLEXIL's main project page, which has downloads and other
 information, go to https://github.com/plexil-group/plexil.
 
-This documentation originally was hosted at:
-http://plexil.sourceforge.net/wiki/index.php/Main_Page and the main
-project was maintained at: https://sourceforge.net/projects/plexil/
+This user guide supercedes the previous version that was hosted on
+Sourceforge.
 
-*Updated 15 Nov 2023*
+*Updated 31 Jan 2024*
 
 .. contents::
 
@@ -78,7 +79,7 @@ uses |PLEXIL| for onboard lander autonomy.
    :width: 350
 
    Image Credit: NASA
-   
+
 
 .. _cockpit_hierarchical_activity_planning_and_execution_chap_e:
 
@@ -143,7 +144,7 @@ host of improvements to make |PLEXIL| more robust for flight applications.
    :width: 350
 
    Image Credit: NASA
-   
+
 .. _edison_demonstration_of_smallsat_networks:
 
 `Edison Demonstration of Smallsat Networks <http://www.nasa.gov/centers/ames/engineering/projects/edison.html#.U17Facd2M1Q>`_
@@ -161,7 +162,7 @@ automation.
     :width: 45 %
 .. image:: _static/images/Edsn2.jpg
     :width: 45 %
-	
+
 Image Credit: NASA
 
 .. _habitat_demonstration_unit:
@@ -181,7 +182,7 @@ demonstrate automated control of several DSH subsystems.
     :width: 45 %
 .. image:: _static/images/120px-Hdu2.jpg
     :width: 45 %
-	
+
 Image Credit: NASA
 
 .. _international_space_station:
@@ -196,7 +197,7 @@ Station operations.
     :width: 45 %
 .. image:: _static/images/Iss2.jpg
     :width: 45 %
-	
+
 Image Credit: NASA
 
 
@@ -215,7 +216,7 @@ and Quebec, this is perhaps the first fully automated drill rig.
     :width: 45 %
 .. image:: _static/images/151000main_marsdrill2033.png
     :width: 45 %
-	
+
 Image Credit: NASA/Ames
 
 .. _k10_rover:
@@ -236,14 +237,14 @@ series of high-resolution pictures at pre-determined locations.
     :width: 45 %
 .. image:: _static/images/K10_v.jpg
     :width: 45 %
-	
+
 Image Credit: NASA/Ames
 
 .. toctree::
    :hidden:
 
    Home Page <self>
-   
+
 .. toctree::
    :caption: Getting Started
    :maxdepth: 1
@@ -288,7 +289,7 @@ Image Credit: NASA/Ames
    PLEXILTools/Plexilisp
    PLEXILTools/PLEXILChecker
    PLEXILTools/XMLSchemaEmacs
-   
+
 .. toctree::
    :caption: Interfacing
    :maxdepth: 1
@@ -301,15 +302,15 @@ Image Credit: NASA/Ames
    Implementing Custom Interfaces <Interfacing/ImplementingCustomInterfaces>
    Implementing Custom Applications <Interfacing/ImplementingCustomApplications>
    API Reference <Interfacing/APIReference>
-   
-   
+
+
 .. toctree::
    :caption: Release Notes
    :maxdepth: 1
    :hidden:
 
    PLEXIL-4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
-   
+
 .. toctree::
    :titlesonly:
    :caption: Appendices
@@ -321,4 +322,3 @@ Image Credit: NASA/Ames
    RoboSim <Appendices/RoboSim>
    SimulatorNotes <Appendices/SimulatorNotes>
    References <Appendices/References>
-
