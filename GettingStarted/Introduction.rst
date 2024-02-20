@@ -10,12 +10,12 @@ included in the software distribution. The latest version of this manual
 is always found online at
 https://plexil-group.github.io/plexil_docs.
 
-We are striving to make the language and system increasingly usable and
-better documented, so any feedback you have is greatly appreciated.
-Comments and questions are welcome. If you encounter any material you
-find confusing, or is inadequate for your needs, please contact
-plexildiscuss@gmail.com and we'll do our best to help you and to
-improve the manual.
+We are striving to make the language and system increasingly usable
+and better documented, so any feedback you have is greatly
+appreciated.  Comments and questions are welcome. If you encounter any
+material you find confusing, or is inadequate for your needs, please
+contact plexil-support@lists.sourceforge.net and we'll do our best to
+help you and to improve the manual.
 
 We hope you enjoy using |PLEXIL| and find it well-suited to your needs.
 

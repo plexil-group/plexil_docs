@@ -59,8 +59,7 @@ more information on the background and applications of |PLEXIL|.
 See the sidebar (column to the left of this page) for links to many
 |PLEXIL| topics.
 
-If you have questions, please email us at
-plexildiscuss@gmail.com
+If you have questions, please email us at plexil-support@lists.sourceforge.net.
 
 .. _nasa_applications:
 
