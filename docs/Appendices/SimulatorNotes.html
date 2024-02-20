@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Simulator Notes &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="References" href="References.html" />
@@ -46,7 +45,7 @@
           <div class="body" role="main">
             
   <section id="simulator-notes">
-<span id="simulatornotes"></span><h1><a class="toc-backref" href="#id16" role="doc-backlink">Simulator Notes</a><a class="headerlink" href="#simulator-notes" title="Permalink to this heading">¶</a></h1>
+<span id="simulatornotes"></span><h1><a class="toc-backref" href="#id16" role="doc-backlink">Simulator Notes</a><a class="headerlink" href="#simulator-notes" title="Link to this heading">¶</a></h1>
 <p><em>10/5/10</em></p>
 <p>This chapter provides detailed notes on the <em>PLEXIL</em> Simulator. It is
 directed at software developers rather than users.</p>
@@ -86,7 +85,7 @@ directed at software developers rather than users.</p>
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Although the objective of the <em>PLEXIL</em> simulator is to program it to mimic
 a real-life application, in the interest of customizability and ease of
 use, it is a good idea to identify and separate out the aspects of the
@@ -111,9 +110,9 @@ The core also provides several base classes that are implemented by the
 application dependent peripheral.</p>
 </section>
 <section id="application-independent-core">
-<span id="id1"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink">Application Independent Core</a><a class="headerlink" href="#application-independent-core" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink">Application Independent Core</a><a class="headerlink" href="#application-independent-core" title="Link to this heading">¶</a></h2>
 <section id="script-reader">
-<span id="id2"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Script Reader</a><a class="headerlink" href="#script-reader" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Script Reader</a><a class="headerlink" href="#script-reader" title="Link to this heading">¶</a></h3>
 <p>Reads and parses the mandatory <em>line 1</em> of the simulator script files
 and passes on the optional <em>line 2</em> to a parser implemented by the user
 for to extract the return value information that is specific to a
@@ -121,27 +120,27 @@ command or data pertaining to a specific state being posted as telemetry
 data.</p>
 </section>
 <section id="response-message-manager">
-<span id="id3"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Response Message Manager</a><a class="headerlink" href="#response-message-manager" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Response Message Manager</a><a class="headerlink" href="#response-message-manager" title="Link to this heading">¶</a></h3>
 <p>Manages the response that are to be posted for a command. In particular,
 it is responsible for customizing the response for a specific occurrence
 of a command since the simulator design allows the user to customize the
 behavior per command occurrence.</p>
 </section>
 <section id="timing-service">
-<span id="id4"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Timing Service</a><a class="headerlink" href="#timing-service" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Timing Service</a><a class="headerlink" href="#timing-service" title="Link to this heading">¶</a></h3>
 <p>Performs the job of setting timers and provides the necessary handlers
 that will be called with the scheduled time expires. The design makes
 use of the Posix interval timer.</p>
 </section>
 <section id="simulator">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Simulator</a><a class="headerlink" href="#simulator" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Simulator</a><a class="headerlink" href="#simulator" title="Link to this heading">¶</a></h3>
 <p>Coordinates all the steps involved in the simulation activity such as
 reading script files, maintaining a list of pending tasks, requesting
 and handling wakeup calls and calling the appropriate entity to send a
 response.</p>
 </section>
 <section id="response-base">
-<span id="id5"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">Response Base</a><a class="headerlink" href="#response-base" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">Response Base</a><a class="headerlink" href="#response-base" title="Link to this heading">¶</a></h3>
 <p>A base class that encapsulates the actual response object as well as the
 time delay for that response. It declares a pure virtual function</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtual</span> <span class="n">ResponseMessage</span><span class="o">*</span> <span class="n">createResponseMessage</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -151,7 +150,7 @@ time delay for that response. It declares a pure virtual function</p>
 message.</p>
 </section>
 <section id="response-factory-base">
-<span id="id6"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">Response Factory Base</a><a class="headerlink" href="#response-factory-base" title="Permalink to this heading">¶</a></h3>
+<span id="id6"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">Response Factory Base</a><a class="headerlink" href="#response-factory-base" title="Link to this heading">¶</a></h3>
 <p>A base class that has a pure virtual function that invokes the method to
 parse <em>line 2</em> in the simulation script.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ResponseBase</span><span class="o">*</span> <span class="n">ResponseFactory</span><span class="p">::</span><span class="n">parse</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">cmdName</span><span class="p">,</span>
@@ -164,7 +163,7 @@ and the entire contents of <em>line 2</em>. The method subsequently returns a
 pointer to response object it creates.</p>
 </section>
 <section id="communication-relay-base">
-<span id="id7"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">Communication Relay Base</a><a class="headerlink" href="#communication-relay-base" title="Permalink to this heading">¶</a></h3>
+<span id="id7"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">Communication Relay Base</a><a class="headerlink" href="#communication-relay-base" title="Link to this heading">¶</a></h3>
 <p>A base class that serves as the conduit for communication between the
 simulator core and the user provided communication interface. The base
 class declares a pure virtual function</p>
@@ -178,27 +177,27 @@ provided by the user is then responsible for publishing the response.</p>
 </section>
 </section>
 <section id="application-dependent-peripheral">
-<span id="id8"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink">Application Dependent Peripheral</a><a class="headerlink" href="#application-dependent-peripheral" title="Permalink to this heading">¶</a></h2>
+<span id="id8"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink">Application Dependent Peripheral</a><a class="headerlink" href="#application-dependent-peripheral" title="Link to this heading">¶</a></h2>
 <section id="response-factory-implementation">
-<span id="id9"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink">Response Factory Implementation</a><a class="headerlink" href="#response-factory-implementation" title="Permalink to this heading">¶</a></h3>
+<span id="id9"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink">Response Factory Implementation</a><a class="headerlink" href="#response-factory-implementation" title="Link to this heading">¶</a></h3>
 <p>Provides a concrete implementation of the parser for <em>line 2</em> entries if
 the simulation script. The user is expected to construct the appropriate
 response for each of the command entries specified in the simulation
 script including all specific occurrences of a command.</p>
 </section>
 <section id="response-implementation">
-<span id="id10"></span><h3><a class="toc-backref" href="#id28" role="doc-backlink">Response Implementation</a><a class="headerlink" href="#response-implementation" title="Permalink to this heading">¶</a></h3>
+<span id="id10"></span><h3><a class="toc-backref" href="#id28" role="doc-backlink">Response Implementation</a><a class="headerlink" href="#response-implementation" title="Link to this heading">¶</a></h3>
 <p>Provides the implementation of the response that the response factory
 implementation instantiates.</p>
 </section>
 <section id="communication-relay-implementation">
-<span id="id11"></span><h3><a class="toc-backref" href="#id29" role="doc-backlink">Communication Relay Implementation</a><a class="headerlink" href="#communication-relay-implementation" title="Permalink to this heading">¶</a></h3>
+<span id="id11"></span><h3><a class="toc-backref" href="#id29" role="doc-backlink">Communication Relay Implementation</a><a class="headerlink" href="#communication-relay-implementation" title="Link to this heading">¶</a></h3>
 <p>Provides the concrete implementation of the communication relay base
 class that was described in the simulator core.</p>
 </section>
 </section>
 <section id="communication-mechanism">
-<span id="id12"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink">Communication Mechanism</a><a class="headerlink" href="#communication-mechanism" title="Permalink to this heading">¶</a></h2>
+<span id="id12"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink">Communication Mechanism</a><a class="headerlink" href="#communication-mechanism" title="Link to this heading">¶</a></h2>
 <p>Since the “simulator” part of the <em>PLEXIL</em> Simulator is a process in its
 own right, we need some sort of a inter-process communication mechanism
 to send it commands and also receive responses. We have chosen the
@@ -210,7 +209,7 @@ This package is found in <code class="docutils literal notranslate"><span class=
 distribution.</p>
 </section>
 <section id="steps-to-construct-a-simulator">
-<span id="id13"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink">Steps to Construct a Simulator</a><a class="headerlink" href="#steps-to-construct-a-simulator" title="Permalink to this heading">¶</a></h2>
+<span id="id13"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink">Steps to Construct a Simulator</a><a class="headerlink" href="#steps-to-construct-a-simulator" title="Link to this heading">¶</a></h2>
 <p>Let us now look at in greater detail the steps involved in building a
 simulator. The process of building a simulator for a specific
 application consists of two steps, the first of which is to build the
@@ -227,7 +226,7 @@ protocol. An example of the second has been provided as part of the
 </pre></div>
 </div>
 <section id="concrete-implementations">
-<span id="id14"></span><h3><a class="toc-backref" href="#id32" role="doc-backlink">Concrete Implementations</a><a class="headerlink" href="#concrete-implementations" title="Permalink to this heading">¶</a></h3>
+<span id="id14"></span><h3><a class="toc-backref" href="#id32" role="doc-backlink">Concrete Implementations</a><a class="headerlink" href="#concrete-implementations" title="Link to this heading">¶</a></h3>
 <p>The classes <em>PlexilSimResponseFactory</em> and <em>PlexilSimResponse</em> provide
 responses. The former establishes the correspondence between the command
 being simulated and the response that has to be created while the latter
@@ -237,7 +236,7 @@ specifies the detail structure of each of the responses.</p>
 simulator.</p>
 </section>
 <section id="built-in-default-message-structures">
-<span id="id15"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink">Built-in Default Message structures</a><a class="headerlink" href="#built-in-default-message-structures" title="Permalink to this heading">¶</a></h3>
+<span id="id15"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink">Built-in Default Message structures</a><a class="headerlink" href="#built-in-default-message-structures" title="Link to this heading">¶</a></h3>
 <p>In order to facilitate ease of use, a default command and telemetry data
 structure has been implemented in the simulator. The user will not be
 required to provide any specializations for parsing either the command
@@ -273,7 +272,7 @@ have to provide a customized parser.</p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/ResourceModel.html">Resource Model</a></li>
 </ul>

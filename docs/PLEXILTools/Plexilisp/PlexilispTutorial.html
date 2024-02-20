@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PlexiLisp Tutorial &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/readable.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../../_static/readable.css?v=e058d051" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Plexilisp Reference Manual" href="PlexilispReferenceManual.html" />
@@ -47,13 +46,13 @@
           <div class="body" role="main">
             
   <section id="plexilisp-tutorial">
-<span id="plexilisptutorial"></span><h1>PlexiLisp Tutorial<a class="headerlink" href="#plexilisp-tutorial" title="Permalink to this heading">¶</a></h1>
+<span id="plexilisptutorial"></span><h1>PlexiLisp Tutorial<a class="headerlink" href="#plexilisp-tutorial" title="Link to this heading">¶</a></h1>
 <p>See the <a class="reference internal" href="../Plexilisp.html#plexilisp"><span class="std std-ref">Programming in Plexilisp</span></a> chapter
 for an introduction to Plexilisp. Before we continue, it’s assumed you
 are using Emacs on a Unix-like system, and that you have checked out the
 latest <code class="docutils literal notranslate"><span class="pre">plexil_exec</span></code> module from SVN.</p>
 <section id="emacs-setup">
-<h2>Emacs Setup<a class="headerlink" href="#emacs-setup" title="Permalink to this heading">¶</a></h2>
+<h2>Emacs Setup<a class="headerlink" href="#emacs-setup" title="Link to this heading">¶</a></h2>
 <p>In order to have Plexilisp automatically compiled (when needed) and
 loaded every time you start Emacs, the file
 <code class="docutils literal notranslate"><span class="pre">plexil/src/plexilisp/emacs.el</span></code> should be automatically loaded. This
@@ -72,7 +71,7 @@ shortcut for your home directory, may be necessary, as the tilde
 character is not always handled correctly in this context.</p>
 </section>
 <section id="first-example">
-<span id="id1"></span><h2>First Example<a class="headerlink" href="#first-example" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>First Example<a class="headerlink" href="#first-example" title="Link to this heading">¶</a></h2>
 <p>We’re now ready to get our feet wet. Open the file
 <code class="docutils literal notranslate"><span class="pre">plexilisp/examples/simple-assignment.pli</span></code>, which looks like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">plexil</span><span class="o">-</span><span class="n">plan</span>
@@ -97,12 +96,12 @@ Plexilisp constructs. Look at the file <code class="docutils literal notranslate
 functionally equivalent to the first plan.</p>
 </section>
 <section id="compiling-plexilisp">
-<span id="id2"></span><h2>Compiling Plexilisp<a class="headerlink" href="#compiling-plexilisp" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2>Compiling Plexilisp<a class="headerlink" href="#compiling-plexilisp" title="Link to this heading">¶</a></h2>
 <p>Now, let’s generate some PLEXIL XML. Put your cursor in either of the
 buffers you created above, and either type ‘’’<code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">plexil</span></code>’’’ or
 ‘’’Control-C Control-C’’’ (the latter is a shortcut for the former).</p>
 <p>Plexilisp goes through a two-step “compilation” process. The first
-generates an <a class="reference internal" href="../../PLEXILLanguage/PLEXILReferences.html#plexilreferences"><span class="std std-ref">Extended PLEXIL</span></a> file, which has a
+generates an <span class="xref std std-ref">Extended PLEXIL</span> file, which has a
 file extension of <code class="docutils literal notranslate"><span class="pre">.epx</span></code>. The second step compiles the Extended PLEXIL
 into Core PLEXIL, creating a <code class="docutils literal notranslate"><span class="pre">.plx</span></code> file. Buffers for both these files
 will be appear in your Emacs.</p>
@@ -135,7 +134,7 @@ PLEXIL buffer should contain XML code that looks like this:</p>
 </div>
 </section>
 <section id="simulation-script">
-<span id="id3"></span><h2>Simulation Script<a class="headerlink" href="#simulation-script" title="Permalink to this heading">¶</a></h2>
+<span id="id3"></span><h2>Simulation Script<a class="headerlink" href="#simulation-script" title="Link to this heading">¶</a></h2>
 <p>If you’d like to run this plan with the PLEXIL Test Executive, you’ll
 need a <em>simulation script</em>. Since this plan does not interact with an
 external world, an empty script will do. We can create scripts with
@@ -157,7 +156,7 @@ should give you the <code class="docutils literal notranslate"><span class="pre"
 </div>
 </section>
 <section id="more-examples">
-<h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this heading">¶</a></h2>
+<h2>More Examples<a class="headerlink" href="#more-examples" title="Link to this heading">¶</a></h2>
 <p>We’ll look at one more example plan, the “simple drive” plan that has
 two equivalent versions in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">PlexilPlan</span>
@@ -256,7 +255,7 @@ This is the actual ISS Procedure 3.209 that runs with the
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../PLEXILLanguage/PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../PLEXILLanguage/PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PLEXILLanguage/PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../PLEXILLanguage/PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../PLEXILLanguage/ResourceModel.html">Resource Model</a></li>
 </ul>

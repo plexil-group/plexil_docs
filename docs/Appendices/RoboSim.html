@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>RoboSim &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simulator Notes" href="SimulatorNotes.html" />
@@ -46,7 +45,7 @@
           <div class="body" role="main">
             
   <section id="robosim">
-<span id="id1"></span><h1><a class="toc-backref" href="#id12" role="doc-backlink">RoboSim</a><a class="headerlink" href="#robosim" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1><a class="toc-backref" href="#id12" role="doc-backlink">RoboSim</a><a class="headerlink" href="#robosim" title="Link to this heading">¶</a></h1>
 <p><em>7/15/2020</em></p>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
@@ -80,7 +79,7 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>RoboSim is a simple two-dimensional robot simulator that can be used to
 demonstrate and study the behavior of planning, scheduling, and plan
 execution systems.</p>
@@ -94,7 +93,7 @@ MacOS systems.</p>
 <em>PLEXIL</em> and the <em>PLEXIL</em> Executive.</p>
 </section>
 <section id="domain">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Domain</a><a class="headerlink" href="#domain" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Domain</a><a class="headerlink" href="#domain" title="Link to this heading">¶</a></h2>
 <figure class="align-default">
 <img alt="NewRobosim.PNG" src="../_images/NewRobosim.png" />
 </figure>
@@ -105,7 +104,7 @@ angular lines are static obstacles, the yellow lightning bolts are
 energy sources, the purple target is a goal, and there is one green flag
 in center near the top of the simulation.</p>
 <section id="terrain-and-obstacles">
-<span id="id2"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Terrain and Obstacles</a><a class="headerlink" href="#terrain-and-obstacles" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Terrain and Obstacles</a><a class="headerlink" href="#terrain-and-obstacles" title="Link to this heading">¶</a></h3>
 <p>The RoboSim terrain is a 2D cell grid where each cell is represented by
 its row and column (integers). Figure 1 depicts a square terrain with 32
 cells along each direction.</p>
@@ -115,7 +114,7 @@ within the terrain). Dynamic obstacles are other robots. Obstacles block
 a robot’s movement, and static obstacles cannot be removed.</p>
 </section>
 <section id="energy-sources">
-<span id="id3"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">Energy Sources</a><a class="headerlink" href="#energy-sources" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">Energy Sources</a><a class="headerlink" href="#energy-sources" title="Link to this heading">¶</a></h3>
 <p>Distributed throughout the terrain are energy sources that robots can
 “consume” to boost their energy level. Such energy sources can be viewed
 as charging stations and are shown as yellow lightning bolts in Figure
@@ -129,7 +128,7 @@ by visiting a cell containing an energy source.</p>
 discussed in subsequent sections.</p>
 </section>
 <section id="goal-flags">
-<span id="id4"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">Goal &amp; Flags</a><a class="headerlink" href="#goal-flags" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">Goal &amp; Flags</a><a class="headerlink" href="#goal-flags" title="Link to this heading">¶</a></h3>
 <p>The goal and flag components in the scene give the robots a purpose to
 navigate the terrain. Figure 1 shows a purple target and a green flag,
 either of which could be what the robot is tasked to find. The flag is
@@ -140,7 +139,7 @@ the flag and take it to the goal.</p>
 and their presence can also be “sensed” by the robots.</p>
 </section>
 <section id="robots-and-their-sensors">
-<span id="id5"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Robots and their Sensors</a><a class="headerlink" href="#robots-and-their-sensors" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Robots and their Sensors</a><a class="headerlink" href="#robots-and-their-sensors" title="Link to this heading">¶</a></h3>
 <p>Robots are display as colored squares with small triangular appendages
 representing their sensors. A robot can be moved one cell at a time
 along one of the four principal directions up, right, down and left,
@@ -151,10 +150,10 @@ section below on the robot interface for details about these values.</p>
 </section>
 </section>
 <section id="commanding-robots">
-<span id="id6"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink">Commanding Robots</a><a class="headerlink" href="#commanding-robots" title="Permalink to this heading">¶</a></h2>
+<span id="id6"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink">Commanding Robots</a><a class="headerlink" href="#commanding-robots" title="Link to this heading">¶</a></h2>
 <p>The following commands can be issued to each of the robots.</p>
 <section id="movement">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">Movement</a><a class="headerlink" href="#movement" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Movement</a><a class="headerlink" href="#movement" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span> <span class="n">MoveUp</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
 <span class="n">Integer</span> <span class="n">MoveRight</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
 <span class="n">Integer</span> <span class="n">MoveDown</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
@@ -173,7 +172,7 @@ returned is interpreted as follows.</p>
 </ul>
 </section>
 <section id="sensing-energy-sources-and-goal">
-<span id="id7"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Sensing Energy Sources and Goal</a><a class="headerlink" href="#sensing-energy-sources-and-goal" title="Permalink to this heading">¶</a></h3>
+<span id="id7"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Sensing Energy Sources and Goal</a><a class="headerlink" href="#sensing-energy-sources-and-goal" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">QueryEnergySensor</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
 <span class="n">Real</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">QueryGoalSensor</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
 <span class="n">Real</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">QueryFlagSensor</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
@@ -188,7 +187,7 @@ of the robot. The ranges at which objects are visible can be seen by
 pressing ‘e’ for energy sources, ‘f’ for flags, and ‘g’ for goals.</p>
 </section>
 <section id="sensing-obstacles">
-<span id="id8"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Sensing Obstacles</a><a class="headerlink" href="#sensing-obstacles" title="Permalink to this heading">¶</a></h3>
+<span id="id8"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Sensing Obstacles</a><a class="headerlink" href="#sensing-obstacles" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integer</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">QueryVisibilitySensor</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -204,7 +203,7 @@ interpretation.</p>
 </ul>
 </section>
 <section id="querying-location-and-energy-level">
-<span id="id9"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">Querying Location and Energy Level</a><a class="headerlink" href="#querying-location-and-energy-level" title="Permalink to this heading">¶</a></h3>
+<span id="id9"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">Querying Location and Energy Level</a><a class="headerlink" href="#querying-location-and-energy-level" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">QueryRobotState</span><span class="p">(</span><span class="n">String</span> <span class="n">robot_name</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -216,7 +215,7 @@ integers.</p>
 </section>
 </section>
 <section id="using-robosim">
-<span id="id10"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink">Using RoboSim</a><a class="headerlink" href="#using-robosim" title="Permalink to this heading">¶</a></h2>
+<span id="id10"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink">Using RoboSim</a><a class="headerlink" href="#using-robosim" title="Link to this heading">¶</a></h2>
 <p>To use RoboSim, first start the IPC communication server:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">ipc</span>
 </pre></div>
@@ -249,7 +248,7 @@ your choice, e.g.</p>
 one (“RobotBlue3”). Other robots move around randomly until they run out
 of energy.</p>
 <section id="plexil-interface">
-<span id="id11"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">PLEXIL Interface</a><a class="headerlink" href="#plexil-interface" title="Permalink to this heading">¶</a></h3>
+<span id="id11"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">PLEXIL Interface</a><a class="headerlink" href="#plexil-interface" title="Link to this heading">¶</a></h3>
 <p><em>PLEXIL</em> plans can interact with RoboSim using commands only. At this time
 no lookups (world state queries) have been implemented.</p>
 <p>The commands available are exactly those listed above in the section
@@ -283,7 +282,7 @@ the commands.</p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/ResourceModel.html">Resource Model</a></li>
 </ul>

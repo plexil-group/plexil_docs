@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PLEXIL Semantics &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Resource Model" href="ResourceModel.html" />
-    <link rel="prev" title="PLEXIL References" href="PLEXILReferences.html" />
+    <link rel="prev" title="PLEXIL Reference" href="PLEXILReference.html" />
    
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
 
@@ -33,7 +32,7 @@
           <a href="ResourceModel.html" title="Resource Model"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="PLEXILReferences.html" title="PLEXIL References"
+          <a href="PLEXILReference.html" title="PLEXIL Reference"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">PLEXIL  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">PLEXIL Semantics</a></li> 
@@ -46,11 +45,11 @@
           <div class="body" role="main">
             
   <section id="plexil-semantics">
-<span id="plexilsemantics"></span><h1><a class="toc-backref" href="#id11" role="doc-backlink">PLEXIL Semantics</a><a class="headerlink" href="#plexil-semantics" title="Permalink to this heading">¶</a></h1>
+<span id="plexilsemantics"></span><h1><a class="toc-backref" href="#id11" role="doc-backlink">PLEXIL Semantics</a><a class="headerlink" href="#plexil-semantics" title="Link to this heading">¶</a></h1>
 <p><em>10 Apr 2021</em></p>
 <p>Clear semantics make it easier to verify and validate automated plans
 and to implement a lightweight executive that conforms to the semantics
-of execution. This chapter elaborates the <a class="reference internal" href="PLEXILReferences.html#plexilreferences"><span class="std std-ref">Plexil Reference</span></a> by describing detailed semantics for
+of execution. This chapter elaborates the <span class="xref std std-ref">Plexil Reference</span> by describing detailed semantics for
 various aspects of <em>PLEXIL</em> and its execution. The formal semantics
 presented here are based entirely on <em>Core PLEXIL</em>.</p>
 <p>Recall that Core <em>PLEXIL</em> is a subset of <em>PLEXIL</em> into which all other
@@ -85,7 +84,7 @@ of the information given here is a distillation of these papers.</p>
 </ul>
 </nav>
 <section id="plexil-execution">
-<span id="id1"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink">PLEXIL Execution</a><a class="headerlink" href="#plexil-execution" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink">PLEXIL Execution</a><a class="headerlink" href="#plexil-execution" title="Link to this heading">¶</a></h2>
 <p>The execution of a <em>PLEXIL</em> plan is described formally using five
 relations that constitute a <em>small-step semantics</em> for the language.</p>
 <ul class="simple">
@@ -105,12 +104,12 @@ relations. The following sections describe some of these steps in more
 detail. See <a class="reference internal" href="../Appendices/References.html#references"><span class="std std-ref">References</span></a> 1 for a thorough description.</p>
 </section>
 <section id="atomic-steps">
-<span id="id2"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Atomic Steps</a><a class="headerlink" href="#atomic-steps" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Atomic Steps</a><a class="headerlink" href="#atomic-steps" title="Link to this heading">¶</a></h2>
 <p>The execution semantics of an individual <em>PLEXIL</em> node is specified in
 terms of node states and transitions between node states that are
 triggered by condition changes.</p>
 <section id="node-states">
-<span id="id3"></span><h3><a class="toc-backref" href="#id14" role="doc-backlink">Node States</a><a class="headerlink" href="#node-states" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id14" role="doc-backlink">Node States</a><a class="headerlink" href="#node-states" title="Link to this heading">¶</a></h3>
 <p>Each node must be in one and only one of the following states at any
 given time.</p>
 <ul class="simple">
@@ -124,7 +123,7 @@ given time.</p>
 </ul>
 </section>
 <section id="node-transitions">
-<span id="id4"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Node Transitions</a><a class="headerlink" href="#node-transitions" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Node Transitions</a><a class="headerlink" href="#node-transitions" title="Link to this heading">¶</a></h3>
 <p>The set of condition changes that effect node state transitions are as
 follows.</p>
 <p>The first set are user-specified <em>gate conditions,</em> which initiate a
@@ -178,7 +177,7 @@ node state executing.</p></li>
 document all the <em>PLEXIL</em> node transitions.</p>
 </section>
 <section id="nominal-execution">
-<span id="id5"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">Nominal Execution</a><a class="headerlink" href="#nominal-execution" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">Nominal Execution</a><a class="headerlink" href="#nominal-execution" title="Link to this heading">¶</a></h3>
 <p>At the beginning of plan execution, all the nodes in a plan are
 initialized to state Inactive. An Inactive node does not affect the
 external system at all.</p>
@@ -205,7 +204,7 @@ Inactive. Otherwise the node remains in Finished and cannot be
 reactivated.</p>
 </section>
 <section id="execution-in-the-presence-of-failures">
-<span id="id6"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">Execution in the Presence of Failures</a><a class="headerlink" href="#execution-in-the-presence-of-failures" title="Permalink to this heading">¶</a></h3>
+<span id="id6"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">Execution in the Presence of Failures</a><a class="headerlink" href="#execution-in-the-presence-of-failures" title="Link to this heading">¶</a></h3>
 <p>Execution failure can be invoked in several ways:</p>
 <ul class="simple">
 <li><p>If a precondition is False when the start condition is True, the node
@@ -245,7 +244,7 @@ interrupted. The cause of a node’s failure can be determined from the
 Failure Type field of the node.</p>
 </section>
 <section id="node-termination-and-outcome">
-<span id="id7"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Node Termination and Outcome</a><a class="headerlink" href="#node-termination-and-outcome" title="Permalink to this heading">¶</a></h3>
+<span id="id7"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Node Termination and Outcome</a><a class="headerlink" href="#node-termination-and-outcome" title="Link to this heading">¶</a></h3>
 <p>There are three main causes for node termination: completion of
 execution, external events, and faults.</p>
 <p>The default completion of a node depends on the type of node:</p>
@@ -332,7 +331,7 @@ parent and child nodes. In principle, a node only needs to know about
 its single immediate parent and all child nodes.</p>
 </section>
 <section id="node-conditions">
-<span id="id8"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Node Conditions</a><a class="headerlink" href="#node-conditions" title="Permalink to this heading">¶</a></h3>
+<span id="id8"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Node Conditions</a><a class="headerlink" href="#node-conditions" title="Link to this heading">¶</a></h3>
 <p>The default value of each node condition for each node type is given in
 the following tables. All node types share common defaults for most of
 the conditions:</p>
@@ -400,7 +399,7 @@ given expression and the update acknowledgement.</p></li>
 </section>
 </section>
 <section id="micro-steps-macro-steps-and-the-quiescence-cycle">
-<span id="id9"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink">Micro Steps, Macro Steps, And the Quiescence Cycle</a><a class="headerlink" href="#micro-steps-macro-steps-and-the-quiescence-cycle" title="Permalink to this heading">¶</a></h2>
+<span id="id9"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink">Micro Steps, Macro Steps, And the Quiescence Cycle</a><a class="headerlink" href="#micro-steps-macro-steps-and-the-quiescence-cycle" title="Link to this heading">¶</a></h2>
 <p>Execution of a <em>PLEXIL</em> plan occurs in three classes of steps: <em>micro
 steps</em>, <em>macro steps</em>, and <em>quiescence steps</em>.</p>
 <p>A <em>quiescence step</em> or <em>quiescence cycle</em> begins when the executive is
@@ -450,7 +449,7 @@ be encoded explicitly in the plan.</p>
 </div>
 </section>
 <section id="semantics-of-lookups">
-<span id="id10"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">Semantics of Lookups</a><a class="headerlink" href="#semantics-of-lookups" title="Permalink to this heading">¶</a></h2>
+<span id="id10"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">Semantics of Lookups</a><a class="headerlink" href="#semantics-of-lookups" title="Link to this heading">¶</a></h2>
 <p><em>Lookups</em> simply read external state values. In other words, looking up
 these states should not have any side effects. (An implementation of the
 executive or external interface may choose to cache state values without
@@ -504,7 +503,7 @@ start condition is checked whenever such events occur.</p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ResourceModel.html">Resource Model</a></li>
 </ul>

@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Resource Model &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simple Unary Resources" href="ResourceModel/SimpleUnaryResources.html" />
@@ -46,7 +45,7 @@
           <div class="body" role="main">
             
   <section id="resource-model">
-<span id="resourcemodel"></span><h1><a class="toc-backref" href="#id5" role="doc-backlink">Resource Model</a><a class="headerlink" href="#resource-model" title="Permalink to this heading">¶</a></h1>
+<span id="resourcemodel"></span><h1><a class="toc-backref" href="#id5" role="doc-backlink">Resource Model</a><a class="headerlink" href="#resource-model" title="Link to this heading">¶</a></h1>
 <p><em>20 Mar 2023</em></p>
 <p>This chapter describes the <em>PLEXIL</em> resource model for commands, and
 associated language constructs.</p>
@@ -73,7 +72,7 @@ associated language constructs.</p>
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Several issues have been identified in the resource model
@@ -90,7 +89,7 @@ competing requirements, rejecting commands when the combined usage of
 any resource would exceed that resource’s limit.</p>
 </section>
 <section id="concepts">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Concepts</a><a class="headerlink" href="#concepts" title="Link to this heading">¶</a></h2>
 <p>A <em>resource</em> is an entity of finite availability, which may be used in
 execution of a command.</p>
 <p>Resources can be characterized as <em>unary</em> or <em>non-unary</em>:</p>
@@ -154,7 +153,7 @@ off. The battery is left with a lower energy level.</p>
 </ul>
 </section>
 <section id="approach">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Approach</a><a class="headerlink" href="#approach" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Approach</a><a class="headerlink" href="#approach" title="Link to this heading">¶</a></h2>
 <p>Resource handling in <em>PLEXIL</em> has these aspects:</p>
 <ol class="arabic simple">
 <li><p>A Command node in a <em>PLEXIL</em> plan can specify <em>resource
@@ -178,7 +177,7 @@ The arbiter sets the command handles of rejected commands to
 the <a class="reference internal" href="../PLEXILExecution/ResourceArbiter.html#resourcearbiter"><span class="std std-ref">Resource Arbiter</span></a> chapter.</p></li>
 </ol>
 <section id="resource-specification">
-<span id="id1"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Resource Specification</a><a class="headerlink" href="#resource-specification" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Resource Specification</a><a class="headerlink" href="#resource-specification" title="Link to this heading">¶</a></h3>
 <p>A command’s resource requirements are specified in a <em>PLEXIL</em> plan in
 the following way.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Resource</span>
@@ -240,7 +239,7 @@ above example, the <code class="docutils literal notranslate"><span class="pre">
 <p>Several sample plans are given in the Examples sections referenced below.</p>
 </section>
 <section id="resource-arbitration">
-<span id="id2"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Resource Arbitration</a><a class="headerlink" href="#resource-arbitration" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Resource Arbitration</a><a class="headerlink" href="#resource-arbitration" title="Link to this heading">¶</a></h3>
 <p>Commands are issued at the end of a <a class="reference internal" href="PLEXILSemantics.html#micro-steps-macro-steps-and-the-quiescence-cycle"><span class="std std-ref">macro step</span></a>, when the
 containing Command node enters <code class="docutils literal notranslate"><span class="pre">EXECUTING</span></code> state. All the commands
 eligible for execution at the end of the macro step are sent to the
@@ -258,7 +257,7 @@ command is rejected.  For example, the command could be reissued, etc.</p>
 10</span></a>.</p>
 </section>
 <section id="command-handles">
-<span id="id3"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Command Handles</a><a class="headerlink" href="#command-handles" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Command Handles</a><a class="headerlink" href="#command-handles" title="Link to this heading">¶</a></h3>
 <p>A <em>command handle</em> variable is associated with each command, and
 records the results of resource arbitration and execution.</p>
 <ol class="arabic simple">
@@ -320,7 +319,7 @@ successful completion (or transmission) of the command.</p>
 </section>
 </section>
 <section id="command-handles-and-command-node-completion">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Command handles and Command node completion</a><a class="headerlink" href="#command-handles-and-command-node-completion" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Command handles and Command node completion</a><a class="headerlink" href="#command-handles-and-command-node-completion" title="Link to this heading">¶</a></h2>
 <p>When the EndCondition of a Command node in the <code class="docutils literal notranslate"><span class="pre">EXECUTING</span></code> state
 becomes <code class="docutils literal notranslate"><span class="pre">true</span></code>, the node transitions to the <code class="docutils literal notranslate"><span class="pre">FINISHING</span></code> state.
 The node will remain in this state until any command handle value has
@@ -337,7 +336,7 @@ for the EndCondition is:</p>
 </div>
 </section>
 <section id="aborting-a-command">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Aborting a command</a><a class="headerlink" href="#aborting-a-command" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Aborting a command</a><a class="headerlink" href="#aborting-a-command" title="Link to this heading">¶</a></h2>
 <p>When a Command node fails or is exited, it transitions to the
 <code class="docutils literal notranslate"><span class="pre">FAILING</span></code> state, and its command is <em>aborted</em> .  The node
 subsequently transitions to <code class="docutils literal notranslate"><span class="pre">ITERATION_ENDED</span></code> after the abort has
@@ -350,7 +349,7 @@ until an acknowledgement of the abort is received from the external
 system.</p>
 </section>
 <section id="using-command-handles-in-condition-expressions">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Using command handles in condition expressions</a><a class="headerlink" href="#using-command-handles-in-condition-expressions" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Using command handles in condition expressions</a><a class="headerlink" href="#using-command-handles-in-condition-expressions" title="Link to this heading">¶</a></h2>
 <p>Command handle variables can be used in expressions in the Command
 note itself, sibling nodes, or parent nodes.</p>
 <p>The sample plan below illustrates one possible use.  The plan has two
@@ -382,7 +381,7 @@ from the external system.</p>
 </div>
 </section>
 <section id="examples">
-<span id="id4"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <ul class="simple">

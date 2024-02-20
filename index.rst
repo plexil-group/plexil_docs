@@ -1,8 +1,9 @@
-This is the main page of the user guide for PLEXIL and documents its
-releases 4.x.
+This is the main page of the PLEXIL User's Guide. It documents PLEXIL
+Release 4.6, which is the version of PLEXIL found on its `main` Git
+branch.
 
-Most but not all of this documentation also applies to Release 6.
-Documentation specific to Release 6 is in development.
+Most, but not all, of this documentation also applies to PLEXIL
+Release 6.  Documentation specific to Release 6 is in development.
 
 For PLEXIL's main project page, which has downloads and other
 information, go to https://github.com/plexil-group/plexil.
@@ -10,7 +11,7 @@ information, go to https://github.com/plexil-group/plexil.
 This user guide supercedes the previous version that was hosted on
 Sourceforge.
 
-*Updated 31 Jan 2024*
+*Updated 20 Feb 2024*
 
 .. contents::
 
