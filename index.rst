@@ -1,6 +1,6 @@
 This is the main page of the PLEXIL User's Guide. It documents PLEXIL
-Release 4.6, which is the version of PLEXIL found on its `main` Git
-branch.
+Release 4.6, which is the version of PLEXIL found on its
+``releases/plexil-4.6`` Git branch.
 
 Most, but not all, of this documentation also applies to PLEXIL
 Release 6.  Documentation specific to Release 6 is in development.
@@ -11,7 +11,7 @@ information, go to https://github.com/plexil-group/plexil.
 This user guide supercedes the previous version that was hosted on
 Sourceforge.
 
-*Updated 20 Feb 2024*
+*Updated 26 Feb 2024*
 
 .. contents::
 
@@ -60,7 +60,8 @@ more information on the background and applications of |PLEXIL|.
 See the sidebar (column to the left of this page) for links to many
 |PLEXIL| topics.
 
-If you have questions, please email us at plexil-support@lists.sourceforge.net.
+If you have questions, please email us at
+``plexil-support (at) groups (dot) io``.
 
 .. _nasa_applications:
 

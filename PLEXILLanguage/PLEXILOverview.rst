@@ -287,4 +287,4 @@ have feature requests, please open an issue at
 https://github.com/plexil-group/plexil/issues.
 
 If you have questions about PLEXIL, please contact the support team
-at plexil-support@lists.sourceforge.net.
+at ``plexil-support (at) groups (dot) io``.
