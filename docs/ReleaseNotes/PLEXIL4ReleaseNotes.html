@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PLEXIL-4 Release Notes &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Node State Diagrams" href="../Appendices/NodeStateDiagrams.html" />
@@ -46,7 +45,7 @@
           <div class="body" role="main">
             
   <section id="plexil-4-release-notes">
-<span id="plexil4releasenotes"></span><h1><a class="toc-backref" href="#id15" role="doc-backlink">PLEXIL-4 Release Notes</a><a class="headerlink" href="#plexil-4-release-notes" title="Permalink to this heading">¶</a></h1>
+<span id="plexil4releasenotes"></span><h1><a class="toc-backref" href="#id15" role="doc-backlink">PLEXIL-4 Release Notes</a><a class="headerlink" href="#plexil-4-release-notes" title="Link to this heading">¶</a></h1>
 <p><em>11 June 2015</em></p>
 <p><em>PLEXIL</em> 4 is a major release, with significant changes from previous
 releases. Here are some of the highlights.</p>
@@ -81,7 +80,7 @@ releases. Here are some of the highlights.</p>
 </ul>
 </nav>
 <section id="building-plexil-4">
-<span id="id1"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">Building PLEXIL 4</a><a class="headerlink" href="#building-plexil-4" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">Building PLEXIL 4</a><a class="headerlink" href="#building-plexil-4" title="Link to this heading">¶</a></h2>
 <p>The <em>PLEXIL</em> C++ source code should be compatible with most modern and
 recent C++ compilers. It is regularly tested against <a class="reference external" href="http://gcc.gnu.org/">gcc and
 g++</a> and <a class="reference external" href="http://clang.llvm.org/">clang and
@@ -107,10 +106,10 @@ repository:</p>
 several example applications.</p>
 </section>
 <section id="plexil-language">
-<span id="id2"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink">PLEXIL Language</a><a class="headerlink" href="#plexil-language" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink">PLEXIL Language</a><a class="headerlink" href="#plexil-language" title="Link to this heading">¶</a></h2>
 <p>The language has had the following functions added.</p>
 <section id="real-to-integer-conversion-functions">
-<span id="id3"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Real-to-Integer Conversion Functions</a><a class="headerlink" href="#real-to-integer-conversion-functions" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Real-to-Integer Conversion Functions</a><a class="headerlink" href="#real-to-integer-conversion-functions" title="Link to this heading">¶</a></h3>
 <p>The <em>PLEXIL</em> language has added the following functions for converting
 Real numbers to Integer values:</p>
 <ul class="simple">
@@ -129,12 +128,12 @@ less than x.</p></li>
 <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code> is returned.</p>
 </section>
 <section id="strlen-function">
-<span id="id4"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">strlen Function</a><a class="headerlink" href="#strlen-function" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">strlen Function</a><a class="headerlink" href="#strlen-function" title="Link to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">strlen()</span></code> function returns the length of a String value as an
 Integer.</p>
 </section>
 <section id="array-size-functions">
-<span id="id5"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Array Size Functions</a><a class="headerlink" href="#array-size-functions" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Array Size Functions</a><a class="headerlink" href="#array-size-functions" title="Link to this heading">¶</a></h3>
 <p>Array sizes can be determined with the following new functions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">arraySize(a)</span></code> returns the current size of the array a as an
@@ -145,7 +144,7 @@ a as an Integer.</p></li>
 </section>
 </section>
 <section id="plexil-executive">
-<span id="id6"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">PLEXIL Executive</a><a class="headerlink" href="#plexil-executive" title="Permalink to this heading">¶</a></h2>
+<span id="id6"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">PLEXIL Executive</a><a class="headerlink" href="#plexil-executive" title="Link to this heading">¶</a></h2>
 <p>The <em>PLEXIL</em> Executive’s performance has been significantly improved.
 Major areas of improvement:</p>
 <ul class="simple">
@@ -163,7 +162,7 @@ than <em>PLEXIL</em> 3 for medium sized plans - and a smaller but still
 significant improvement in memory usage. Many memory leaks have also
 been eliminated.</p>
 <section id="expressions">
-<span id="expressions-release4"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Expressions</a><a class="headerlink" href="#expressions" title="Permalink to this heading">¶</a></h3>
+<span id="expressions-release4"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Expressions</a><a class="headerlink" href="#expressions" title="Link to this heading">¶</a></h3>
 <p>Previous versions of the Executive used double-precision floating point
 representation for all values in the language. <em>PLEXIL</em> 4 replaces this
 system with strongly typed <code class="docutils literal notranslate"><span class="pre">Expression</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code> objects.</p>
@@ -180,7 +179,7 @@ non-conforming plans which used to run in earlier releases due to lax
 type checking by the Executive may no longer work as before.</p>
 </section>
 <section id="string-representation">
-<span id="id7"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">String Representation</a><a class="headerlink" href="#string-representation" title="Permalink to this heading">¶</a></h3>
+<span id="id7"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">String Representation</a><a class="headerlink" href="#string-representation" title="Link to this heading">¶</a></h3>
 <p>String values were interned (stored in a symbol table) in previous
 versions of the <em>PLEXIL</em> Executive. String values are now treated just as
 any other value. Intermediate values in string expressions are now
@@ -188,7 +187,7 @@ discarded, rather than stored permanently. Plans which do string
 manipulation will use less memory as a result.</p>
 </section>
 <section id="external-interfacing">
-<span id="id8"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">External Interfacing</a><a class="headerlink" href="#external-interfacing" title="Permalink to this heading">¶</a></h3>
+<span id="id8"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">External Interfacing</a><a class="headerlink" href="#external-interfacing" title="Link to this heading">¶</a></h3>
 <p>The APIs for interfacing to external systems have changed significantly.</p>
 <p>This <em>PLEXIL</em> wiki now has much larger, and we hope much improved,
 documentation on interfacing to the <em>PLEXIL</em> executive. See the sidebar
@@ -199,12 +198,12 @@ output. See the <a class="reference internal" href="../Interfacing/APIReference.
 </section>
 </section>
 <section id="extended-plexil">
-<span id="id9"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink">Extended PLEXIL</a><a class="headerlink" href="#extended-plexil" title="Permalink to this heading">¶</a></h2>
+<span id="id9"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink">Extended PLEXIL</a><a class="headerlink" href="#extended-plexil" title="Link to this heading">¶</a></h2>
 <p>The Extended <em>PLEXIL</em> translator generates smaller and faster Core <em>PLEXIL</em>
 XML for several common language features.</p>
 </section>
 <section id="standard-plexil-compiler">
-<span id="id10"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink">Standard PLEXIL Compiler</a><a class="headerlink" href="#standard-plexil-compiler" title="Permalink to this heading">¶</a></h2>
+<span id="id10"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink">Standard PLEXIL Compiler</a><a class="headerlink" href="#standard-plexil-compiler" title="Link to this heading">¶</a></h2>
 <p>The Standard <em>PLEXIL</em> compiler has added an optimization phase. Some
 moderately high-value optimizations have already been implemented. More
 will be forthcoming.</p>
@@ -212,14 +211,14 @@ will be forthcoming.</p>
 for other changes.</p>
 </section>
 <section id="plexil-checker">
-<span id="id11"></span><h2><a class="toc-backref" href="#id27" role="doc-backlink">PLEXIL Checker</a><a class="headerlink" href="#plexil-checker" title="Permalink to this heading">¶</a></h2>
+<span id="id11"></span><h2><a class="toc-backref" href="#id27" role="doc-backlink">PLEXIL Checker</a><a class="headerlink" href="#plexil-checker" title="Link to this heading">¶</a></h2>
 <p>The <em>PLEXIL</em> Checker had not been updated in quite a while. It is now up
 to date with the current <em>PLEXIL</em> schema, and many bugs have been fixed.
 The Checker now performs a schema conformance check before any semantic
 checks.</p>
 </section>
 <section id="plexil-viewer">
-<span id="id12"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink">PLEXIL Viewer</a><a class="headerlink" href="#plexil-viewer" title="Permalink to this heading">¶</a></h2>
+<span id="id12"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink">PLEXIL Viewer</a><a class="headerlink" href="#plexil-viewer" title="Link to this heading">¶</a></h2>
 <p>The <em>PLEXIL</em> Viewer had also suffered from a lack of maintenance in
 previous releases. Many bugs have been fixed in the Viewer, and
 performance should be quite a bit better.</p>
@@ -230,13 +229,13 @@ number in the ephemeral range. As before, users can specify a different
 port number.</p>
 </section>
 <section id="improved-shell-scripts">
-<span id="id13"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink">Improved Shell Scripts</a><a class="headerlink" href="#improved-shell-scripts" title="Permalink to this heading">¶</a></h2>
+<span id="id13"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink">Improved Shell Scripts</a><a class="headerlink" href="#improved-shell-scripts" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">plexil</span></code>, <code class="docutils literal notranslate"><span class="pre">plexilexec</span></code>, <code class="docutils literal notranslate"><span class="pre">plexiltest</span></code>, and <code class="docutils literal notranslate"><span class="pre">plexilsim</span></code> shell
 scripts have been revised. Checking of TCP ports in use has been
 significantly improved.</p>
 </section>
 <section id="regression-tests-and-examples">
-<span id="id14"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink">Regression Tests and Examples</a><a class="headerlink" href="#regression-tests-and-examples" title="Permalink to this heading">¶</a></h2>
+<span id="id14"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink">Regression Tests and Examples</a><a class="headerlink" href="#regression-tests-and-examples" title="Link to this heading">¶</a></h2>
 <p>Most, if not all, of the <em>PLEXIL</em> plans in the regression test suites and
 the examples directory have been checked for conformance with the
 current schema and fixed where necessary. Many of these plans had never
@@ -266,7 +265,7 @@ been updated since early in development.</p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/ResourceModel.html">Resource Model</a></li>
 </ul>

@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>UDP Adapter &#8212; PLEXIL  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/readable.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
+    <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ResourceArbiter" href="ResourceArbiter.html" />
@@ -46,7 +45,7 @@
           <div class="body" role="main">
             
   <section id="udp-adapter">
-<span id="udpadapter"></span><h1><a class="toc-backref" href="#id17" role="doc-backlink">UDP Adapter</a><a class="headerlink" href="#udp-adapter" title="Permalink to this heading">¶</a></h1>
+<span id="udpadapter"></span><h1><a class="toc-backref" href="#id17" role="doc-backlink">UDP Adapter</a><a class="headerlink" href="#udp-adapter" title="Link to this heading">¶</a></h1>
 <p><em>20 May 2015</em></p>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
@@ -88,19 +87,19 @@
 </ul>
 </nav>
 <section id="udp-adapter-user-s-guide">
-<span id="udp-adapter-users-guide"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink">UDP Adapter User’s Guide</a><a class="headerlink" href="#udp-adapter-user-s-guide" title="Permalink to this heading">¶</a></h2>
+<span id="udp-adapter-users-guide"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink">UDP Adapter User’s Guide</a><a class="headerlink" href="#udp-adapter-user-s-guide" title="Link to this heading">¶</a></h2>
 <p>The UDP Adapter gives access to UDP messages/commands in <em>PLEXIL</em> plans.</p>
 <p>There is a working example which uses the UdpAdapter in
 <code class="docutils literal notranslate"><span class="pre">plexil/examples/multi-exec/udp</span></code>. This example illustrates how to
 configure and load the UdpAdapter (<code class="docutils literal notranslate"><span class="pre">udp.xml</span></code>) and how to use it in the
 example plans (<code class="docutils literal notranslate"><span class="pre">test-recv.ple</span></code> and <code class="docutils literal notranslate"><span class="pre">test-send.ple</span></code>).</p>
 <section id="working-example-code">
-<span id="id1"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Working Example Code</a><a class="headerlink" href="#working-example-code" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Working Example Code</a><a class="headerlink" href="#working-example-code" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">plexil/examples/multi-exec/udp</span></code> contains some useful UdpAdapter code.
 This code illustrates both how to use the UdpAdapater, plus some useful
 idioms for asynchronous communications in Plexil.</p>
 <section id="udpadapter-demo">
-<span id="id2"></span><h4><a class="toc-backref" href="#id20" role="doc-backlink">UdpAdapter Demo</a><a class="headerlink" href="#udpadapter-demo" title="Permalink to this heading">¶</a></h4>
+<span id="id2"></span><h4><a class="toc-backref" href="#id20" role="doc-backlink">UdpAdapter Demo</a><a class="headerlink" href="#udpadapter-demo" title="Link to this heading">¶</a></h4>
 <p>Here follows a brief description of how to run the UdpAdapter
 demonstration.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% cd $PLEXIL_HOME
@@ -166,7 +165,7 @@ path):</p>
 </div>
 </section>
 <section id="debugging-output">
-<span id="id3"></span><h4><a class="toc-backref" href="#id21" role="doc-backlink">Debugging Output</a><a class="headerlink" href="#debugging-output" title="Permalink to this heading">¶</a></h4>
+<span id="id3"></span><h4><a class="toc-backref" href="#id21" role="doc-backlink">Debugging Output</a><a class="headerlink" href="#debugging-output" title="Link to this heading">¶</a></h4>
 <p>The output produced by these demonstration plans is well worth the
 effort it takes to understand what the system is doing. The amount of
 debugging output can be affected in the usual way, via the <code class="docutils literal notranslate"><span class="pre">Debug.cfg</span></code>
@@ -179,7 +178,7 @@ element in the adapter configuration <code class="docutils literal notranslate">
 <code class="docutils literal notranslate"><span class="pre">debug=&quot;false&quot;</span></code>.</p>
 </section>
 <section id="asynchronous-communication-idioms">
-<span id="id4"></span><h4><a class="toc-backref" href="#id22" role="doc-backlink">Asynchronous Communication Idioms</a><a class="headerlink" href="#asynchronous-communication-idioms" title="Permalink to this heading">¶</a></h4>
+<span id="id4"></span><h4><a class="toc-backref" href="#id22" role="doc-backlink">Asynchronous Communication Idioms</a><a class="headerlink" href="#asynchronous-communication-idioms" title="Link to this heading">¶</a></h4>
 <p>The demonstration plans illustrate several useful asynchronous
 communication idioms, including idioms for</p>
 <ol class="arabic simple">
@@ -208,7 +207,7 @@ arise from.</p>
 </section>
 </section>
 <section id="udp-message-definition">
-<span id="id5"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">UDP Message Definition</a><a class="headerlink" href="#udp-message-definition" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">UDP Message Definition</a><a class="headerlink" href="#udp-message-definition" title="Link to this heading">¶</a></h3>
 <p>For any given plan, all of the UDP commands/messages that can be used
 therein with the UdpAdapter must be defined in the Plexil XML
 communication configuration file. For the UdpAdapter, this file
@@ -299,7 +298,7 @@ the name of the message as its one and only string parameter, e.g.,</p>
 </div>
 </section>
 <section id="plexil-and-udp-data-types">
-<span id="id6"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">Plexil and UDP Data Types</a><a class="headerlink" href="#plexil-and-udp-data-types" title="Permalink to this heading">¶</a></h3>
+<span id="id6"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">Plexil and UDP Data Types</a><a class="headerlink" href="#plexil-and-udp-data-types" title="Link to this heading">¶</a></h3>
 <p>The mapping between internal Plexil types and external types is this:</p>
 <table class="docutils align-default">
 <thead>
@@ -360,7 +359,7 @@ is “received” by Plexil. This “feature” is demonstrated in the example
 code in <code class="docutils literal notranslate"><span class="pre">examples/multi-exec/udp</span></code>.</p>
 </section>
 <section id="using-udp-messages-commands-in-a-plexil-plan">
-<span id="using-udp-messagescommands-in-a-plexil-plan"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">Using UDP Messages/Commands in a Plexil Plan</a><a class="headerlink" href="#using-udp-messages-commands-in-a-plexil-plan" title="Permalink to this heading">¶</a></h3>
+<span id="using-udp-messagescommands-in-a-plexil-plan"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink">Using UDP Messages/Commands in a Plexil Plan</a><a class="headerlink" href="#using-udp-messages-commands-in-a-plexil-plan" title="Link to this heading">¶</a></h3>
 <p>The UdpAdapter uses the Plexil <code class="docutils literal notranslate"><span class="pre">Command</span></code> interface to send UDP
 messages, and the <code class="docutils literal notranslate"><span class="pre">OnCommand</span></code> interface to set up a listener for
 incoming UDP messages. This interface follows the example of the
@@ -384,7 +383,7 @@ simpler definition of <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 <section id="the-command-interface">
-<span id="id7"></span><h4><a class="toc-backref" href="#id26" role="doc-backlink">The <code class="docutils literal notranslate"><span class="pre">Command</span></code> Interface</a><a class="headerlink" href="#the-command-interface" title="Permalink to this heading">¶</a></h4>
+<span id="id7"></span><h4><a class="toc-backref" href="#id26" role="doc-backlink">The <code class="docutils literal notranslate"><span class="pre">Command</span></code> Interface</a><a class="headerlink" href="#the-command-interface" title="Link to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">Command</span></code> interface is used to send a UDP message. For example,
 for the definition of <code class="docutils literal notranslate"><span class="pre">test_udp_msg</span></code> <a class="reference internal" href="#using-udp-messagescommands-in-a-plexil-plan"><span class="std std-ref">immediately above</span></a>, the
 <code class="docutils literal notranslate"><span class="pre">test_udp_msg</span></code> command can be called thus:</p>
@@ -401,7 +400,7 @@ example, using “-” instead of “_” in the message name will fail during
 translation if you are using Standard <em>PLEXIL</em>.</p>
 </section>
 <section id="the-oncommand-interface">
-<span id="id8"></span><h4><a class="toc-backref" href="#id27" role="doc-backlink">The <code class="docutils literal notranslate"><span class="pre">OnCommand</span></code> Interface</a><a class="headerlink" href="#the-oncommand-interface" title="Permalink to this heading">¶</a></h4>
+<span id="id8"></span><h4><a class="toc-backref" href="#id27" role="doc-backlink">The <code class="docutils literal notranslate"><span class="pre">OnCommand</span></code> Interface</a><a class="headerlink" href="#the-oncommand-interface" title="Link to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">OnCommand</span></code> interface works in a similar manner. For example,
 given the message definition
 <a class="reference internal" href="#using-udp-messagescommands-in-a-plexil-plan"><span class="std std-ref">above</span></a>, the handler
@@ -420,7 +419,7 @@ will have to be passed via <code class="docutils literal notranslate"><span clas
 <code class="docutils literal notranslate"><span class="pre">PlexilCompiler</span></code> support arrays in the <code class="docutils literal notranslate"><span class="pre">OnCommand</span></code> interface.</p>
 </section>
 <section id="complete-send-and-receive-example-plans">
-<span id="id9"></span><h4><a class="toc-backref" href="#id28" role="doc-backlink">Complete Send and Receive Example Plans</a><a class="headerlink" href="#complete-send-and-receive-example-plans" title="Permalink to this heading">¶</a></h4>
+<span id="id9"></span><h4><a class="toc-backref" href="#id28" role="doc-backlink">Complete Send and Receive Example Plans</a><a class="headerlink" href="#complete-send-and-receive-example-plans" title="Link to this heading">¶</a></h4>
 <p>For convenience, complete working examples of sending and receiving
 plans are given here. The <code class="docutils literal notranslate"><span class="pre">print</span></code> command in each is used for
 debugging output and to make what the plans are doing easier to
@@ -467,9 +466,9 @@ communications, and so on.</p>
 </section>
 </section>
 <section id="outstanding-issues">
-<span id="id10"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink">Outstanding Issues</a><a class="headerlink" href="#outstanding-issues" title="Permalink to this heading">¶</a></h2>
+<span id="id10"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink">Outstanding Issues</a><a class="headerlink" href="#outstanding-issues" title="Link to this heading">¶</a></h2>
 <section id="invokeabort-timing-vs-multi-node-translation">
-<span id="id11"></span><h3><a class="toc-backref" href="#id30" role="doc-backlink">InvokeAbort Timing vs Multi-Node Translation</a><a class="headerlink" href="#invokeabort-timing-vs-multi-node-translation" title="Permalink to this heading">¶</a></h3>
+<span id="id11"></span><h3><a class="toc-backref" href="#id30" role="doc-backlink">InvokeAbort Timing vs Multi-Node Translation</a><a class="headerlink" href="#invokeabort-timing-vs-multi-node-translation" title="Link to this heading">¶</a></h3>
 <p>In testing, we find that if we send a multi-parameter message followed
 immediately by another message which breaks the <code class="docutils literal notranslate"><span class="pre">InvariantCondition</span></code>
 of the receiver of the first message, that <code class="docutils literal notranslate"><span class="pre">invokeAbort</span></code> is being
@@ -487,7 +486,7 @@ further thought and discussion, and really should be tested on the
 IpcAdapter.</p>
 </section>
 <section id="fixed-length-udp-messages">
-<span id="id12"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink">Fixed Length UDP Messages</a><a class="headerlink" href="#fixed-length-udp-messages" title="Permalink to this heading">¶</a></h3>
+<span id="id12"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink">Fixed Length UDP Messages</a><a class="headerlink" href="#fixed-length-udp-messages" title="Link to this heading">¶</a></h3>
 <p>For a start, all messages are fixed length. Among the features that one
 might want to add are:</p>
 <ol class="arabic simple">
@@ -499,7 +498,7 @@ and the data itself, and, perhaps,</p></li>
 strings can be given maximum length.</p>
 </section>
 <section id="one-udp-listener-per-incoming-message">
-<span id="id13"></span><h3><a class="toc-backref" href="#id32" role="doc-backlink">One UDP Listener per Incoming Message</a><a class="headerlink" href="#one-udp-listener-per-incoming-message" title="Permalink to this heading">¶</a></h3>
+<span id="id13"></span><h3><a class="toc-backref" href="#id32" role="doc-backlink">One UDP Listener per Incoming Message</a><a class="headerlink" href="#one-udp-listener-per-incoming-message" title="Link to this heading">¶</a></h3>
 <p>At present, each <code class="docutils literal notranslate"><span class="pre">OnCommand</span></code> node sets up a UDP listener on its own
 thread which waits for a UDP message on the given port. This means that
 only one listener can be active on any given port at any given time. As
@@ -521,7 +520,7 @@ appropriately.</p></li>
 <p>At present, neither of these is designed or implemented.</p>
 </section>
 <section id="low-level-error-codes-vs-plan-nodes">
-<span id="id14"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink">Low Level Error Codes vs Plan Nodes</a><a class="headerlink" href="#low-level-error-codes-vs-plan-nodes" title="Permalink to this heading">¶</a></h3>
+<span id="id14"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink">Low Level Error Codes vs Plan Nodes</a><a class="headerlink" href="#low-level-error-codes-vs-plan-nodes" title="Link to this heading">¶</a></h3>
 <p>At present, there is no good way to communicate low level errors up to
 the plan level. For example, if a UDP message is declared to use port
 8031 and that port is for some reason unavailable, the low level call to
@@ -536,12 +535,12 @@ At present, this limit checking is not yet implemented, but even when it
 is, all that can be done for now is to fail an <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p>
 </section>
 <section id="ipcadapter-vs-udpadapter">
-<span id="id15"></span><h3><a class="toc-backref" href="#id34" role="doc-backlink">IpcAdapter vs UdpAdapter</a><a class="headerlink" href="#ipcadapter-vs-udpadapter" title="Permalink to this heading">¶</a></h3>
+<span id="id15"></span><h3><a class="toc-backref" href="#id34" role="doc-backlink">IpcAdapter vs UdpAdapter</a><a class="headerlink" href="#ipcadapter-vs-udpadapter" title="Link to this heading">¶</a></h3>
 <p>Should one be able to use both at the same time? Unlikely to work for
 some things, e.g., both use ReceiveCommand internally.</p>
 </section>
 <section id="oncommand-vs-the-xml-configuration-definitions">
-<span id="id16"></span><h3><a class="toc-backref" href="#id35" role="doc-backlink">OnCommand vs the XML Configuration Definitions</a><a class="headerlink" href="#oncommand-vs-the-xml-configuration-definitions" title="Permalink to this heading">¶</a></h3>
+<span id="id16"></span><h3><a class="toc-backref" href="#id35" role="doc-backlink">OnCommand vs the XML Configuration Definitions</a><a class="headerlink" href="#oncommand-vs-the-xml-configuration-definitions" title="Link to this heading">¶</a></h3>
 <p>If the planner is not careful to make the number (and type) of the
 parameters defined in the config file for a message/command and command
 as it is used in the plan match, it can only be caught in a very heavy
@@ -587,7 +586,7 @@ parameters simply go unused.</p>
 <p class="caption" role="heading"><span class="caption-text">PLEXIL Language</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILOverview.html">PLEXIL Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReferences.html">PLEXIL References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html">PLEXIL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/PLEXILSemantics.html">PLEXIL Semantics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PLEXILLanguage/ResourceModel.html">Resource Model</a></li>
 </ul>

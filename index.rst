@@ -1,11 +1,17 @@
-This is the main page for the PLEXIL wiki. For PLEXIL's main project
-page, which has downloads and other information, go here:
-https://github.com/plexil-group/plexil
+This is the main page of the PLEXIL User's Guide. It documents PLEXIL
+Release 4.6, which is the version of PLEXIL found on its
+``releases/plexil-4.6`` Git branch.
 
-The documentation originally was hosted at:
-http://plexil.sourceforge.net/wiki/index.php/Main_Page and the main project was maintained at: https://sourceforge.net/projects/plexil/
+Most, but not all, of this documentation also applies to PLEXIL
+Release 6.  Documentation specific to Release 6 is in development.
 
-*Updated 18 Aug 2021*
+For PLEXIL's main project page, which has downloads and other
+information, go to https://github.com/plexil-group/plexil.
+
+This user guide supercedes the previous version that was hosted on
+Sourceforge.
+
+*Updated 26 Feb 2024*
 
 .. contents::
 
@@ -55,7 +61,7 @@ See the sidebar (column to the left of this page) for links to many
 |PLEXIL| topics.
 
 If you have questions, please email us at
-plexildiscuss@gmail.com
+``plexil-support (at) groups (dot) io``.
 
 .. _nasa_applications:
 
@@ -74,7 +80,7 @@ uses |PLEXIL| for onboard lander autonomy.
    :width: 350
 
    Image Credit: NASA
-   
+
 
 .. _cockpit_hierarchical_activity_planning_and_execution_chap_e:
 
@@ -139,7 +145,7 @@ host of improvements to make |PLEXIL| more robust for flight applications.
    :width: 350
 
    Image Credit: NASA
-   
+
 .. _edison_demonstration_of_smallsat_networks:
 
 `Edison Demonstration of Smallsat Networks <http://www.nasa.gov/centers/ames/engineering/projects/edison.html#.U17Facd2M1Q>`_
@@ -157,7 +163,7 @@ automation.
     :width: 45 %
 .. image:: _static/images/Edsn2.jpg
     :width: 45 %
-	
+
 Image Credit: NASA
 
 .. _habitat_demonstration_unit:
@@ -177,7 +183,7 @@ demonstrate automated control of several DSH subsystems.
     :width: 45 %
 .. image:: _static/images/120px-Hdu2.jpg
     :width: 45 %
-	
+
 Image Credit: NASA
 
 .. _international_space_station:
@@ -192,7 +198,7 @@ Station operations.
     :width: 45 %
 .. image:: _static/images/Iss2.jpg
     :width: 45 %
-	
+
 Image Credit: NASA
 
 
@@ -211,7 +217,7 @@ and Quebec, this is perhaps the first fully automated drill rig.
     :width: 45 %
 .. image:: _static/images/151000main_marsdrill2033.png
     :width: 45 %
-	
+
 Image Credit: NASA/Ames
 
 .. _k10_rover:
@@ -232,14 +238,14 @@ series of high-resolution pictures at pre-determined locations.
     :width: 45 %
 .. image:: _static/images/K10_v.jpg
     :width: 45 %
-	
+
 Image Credit: NASA/Ames
 
 .. toctree::
    :hidden:
 
    Home Page <self>
-   
+
 .. toctree::
    :caption: Getting Started
    :maxdepth: 1
@@ -284,7 +290,7 @@ Image Credit: NASA/Ames
    PLEXILTools/Plexilisp
    PLEXILTools/PLEXILChecker
    PLEXILTools/XMLSchemaEmacs
-   
+
 .. toctree::
    :caption: Interfacing
    :maxdepth: 1
@@ -297,15 +303,15 @@ Image Credit: NASA/Ames
    Implementing Custom Interfaces <Interfacing/ImplementingCustomInterfaces>
    Implementing Custom Applications <Interfacing/ImplementingCustomApplications>
    API Reference <Interfacing/APIReference>
-   
-   
+
+
 .. toctree::
    :caption: Release Notes
    :maxdepth: 1
    :hidden:
 
    PLEXIL-4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
-   
+
 .. toctree::
    :titlesonly:
    :caption: Appendices
@@ -317,4 +323,3 @@ Image Credit: NASA/Ames
    RoboSim <Appendices/RoboSim>
    SimulatorNotes <Appendices/SimulatorNotes>
    References <Appendices/References>
-

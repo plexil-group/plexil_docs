@@ -59,11 +59,11 @@ greater depth.
 Nodes
 ~~~~~
 
-A |PLEXIL| plan is built from *nodes* 
+A |PLEXIL| plan is built from *nodes*
 
 .. note::
-    *nodes* were once called *actions* 
-    
+    *nodes* were once called *actions*
+
 A node specifies something to do, either within the plan
 itself, or to the external world. Nodes are the composable building
 blocks from which arbitrarily complex behaviors can be specified. There
@@ -278,15 +278,13 @@ given in the chapter titled :ref:`PLEXIL, XML, and Emacs <XMLSchemaEmacs>`.
 
 .. _the_plexil_community:
 
+
 The PLEXIL Community
 --------------------
 
-We have two mailing lists:
+If you have problems installing or using PLEXIL, find bugs in it, or
+have feature requests, please open an issue at
+https://github.com/plexil-group/plexil/issues.
 
--  *plexil-discussion* email will be sent to anyone interested in
-   |PLEXIL|.
--  *plexil-support* email will be sent only to the |PLEXIL| developers.
-
-Please feel free to add yourself to *plexil-discussion* using the
-`mailing lists <plexildiscuss@gmail.com>`_
-
+If you have questions about PLEXIL, please contact the support team
+at ``plexil-support (at) groups (dot) io``.

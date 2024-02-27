@@ -30,4 +30,6 @@ project page, at: https://github.com/plexil-group/plexil
 
 6. When you are satisified with the results, publish the
    documentation.  Copy the contents of the `_build/html` directory to
-   `docs`, then `git commit` and `git push` the results.
+   `docs`, then `git commit` and `git push` the results.  NOTE: for
+   simplicity you can _replace_ `docs` with `_build/html` but the file
+   `docs/.nojekyll` will be lost; this empty file should be restored.
