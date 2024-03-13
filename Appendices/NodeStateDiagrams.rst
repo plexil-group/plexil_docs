@@ -3,14 +3,10 @@
 Node State Diagrams
 ===================
 
-*29 May 2015*
+*12 Mar 2024*
 
 These illustrations describe the node state transition semantics of
-|PLEXIL| nodes. The previous version of this page is found
-`here <http://plexil.sourceforge.net/wiki/index.php/Original_Node_State_Transition_Diagrams>`_; it was written
-before the addition of Exit Condition, uses a different notation, and
-does not capture the exact behavior of the Plexil Executive in a few
-areas.
+|PLEXIL| nodes for PLEXIL releases 4.x.
 
 .. contents::
 
@@ -35,9 +31,9 @@ Nodes in the WAITING state transition directly to FINISHED when their or
 some ancestor's ExitCondition becomes true.
 
 .. figure:: ../_static/images/Waiting_with_Exit_condition.png
-   :alt: Waiting state for most node types
+   :alt: Waiting state for all node types
 
-   Waiting state for most node types
+   Waiting state for all node types
 
 For Assignment nodes, the assignment takes place when the node
 transitions to EXECUTING:
