@@ -46,13 +46,9 @@
             
   <section id="node-state-diagrams">
 <span id="nodestatediagrams"></span><h1><a class="toc-backref" href="#id22" role="doc-backlink">Node State Diagrams</a><a class="headerlink" href="#node-state-diagrams" title="Link to this heading">¶</a></h1>
-<p><em>29 May 2015</em></p>
+<p><em>14 Mar 2024</em></p>
 <p>These illustrations describe the node state transition semantics of
-<em>PLEXIL</em> nodes. The previous version of this page is found
-<a class="reference external" href="http://plexil.sourceforge.net/wiki/index.php/Original_Node_State_Transition_Diagrams">here</a>; it was written
-before the addition of Exit Condition, uses a different notation, and
-does not capture the exact behavior of the Plexil Executive in a few
-areas.</p>
+<em>PLEXIL</em> nodes for PLEXIL releases 4.x.</p>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -93,7 +89,7 @@ areas.</p>
 <span id="id1"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink">INACTIVE state</a><a class="headerlink" href="#inactive-state" title="Link to this heading">¶</a></h2>
 <p>Effective with the <em>PLEXIL</em> 3 release, INACTIVE nodes behave as shown:</p>
 <figure class="align-default" id="id19">
-<img alt="Inactive state for all node types" src="../_images/Inactive_revised_2013-03-06.png" />
+<img alt="Inactive state for all node types" src="../_images/Inactive-plexil4.png" />
 <figcaption>
 <p><span class="caption-text">Inactive state for all node types</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
 </figcaption>
@@ -104,9 +100,9 @@ areas.</p>
 <p>Nodes in the WAITING state transition directly to FINISHED when their or
 some ancestor’s ExitCondition becomes true.</p>
 <figure class="align-default" id="id20">
-<img alt="Waiting state for most node types" src="../_images/Waiting_with_Exit_condition.png" />
+<img alt="Waiting state for all node types" src="../_images/Waiting_with_Exit_condition.png" />
 <figcaption>
-<p><span class="caption-text">Waiting state for most node types</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Waiting state for all node types</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>For Assignment nodes, the assignment takes place when the node
@@ -126,7 +122,7 @@ transitions to EXECUTING:</p>
 ExitCondition becomes true, or to FINISHED if some ancestor’s becomes
 true.</p>
 <figure class="align-default">
-<img alt="Executing_Empty_nodes_with_Exit_condition.png" src="../_images/Executing_Empty_nodes_with_Exit_condition.png" />
+<img alt="../_images/Executing_Empty_nodes_with_Exit_condition.png" src="../_images/Executing_Empty_nodes_with_Exit_condition.png" />
 </figure>
 </section>
 <section id="executing-assignment-nodes">
@@ -137,7 +133,7 @@ or their or some ancestor’s InvariantCondition becomes false. Otherwise
 Assignment nodes transition to ITERATION_ENDED when the ExitCondition
 becomes true; the PostCondition determines the outcome.</p>
 <figure class="align-default">
-<img alt="Executing_Assignment_nodes_with_Exit_condition.png" src="../_images/Executing_Assignment_nodes_with_Exit_condition.png" />
+<img alt="../_images/Executing_Assignment_nodes_with_Exit_condition.png" src="../_images/Executing_Assignment_nodes_with_Exit_condition.png" />
 </figure>
 </section>
 <section id="executing-command-nodes">
@@ -150,7 +146,7 @@ FAILING to abort the command.</p>
 . This allows the node to transition in the event the resource arbiter
 rejects the command.</p>
 <figure class="align-default">
-<img alt="Executing_Command_with_Exit_and_FINISHING.png" src="../_images/Executing_Command_with_Exit_and_FINISHING.png" />
+<img alt="../_images/Executing_Command_with_Exit_and_FINISHING.png" src="../_images/Executing_Command_with_Exit_and_FINISHING.png" />
 </figure>
 </section>
 <section id="executing-update-nodes">
@@ -158,7 +154,7 @@ rejects the command.</p>
 <p>Update nodes behave similarly to Assignment nodes.</p>
 <p>Note that the supplied EndCondition is ANDed with update-complete.</p>
 <figure class="align-default">
-<img alt="Executing_Update_with_Exit_condition.png" src="../_images/Executing_Update_with_Exit_condition.png" />
+<img alt="../_images/Executing_Update_with_Exit_condition.png" src="../_images/Executing_Update_with_Exit_condition.png" />
 </figure>
 </section>
 <section id="executing-nodelist-and-librarynodecall-nodes">
@@ -168,7 +164,7 @@ some ancestor’s ExitCondition becomes true.</p>
 <p>Note that the default EndCondition for these node types is all children
 in FINISHED state.</p>
 <figure class="align-default">
-<img alt="Executing_List_nodes_with_Exit_condition.png" src="../_images/Executing_List_nodes_with_Exit_condition.png" />
+<img alt="../_images/Executing_List_nodes_with_Exit_condition.png" src="../_images/Executing_List_nodes_with_Exit_condition.png" />
 </figure>
 </section>
 </section>
@@ -180,13 +176,13 @@ completion, it transitions to FAILING.</p>
 <section id="finishing-command-nodes">
 <span id="id10"></span><h3><a class="toc-backref" href="#id32" role="doc-backlink">FINISHING - Command nodes</a><a class="headerlink" href="#finishing-command-nodes" title="Link to this heading">¶</a></h3>
 <figure class="align-default">
-<img alt="Finishing_Command_with_Exit_condition.png" src="../_images/Finishing_Command_with_Exit_condition.png" />
+<img alt="../_images/Finishing_Command_with_Exit_condition.png" src="../_images/Finishing_Command_with_Exit_condition.png" />
 </figure>
 </section>
 <section id="finishing-nodelist-and-librarynodecall-nodes">
 <span id="id11"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink">FINISHING - NodeList and LibraryNodeCall nodes</a><a class="headerlink" href="#finishing-nodelist-and-librarynodecall-nodes" title="Link to this heading">¶</a></h3>
 <figure class="align-default">
-<img alt="Finishing_with_Exit_condition.png" src="../_images/Finishing_with_Exit_condition.png" />
+<img alt="../_images/Finishing_with_Exit_condition.png" src="../_images/Finishing_with_Exit_condition.png" />
 </figure>
 </section>
 </section>
@@ -203,7 +199,7 @@ value on the transition into FAILING.</p>
 the event of a failure. The entire team agrees that restoring the
 previous value is preferable.</p>
 <figure class="align-default">
-<img alt="Failing_Assignment_nodes_with_Exit_condtion.png" src="../_images/Failing_Assignment_nodes_with_Exit_condtion.png" />
+<img alt="../_images/Failing-Assignment-plexil4.png" src="../_images/Failing-Assignment-plexil4.png" />
 </figure>
 </section>
 <section id="failing-command-nodes">
@@ -211,7 +207,7 @@ previous value is preferable.</p>
 <p>Command nodes abort the command, wait for the abort to complete, then
 transition to FINISHED or ITERATION_ENDED as appropriate.</p>
 <figure class="align-default">
-<img alt="Failing_Command_with_Exit_condition.png" src="../_images/Failing_Command_with_Exit_condition.png" />
+<img alt="../_images/Failing-Command-plexil4.png" src="../_images/Failing-Command-plexil4.png" />
 </figure>
 </section>
 <section id="failing-update-nodes">
@@ -219,7 +215,7 @@ transition to FINISHED or ITERATION_ENDED as appropriate.</p>
 <p>Update nodes simply wait for the update to complete, then transition to
 FINISHED or ITERATION_ENDED as appropriate.</p>
 <figure class="align-default">
-<img alt="Failing_Update_with_Exit_condition.png" src="../_images/Failing_Update_with_Exit_condition.png" />
+<img alt="../_images/Failing-Update-plexil4.png" src="../_images/Failing-Update-plexil4.png" />
 </figure>
 </section>
 <section id="failing-nodelist-and-librarynodecall-nodes">
@@ -228,7 +224,7 @@ FINISHED or ITERATION_ENDED as appropriate.</p>
 either the WAITING or FINISHED state before transitioning to FINISHED or
 ITERATION_ENDED.</p>
 <figure class="align-default">
-<img alt="Failing_List_node_with_Exit_condition.png" src="../_images/Failing_List_node_with_Exit_condition.png" />
+<img alt="../_images/Failing_List_node_with_Exit_condition.png" src="../_images/Failing_List_node_with_Exit_condition.png" />
 </figure>
 </section>
 </section>
@@ -237,7 +233,7 @@ ITERATION_ENDED.</p>
 <p>ITERATION_ENDED transitions directly to FINISHED if an ancestor’s
 ExitCondition becomes true.</p>
 <figure class="align-default">
-<img alt="Iteration_Ended_with_Exit_condition.png" src="../_images/Iteration_Ended_with_Exit_condition.png" />
+<img alt="../_images/Iteration_Ended_with_Exit_condition.png" src="../_images/Iteration_Ended_with_Exit_condition.png" />
 </figure>
 </section>
 <section id="finished-state">
@@ -245,7 +241,7 @@ ExitCondition becomes true.</p>
 <p>The Finished state is unchanged from the specification and previous
 implemented behavior.</p>
 <figure class="align-default">
-<img alt="Finished_Revised.png" src="../_images/Finished_Revised.png" />
+<img alt="../_images/Finished_Revised.png" src="../_images/Finished_Revised.png" />
 </figure>
 </section>
 </section>
