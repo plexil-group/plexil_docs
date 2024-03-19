@@ -3,7 +3,7 @@
 Node State Diagrams
 ===================
 
-*14 Mar 2024*
+*19 Mar 2024*
 
 These illustrations describe the node state transition semantics of
 |PLEXIL| nodes for PLEXIL releases 4.x.
@@ -15,33 +15,31 @@ These illustrations describe the node state transition semantics of
 INACTIVE state
 --------------
 
-Effective with the |PLEXIL| 3 release, INACTIVE nodes behave as shown:
+Nodes of all types in the INACTIVE nodes behave as follows.
 
 .. figure:: ../_static/images/Inactive-plexil4.png
-   :alt: Inactive state for all node types
-
-   Inactive state for all node types
 
 .. _waiting_state:
 
 WAITING state
 -------------
 
-Nodes in the WAITING state transition directly to FINISHED when their or
-some ancestor's ExitCondition becomes true.
+There is a small but significant difference in the transition
+semantics for the WAITING state between Plexil 4 and Plexil 6.
+In Plexil 4, the node's Exit Condition is checked in this state, and
+transitions the node to FINISHED if true.
 
-.. figure:: ../_static/images/Waiting_with_Exit_condition.png
-   :alt: Waiting state for all node types
+.. figure:: ../_static/images/Waiting-plexil4.png
 
-   Waiting state for all node types
+   Waiting state for all node types in Plexil 4
 
-For Assignment nodes, the assignment takes place when the node
-transitions to EXECUTING:
+In Plexil 6, the Exit Condition is *not* checked when the node is
+waiting; this was actually the intended semantics when the Exit
+Condition was introduced.
 
-.. figure:: ../_static/images/Waiting_Assignment_nodes_with_Exit_condition.png
-   :alt: Waiting state for Assignment nodes
+.. figure:: ../_static/images/Waiting-plexil6.png
 
-   Waiting state for Assignment nodes
+   Waiting state for all node types in Plexil 6
 
 .. _executing_state:
 
