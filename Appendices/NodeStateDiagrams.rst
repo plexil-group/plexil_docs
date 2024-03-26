@@ -15,7 +15,7 @@ These illustrations describe the node state transition semantics of
 INACTIVE state
 --------------
 
-Nodes of all types in the INACTIVE nodes behave as follows.
+Nodes of all types in the INACTIVE state behave as follows.
 
 .. figure:: ../_static/images/Inactive-plexil4.png
 
@@ -68,7 +68,7 @@ or their or some ancestor's InvariantCondition becomes false. Otherwise
 Assignment nodes transition to ITERATION_ENDED when the ExitCondition
 becomes true; the PostCondition determines the outcome.
 
-.. figure:: ../_static/images/Executing_Assignment_nodes_with_Exit_condition.png
+.. figure:: ../_static/images/Executing-Assignment-plexil4.png
 
 .. _executing___command_nodes:
 
