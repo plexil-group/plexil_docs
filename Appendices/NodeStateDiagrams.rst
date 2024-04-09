@@ -3,14 +3,10 @@
 Node State Diagrams
 ===================
 
-*29 May 2015*
+*19 Mar 2024*
 
 These illustrations describe the node state transition semantics of
-|PLEXIL| nodes. The previous version of this page is found
-`here <http://plexil.sourceforge.net/wiki/index.php/Original_Node_State_Transition_Diagrams>`_; it was written
-before the addition of Exit Condition, uses a different notation, and
-does not capture the exact behavior of the Plexil Executive in a few
-areas.
+|PLEXIL| nodes for PLEXIL releases 4.x.
 
 .. contents::
 
@@ -19,33 +15,31 @@ areas.
 INACTIVE state
 --------------
 
-Effective with the |PLEXIL| 3 release, INACTIVE nodes behave as shown:
+Nodes of all types in the INACTIVE state behave as follows.
 
-.. figure:: ../_static/images/Inactive_revised_2013-03-06.png
-   :alt: Inactive state for all node types
-
-   Inactive state for all node types
+.. figure:: ../_static/images/Inactive-plexil4.png
 
 .. _waiting_state:
 
 WAITING state
 -------------
 
-Nodes in the WAITING state transition directly to FINISHED when their or
-some ancestor's ExitCondition becomes true.
+There is a small but significant difference in the transition
+semantics for the WAITING state between Plexil 4 and Plexil 6.
+In Plexil 4, the node's Exit Condition is checked in this state, and
+transitions the node to FINISHED if true.
 
-.. figure:: ../_static/images/Waiting_with_Exit_condition.png
-   :alt: Waiting state for most node types
+.. figure:: ../_static/images/Waiting-plexil4.png
 
-   Waiting state for most node types
+   Waiting state for all node types in Plexil 4
 
-For Assignment nodes, the assignment takes place when the node
-transitions to EXECUTING:
+In Plexil 6, the Exit Condition is *not* checked when the node is
+waiting; this was actually the intended semantics when the Exit
+Condition was introduced.
 
-.. figure:: ../_static/images/Waiting_Assignment_nodes_with_Exit_condition.png
-   :alt: Waiting state for Assignment nodes
+.. figure:: ../_static/images/Waiting-plexil6.png
 
-   Waiting state for Assignment nodes
+   Waiting state for all node types in Plexil 6
 
 .. _executing_state:
 
@@ -62,7 +56,6 @@ ExitCondition becomes true, or to FINISHED if some ancestor's becomes
 true.
 
 .. figure:: ../_static/images/Executing_Empty_nodes_with_Exit_condition.png
-   :alt: Executing_Empty_nodes_with_Exit_condition.png
 
 .. _executing___assignment_nodes:
 
@@ -75,8 +68,7 @@ or their or some ancestor's InvariantCondition becomes false. Otherwise
 Assignment nodes transition to ITERATION_ENDED when the ExitCondition
 becomes true; the PostCondition determines the outcome.
 
-.. figure:: ../_static/images/Executing_Assignment_nodes_with_Exit_condition.png
-   :alt: Executing_Assignment_nodes_with_Exit_condition.png
+.. figure:: ../_static/images/Executing-Assignment-plexil4.png
 
 .. _executing___command_nodes:
 
@@ -93,7 +85,6 @@ Note that the supplied EndCondition is ORed with
 rejects the command.
 
 .. figure:: ../_static/images/Executing_Command_with_Exit_and_FINISHING.png
-   :alt: Executing_Command_with_Exit_and_FINISHING.png
 
 .. _executing___update_nodes:
 
@@ -105,7 +96,6 @@ Update nodes behave similarly to Assignment nodes.
 Note that the supplied EndCondition is ANDed with update-complete.
 
 .. figure:: ../_static/images/Executing_Update_with_Exit_condition.png
-   :alt: Executing_Update_with_Exit_condition.png
 
 .. _executing___nodelist_and_librarynodecall_nodes:
 
@@ -119,7 +109,6 @@ Note that the default EndCondition for these node types is all children
 in FINISHED state.
 
 .. figure:: ../_static/images/Executing_List_nodes_with_Exit_condition.png
-   :alt: Executing_List_nodes_with_Exit_condition.png
 
 .. _finishing_state:
 
@@ -136,7 +125,6 @@ FINISHING - Command nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: ../_static/images/Finishing_Command_with_Exit_condition.png
-   :alt: Finishing_Command_with_Exit_condition.png
 
 .. _finishing___nodelist_and_librarynodecall_nodes:
 
@@ -144,7 +132,6 @@ FINISHING - NodeList and LibraryNodeCall nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: ../_static/images/Finishing_with_Exit_condition.png
-   :alt: Finishing_with_Exit_condition.png
 
 .. _failing_state:
 
@@ -167,8 +154,7 @@ Note that the previous as-implemented behavior was to assign UNKNOWN in
 the event of a failure. The entire team agrees that restoring the
 previous value is preferable.
 
-.. figure:: ../_static/images/Failing_Assignment_nodes_with_Exit_condtion.png
-   :alt: Failing_Assignment_nodes_with_Exit_condtion.png
+.. figure:: ../_static/images/Failing-Assignment-plexil4.png
 
 .. _failing___command_nodes:
 
@@ -178,8 +164,7 @@ FAILING - Command nodes
 Command nodes abort the command, wait for the abort to complete, then
 transition to FINISHED or ITERATION_ENDED as appropriate.
 
-.. figure:: ../_static/images/Failing_Command_with_Exit_condition.png
-   :alt: Failing_Command_with_Exit_condition.png
+.. figure:: ../_static/images/Failing-Command-plexil4.png
 
 .. _failing___update_nodes:
 
@@ -189,8 +174,7 @@ FAILING - Update nodes
 Update nodes simply wait for the update to complete, then transition to
 FINISHED or ITERATION_ENDED as appropriate.
 
-.. figure:: ../_static/images/Failing_Update_with_Exit_condition.png
-   :alt: Failing_Update_with_Exit_condition.png
+.. figure:: ../_static/images/Failing-Update-plexil4.png
 
 .. _failing___nodelist_and_librarynodecall_nodes:
 
@@ -202,7 +186,6 @@ either the WAITING or FINISHED state before transitioning to FINISHED or
 ITERATION_ENDED.
 
 .. figure:: ../_static/images/Failing_List_node_with_Exit_condition.png
-   :alt: Failing_List_node_with_Exit_condition.png
 
 .. _iteration_ended_state:
 
@@ -213,7 +196,6 @@ ITERATION_ENDED transitions directly to FINISHED if an ancestor's
 ExitCondition becomes true.
 
 .. figure:: ../_static/images/Iteration_Ended_with_Exit_condition.png
-   :alt: Iteration_Ended_with_Exit_condition.png
 
 .. _finished_state:
 
@@ -224,4 +206,3 @@ The Finished state is unchanged from the specification and previous
 implemented behavior.
 
 .. figure:: ../_static/images/Finished_Revised.png
-   :alt: Finished_Revised.png
