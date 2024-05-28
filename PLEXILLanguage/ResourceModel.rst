@@ -334,7 +334,7 @@ been acknowledged by the external system.
 
 The command handle is set to ``COMMAND_ABORTED`` if the
 acknowledgement value is ``true``, or ``COMMAND_ABORT_FAILED`` if the
-acknowledgement is ``false``.  See :ref:`interfacing
+acknowledgement is ``false``.  See :ref:`Interfacing Overview
 <InterfacingOverview>` for more information.
 
 Any resources allocated to an aborted command will remain allocated

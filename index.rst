@@ -11,7 +11,7 @@ information, go to https://github.com/plexil-group/plexil.
 This user guide supercedes the previous version that was hosted on
 Sourceforge.
 
-*Updated 26 Feb 2024*
+*Updated 28 May 2024*
 
 .. contents::
 
@@ -320,6 +320,7 @@ Image Credit: NASA/Ames
    :hidden:
 
    Node State Diagrams <Appendices/NodeStateDiagrams>
+   Reserved Words in Standard PLEXIL <Appendices/StandardPlexilReservedWords>
    Example Plans <Appendices/ExamplePlans>
    RoboSim <Appendices/RoboSim>
    SimulatorNotes <Appendices/SimulatorNotes>

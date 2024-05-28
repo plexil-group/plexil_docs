@@ -1935,7 +1935,7 @@ The following are examples of global declarations.
 
 .. _programming_in_plexil:
 
-Programming in Plexil
+Programming in PLEXIL
 ---------------------
 
 .. _plexil_files:
@@ -2018,6 +2018,19 @@ files.
 
 ``plexilc`` automatically invokes the preprocessor when the input file
 name ends in ``.plp``
+
+.. _standard_plexil_syntax:
+
+Formal syntax of standard PLEXIL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The formal syntax of Standard |PLEXIL| can be found in the file
+``compilers/plexil/antlr/Plexil.g`` in the distribution.
+
+A list of reserved words in the Standard |PLEXIL| language can be
+found at :ref:`Reserved Words in Standard PLEXIL
+<StandardPlexilReservedWords>`.
+
 
 .. _executing_plexil_plans:
 

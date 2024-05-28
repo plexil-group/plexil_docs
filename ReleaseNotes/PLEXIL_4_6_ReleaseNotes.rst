@@ -21,7 +21,7 @@ Obtaining PLEXIL
 
 * The `git repository at GitHub
   <https://github.com/plexil-group/plexil>`_ is now the only
-  authoritative publc repository for |PLEXIL|.  The previous git and
+  authoritative public repository for |PLEXIL|.  The previous git and
   Subversion repositories at Sourceforge are no longer maintained.
 
 * The `pugixml <https://pugixml.org/>`_ XML library is now integrated
