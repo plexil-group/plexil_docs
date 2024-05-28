@@ -1,5 +1,9 @@
 # Sphinx default build directory
 _build
+# Virtual environment directory
+_venv
+# Build bookkeeping
+docs/.buildinfo
 # macOS specific junk
 .DS_Store
 # Emacs temporary and backup files
