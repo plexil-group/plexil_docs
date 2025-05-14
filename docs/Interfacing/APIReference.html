@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
     <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,7 +22,7 @@
   
   
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -259,14 +259,14 @@ optionally provides support for threading.</p>
 <span class="o">/**</span>
   <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Suspends</span> <span class="n">the</span> <span class="n">running</span> <span class="n">Exec</span><span class="o">.</span>
   <span class="o">*</span> <span class="nd">@return</span> <span class="n">true</span> <span class="k">if</span> <span class="n">successful</span><span class="p">,</span> <span class="n">false</span> <span class="n">otherwise</span><span class="o">.</span>
-  <span class="o">*</span> <span class="nd">@note</span> <span class="n">Can</span> <span class="n">only</span> <span class="n">be</span> <span class="n">suspended</span> <span class="kn">from</span> <span class="nn">APP_RUNNING</span> <span class="n">state</span><span class="o">.</span>
+  <span class="o">*</span> <span class="nd">@note</span> <span class="n">Can</span> <span class="n">only</span> <span class="n">be</span> <span class="n">suspended</span> <span class="kn">from</span><span class="w"> </span><span class="nn">APP_RUNNING</span> <span class="n">state</span><span class="o">.</span>
   <span class="o">*/</span>
 <span class="n">virtual</span> <span class="nb">bool</span> <span class="n">suspend</span><span class="p">();</span>
 
 <span class="o">/**</span>
   <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Resumes</span> <span class="n">a</span> <span class="n">suspended</span> <span class="n">Exec</span><span class="o">.</span>
   <span class="o">*</span> <span class="nd">@return</span> <span class="n">true</span> <span class="k">if</span> <span class="n">successful</span><span class="p">,</span> <span class="n">false</span> <span class="n">otherwise</span><span class="o">.</span>
-  <span class="o">*</span> <span class="nd">@note</span> <span class="n">Can</span> <span class="n">only</span> <span class="n">resume</span> <span class="kn">from</span> <span class="nn">suspended</span> <span class="n">state</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span>
+  <span class="o">*</span> <span class="nd">@note</span> <span class="n">Can</span> <span class="n">only</span> <span class="n">resume</span> <span class="kn">from</span><span class="w"> </span><span class="nn">suspended</span> <span class="n">state</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span>
   <span class="o">*</span>   <span class="n">application</span> <span class="n">state</span> <span class="ow">is</span> <span class="n">APP_READY</span> <span class="ow">and</span> <span class="n">isSuspended</span><span class="p">()</span> <span class="ow">is</span> <span class="n">true</span><span class="o">.</span>
   <span class="o">*/</span>
 <span class="n">virtual</span> <span class="nb">bool</span> <span class="n">resume</span><span class="p">();</span>
@@ -316,7 +316,7 @@ optionally provides support for threading.</p>
 <span class="n">virtual</span> <span class="nb">bool</span> <span class="n">addLibrary</span><span class="p">(</span><span class="n">pugi</span><span class="p">::</span><span class="n">xml_document</span><span class="o">*</span> <span class="n">libXml</span><span class="p">);</span>
 
 <span class="o">/**</span>
-  <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">named</span> <span class="n">library</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">library</span> <span class="n">path</span><span class="o">.</span>
+  <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">named</span> <span class="n">library</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">library</span> <span class="n">path</span><span class="o">.</span>
   <span class="o">*</span> <span class="nd">@param</span> <span class="n">name</span> <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">library</span><span class="o">.</span>
   <span class="o">*</span> <span class="nd">@return</span> <span class="n">true</span> <span class="k">if</span> <span class="n">successful</span><span class="p">,</span> <span class="n">false</span> <span class="n">otherwise</span><span class="o">.</span>
   <span class="o">*/</span>
@@ -594,7 +594,7 @@ always an <code class="docutils literal notranslate"><span class="pre">Interface
 <span class="n">InterfaceAdapter</span><span class="p">(</span><span class="n">AdapterExecInterface</span><span class="o">&amp;</span> <span class="n">execInterface</span><span class="p">);</span>
 
 <span class="o">/**</span>
-  <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Constructor</span> <span class="kn">from</span> <span class="nn">configuration</span> <span class="n">XML</span><span class="o">.</span>
+  <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Constructor</span> <span class="kn">from</span><span class="w"> </span><span class="nn">configuration</span> <span class="n">XML</span><span class="o">.</span>
   <span class="o">*</span> <span class="nd">@param</span> <span class="n">execInterface</span> <span class="n">Reference</span> <span class="n">to</span> <span class="n">the</span> <span class="n">parent</span> <span class="n">AdapterExecInterface</span> <span class="nb">object</span><span class="o">.</span>
   <span class="o">*</span> <span class="nd">@param</span> <span class="n">xml</span> <span class="n">The</span> <span class="n">XML</span> <span class="n">element</span> <span class="n">describing</span> <span class="n">this</span> <span class="n">adapter</span>
   <span class="o">*</span> <span class="nd">@note</span> <span class="n">The</span> <span class="n">instance</span> <span class="n">maintains</span> <span class="n">a</span> <span class="n">shared</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">the</span> <span class="n">XML</span><span class="o">.</span>
@@ -748,7 +748,7 @@ executive. Optionally uses an instance of
 <span class="n">ExecListener</span><span class="p">();</span>
 
 <span class="o">/**</span>
- <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Constructor</span> <span class="kn">from</span> <span class="nn">configuration</span> <span class="n">XML</span>
+ <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Constructor</span> <span class="kn">from</span><span class="w"> </span><span class="nn">configuration</span> <span class="n">XML</span>
  <span class="o">*</span> <span class="nd">@param</span> <span class="n">xml</span> <span class="n">Pointer</span> <span class="n">to</span> <span class="n">the</span> <span class="p">(</span><span class="n">shared</span><span class="p">)</span> <span class="n">configuration</span> <span class="n">XML</span> <span class="n">describing</span> <span class="n">this</span> <span class="n">listener</span><span class="o">.</span>
  <span class="o">*/</span>
 <span class="n">ExecListener</span><span class="p">(</span><span class="n">pugi</span><span class="p">::</span><span class="n">xml_node</span> <span class="n">const</span> <span class="n">xml</span><span class="p">);</span>
@@ -1253,7 +1253,7 @@ developed and maintained at this writing.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
@@ -1314,7 +1314,7 @@ developed and maintained at this writing.</p>
 <li class="toctree-l1"><a class="reference internal" href="../Appendices/References.html">References</a></li>
 </ul>
 
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -1322,7 +1322,7 @@ developed and maintained at this writing.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>

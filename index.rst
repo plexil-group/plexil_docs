@@ -11,7 +11,7 @@ information, go to https://github.com/plexil-group/plexil.
 This user guide supercedes the previous version that was hosted on
 Sourceforge.
 
-*Updated 26 Feb 2024*
+*Updated 13 May 2025*
 
 .. contents::
 
@@ -68,6 +68,22 @@ If you have questions, please email us at
 NASA Applications
 =================
 
+Distributed Spacecraft Autonomy (DSA)
+-------------------------------------
+
+A `Core Flight System (cFS) based <https://github.com/nasa/cFS>`_ PLEXIL application is part of
+the `DSA
+<https://www.nasa.gov/game-changing-development-projects/distributed-spacecraft-autonomy-dsa/>`_
+payload, flying onboard NASA's Starling satellite swarm, demonstrating
+distributed autonomous sensing and commanding of the spacecraft.
+
+.. figure:: _static/images/dsa-graphic.jpeg
+   :height: 250
+   :width: 400
+
+   Image Credit: NASA
+
+
 OceanWATERS
 -----------------------------------------------------
 
@@ -76,8 +92,8 @@ and Simulation (`OceanWATERS <http://github.com/nasa/ow_simulator>`_)
 uses |PLEXIL| for onboard lander autonomy.
 
 .. figure:: _static/images/Lander_europa.jpg
-   :height: 290
-   :width: 350
+   :height: 250
+   :width: 400
 
    Image Credit: NASA
 
@@ -93,20 +109,23 @@ automatically generated from various higher level representations.
 
 
 .. figure:: _static/images/Chape.jpg
-   :height: 290
-   :width: 350
+   :height: 250
+   :width: 400
 
    Image Credit: NASA
 
 .. _autonomy_operating_system_aos:
 
 Autonomy Operating System (AOS)
---------------------------------------------------------------------------------------------------------
+-------------------------------
 
-:download:`AOS <_static/images/AOS.pdf>` focuses on automation of FAA piloting procedures towards
-the goal of enabling Unmanned Aerial Vehicles (UAVs) to fly in the
-national airspace. The navigation component of this software is a |PLEXIL|
-application and has been flight-tested on autonomous rotorcraft drones.
+`AOS
+<https://ntrs.nasa.gov/api/citations/20200000291/downloads/20200000291.pdf>`_
+focused on automation of FAA piloting procedures towards the goal of
+enabling Unmanned Aerial Vehicles (UAVs) to fly in the national
+airspace. The navigation component of this software was a `Core Flight
+System (cFS) based <https://github.com/nasa/cFS>`_ PLEXIL application
+and has been flight-tested on autonomous rotorcraft drones.
 
 .. figure:: _static/images/Drone.jpg
    :height: 290
@@ -122,7 +141,7 @@ unmanned aircraft, open-sourced by NASA Langley.
 
 
 .. figure:: _static/images/Icarous-logo.jpg
-   :height: 290
+   :height: 250
    :width: 350
 
    Image Credit: NASA
@@ -141,7 +160,7 @@ host of improvements to make |PLEXIL| more robust for flight applications.
 
 
 .. figure:: _static/images/Ladee.jpg
-   :height: 290
+   :height: 250
    :width: 350
 
    Image Credit: NASA

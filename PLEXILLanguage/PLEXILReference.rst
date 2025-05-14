@@ -3,7 +3,7 @@
 PLEXIL Reference
 ======================
 
-*20 Mar 2023*
+*13 May 2025*
 
 .. contents::
 
@@ -423,16 +423,16 @@ Without the ``Priority`` clauses, a runtime error would result. The
 priority number to the highest. In this example, node A will execute
 first, then B, and the final value of ``x`` will be 1.
 
-It is probably best to design your plans such that multiple
-assignments to the same variable are avoided.
+It is best to design your plans such that multiple assignments to the
+same variable are avoided.
 
 .. note::
 
-    A future release of |PLEXIL| will no longer abort the Executive
-    when multiple ``Assignment`` nodes on the same variable are
-    eligible to execute simultaneously. Instead, it will execute the
-    conflicting ``Assignment`` nodes one at a time, in an unspecified
-    order.
+    PLEXIL Release 6 (the ``releases/plexil6`` branch) no longer aborts
+    the Executive when multiple ``Assignment`` nodes on the same
+    variable are eligible to execute simultaneously. Instead, it
+    executes the conflicting ``Assignment`` nodes one at a time, in an
+    unspecified order.
 
 .. _command:
 
@@ -723,16 +723,6 @@ behavior of a plan, the ``Sequence`` keyword is optional:
      ...
      <nodeN>;
    }
-
-.. note:: 
-
-    ``Sequence`` is currently an alias for ``CheckedSequence``. Because of
-    the overhead of checking for child node success, and the default
-    behavior in other sequential languages is to continue sequential
-    execution after a child node fails (e.g. shell scripting), future |PLEXIL|
-    release may instead alias it to UncheckedSequence. To ensure your plans
-    do not change behavior, please consider explicitly using either
-    ``CheckedSequence`` or ``UncheckedSequence``.
 
 CheckedSequence
 ~~~~~~~~~~~~~~~
@@ -1145,9 +1135,10 @@ For more information, see :ref:`Inter-Executive Communication <Inter-ExecutiveCo
 Synchronous Command
 ~~~~~~~~~~~~~~~~~~~
 
-The ``SynchronousCommand`` Extended PLEXIL macro simplfies some common
-uses of ``Command`` nodes.  Simply put, a ``SynchronousCommand`` does
-not terminate until the command has completed.
+The ``SynchronousCommand`` Extended PLEXIL macro simplifies a common
+use of the ``Command`` node.  Simply put, a ``SynchronousCommand``
+does not terminate until the command has finished executing, or is
+denied.
 
 In Standard PLEXIL, its syntax is:
 

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
     <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,7 +22,7 @@
   
   
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -167,18 +167,18 @@ example, the simulation script is found automatically because of its
 filename.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">plexiltest</span> <span class="o">-</span><span class="n">p</span> <span class="n">plans</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">survey</span><span class="o">.</span><span class="n">plx</span>
 
-<span class="n">Running</span> <span class="n">executive</span> <span class="kn">from</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">fred</span><span class="o">/</span><span class="n">plexil</span>
+<span class="n">Running</span> <span class="n">executive</span> <span class="kn">from</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">fred</span><span class="o">/</span><span class="n">plexil</span>
   <span class="n">Plan</span><span class="p">:</span>      <span class="n">plans</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">survey</span><span class="o">.</span><span class="n">plx</span>
   <span class="n">Script</span><span class="p">:</span>    <span class="n">scripts</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">survey</span><span class="o">.</span><span class="n">psx</span>
   <span class="n">Libraries</span><span class="p">:</span>
   <span class="n">PORT</span><span class="p">:</span>
 
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SiteSurveyWithEOF&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SiteSurveyWithEOF&#39;</span> <span class="kn">from</span> <span class="nn">WAITING</span> <span class="n">to</span> <span class="n">EXECUTING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SiteSurveyWrapper&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SignalEndOfPlan&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;MonitorAbortSignal&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SendAbortUpdate&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SiteSurveyWithEOF&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SiteSurveyWithEOF&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">WAITING</span> <span class="n">to</span> <span class="n">EXECUTING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SiteSurveyWrapper&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SignalEndOfPlan&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;MonitorAbortSignal&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;SendAbortUpdate&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
 
 
   <span class="p">[</span> <span class="n">rest</span> <span class="n">of</span> <span class="n">output</span> <span class="n">omitted</span> <span class="p">]</span>
@@ -186,22 +186,22 @@ filename.</p>
 
 <span class="o">%</span><span class="n">plexiltest</span> <span class="o">-</span><span class="n">p</span> <span class="n">plans</span><span class="o">/</span><span class="n">library</span><span class="o">-</span><span class="n">call6</span><span class="o">.</span><span class="n">plx</span> <span class="o">-</span><span class="n">l</span> <span class="n">plans</span><span class="o">/</span><span class="n">library6</span><span class="o">.</span><span class="n">plx</span> <span class="o">-</span><span class="n">s</span> <span class="n">scripts</span><span class="o">/</span><span class="n">library</span><span class="o">-</span><span class="n">call6</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">psx</span>
 
-<span class="n">Running</span> <span class="n">executive</span> <span class="kn">from</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">fred</span><span class="o">/</span><span class="n">plexil</span>
+<span class="n">Running</span> <span class="n">executive</span> <span class="kn">from</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">fred</span><span class="o">/</span><span class="n">plexil</span>
   <span class="n">Plan</span><span class="p">:</span>      <span class="n">plans</span><span class="o">/</span><span class="n">library</span><span class="o">-</span><span class="n">call6</span><span class="o">.</span><span class="n">plx</span>
   <span class="n">Script</span><span class="p">:</span>    <span class="n">scripts</span><span class="o">/</span><span class="n">library</span><span class="o">-</span><span class="n">call6</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">psx</span>
   <span class="n">Libraries</span><span class="p">:</span>  <span class="o">-</span><span class="n">l</span> <span class="n">plans</span><span class="o">/</span><span class="n">library6</span><span class="o">.</span><span class="n">plx</span>
   <span class="n">PORT</span><span class="p">:</span>
 
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span> <span class="nn">WAITING</span> <span class="n">to</span> <span class="n">EXECUTING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span> <span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span> <span class="nn">WAITING</span> <span class="n">to</span> <span class="n">EXECUTING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span> <span class="nn">EXECUTING</span> <span class="n">to</span> <span class="n">FINISHING</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span> <span class="nn">EXECUTING</span> <span class="n">to</span> <span class="n">ITERATION_ENDED</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span> <span class="nn">ITERATION_ENDED</span> <span class="n">to</span> <span class="n">FINISHED</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">WAITING</span> <span class="n">to</span> <span class="n">EXECUTING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">INACTIVE</span> <span class="n">to</span> <span class="n">WAITING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">WAITING</span> <span class="n">to</span> <span class="n">EXECUTING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">EXECUTING</span> <span class="n">to</span> <span class="n">FINISHING</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">EXECUTING</span> <span class="n">to</span> <span class="n">ITERATION_ENDED</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;library6&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ITERATION_ENDED</span> <span class="n">to</span> <span class="n">FINISHED</span>
 <span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">outcome</span><span class="p">]</span><span class="n">Outcome</span> <span class="n">of</span> <span class="s1">&#39;library6&#39;</span> <span class="ow">is</span> <span class="n">SUCCESS</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span> <span class="nn">FINISHING</span> <span class="n">to</span> <span class="n">ITERATION_ENDED</span>
-<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span> <span class="nn">ITERATION_ENDED</span> <span class="n">to</span> <span class="n">FINISHED</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">FINISHING</span> <span class="n">to</span> <span class="n">ITERATION_ENDED</span>
+<span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">transition</span><span class="p">]</span><span class="n">Transitioning</span> <span class="s1">&#39;root&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ITERATION_ENDED</span> <span class="n">to</span> <span class="n">FINISHED</span>
 <span class="p">[</span><span class="n">Node</span><span class="p">:</span><span class="n">outcome</span><span class="p">]</span><span class="n">Outcome</span> <span class="n">of</span> <span class="s1">&#39;root&#39;</span> <span class="ow">is</span> <span class="n">SUCCESS</span>
 </pre></div>
 </div>
@@ -578,7 +578,7 @@ seconds computed with respect to the start of the simulator.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
@@ -639,7 +639,7 @@ seconds computed with respect to the start of the simulator.</p>
 <li class="toctree-l1"><a class="reference internal" href="../Appendices/References.html">References</a></li>
 </ul>
 
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -647,7 +647,7 @@ seconds computed with respect to the start of the simulator.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>

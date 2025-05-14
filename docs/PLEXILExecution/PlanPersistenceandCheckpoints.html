@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d7e2fa82" />
     <link rel="stylesheet" type="text/css" href="../_static/readable.css?v=e058d051" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,7 +22,7 @@
   
   
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -168,7 +168,7 @@ exact layout.</p>
 <p>The Commands are as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">All</span> <span class="n">commands</span> <span class="k">return</span> <span class="n">handle</span> <span class="n">RECEIVED_BY_SYSTEM</span> <span class="n">when</span> <span class="n">subsequent</span> <span class="n">lookups</span> <span class="n">will</span> <span class="k">return</span> <span class="n">the</span> <span class="n">new</span> <span class="n">value</span><span class="p">,</span> <span class="ow">and</span> <span class="n">COMMAND_SUCCESS</span> <span class="n">when</span> <span class="n">the</span> <span class="n">change</span> <span class="ow">is</span> <span class="n">saved</span> <span class="n">to</span> <span class="n">persistent</span> <span class="n">memory</span><span class="o">.</span>
 
-<span class="o">//</span> <span class="n">Note</span> <span class="n">that</span> <span class="k">as</span> <span class="n">no</span> <span class="n">guarantees</span> <span class="n">are</span> <span class="n">made</span> <span class="n">about</span> <span class="n">when</span> <span class="n">the</span> <span class="n">changes</span> <span class="kn">from</span> <span class="nn">set_boot_ok</span> <span class="ow">and</span> <span class="n">set_checkpoint</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span> <span class="n">to</span> <span class="n">persistent</span> <span class="n">memory</span> <span class="n">other</span> <span class="n">than</span> <span class="n">via</span> <span class="n">the</span> <span class="n">flush_checkpoints</span> <span class="n">command</span><span class="p">,</span> <span class="n">so</span> <span class="n">using</span> <span class="n">them</span> <span class="k">with</span> <span class="n">SynchronousCommand</span> <span class="ow">is</span> <span class="n">highly</span> <span class="n">discouraged</span>
+<span class="o">//</span> <span class="n">Note</span> <span class="n">that</span> <span class="k">as</span> <span class="n">no</span> <span class="n">guarantees</span> <span class="n">are</span> <span class="n">made</span> <span class="n">about</span> <span class="n">when</span> <span class="n">the</span> <span class="n">changes</span> <span class="kn">from</span><span class="w"> </span><span class="nn">set_boot_ok</span> <span class="ow">and</span> <span class="n">set_checkpoint</span> <span class="n">will</span> <span class="n">be</span> <span class="n">saved</span> <span class="n">to</span> <span class="n">persistent</span> <span class="n">memory</span> <span class="n">other</span> <span class="n">than</span> <span class="n">via</span> <span class="n">the</span> <span class="n">flush_checkpoints</span> <span class="n">command</span><span class="p">,</span> <span class="n">so</span> <span class="n">using</span> <span class="n">them</span> <span class="k">with</span> <span class="n">SynchronousCommand</span> <span class="ow">is</span> <span class="n">highly</span> <span class="n">discouraged</span>
 <span class="o">//</span> <span class="n">Also</span> <span class="n">note</span> <span class="n">that</span> <span class="n">some</span> <span class="n">characters</span> <span class="n">aren</span><span class="s1">&#39;t handled by pugixml which SimpleSaveManager uses - for example, using &quot;|&quot; (pipe) in the info string leads to runtime errors</span>
 
 <span class="n">Integer</span> <span class="n">set_boot_ok</span><span class="p">(</span><span class="n">Boolean</span> <span class="n">state</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Integer</span> <span class="n">boot</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span> <span class="o">//</span><span class="n">Sets</span> <span class="n">IsOK</span><span class="p">,</span> <span class="n">returns</span> <span class="n">previous</span> <span class="n">value</span>
@@ -218,7 +218,7 @@ different SaveManager extension is implemented.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
@@ -279,7 +279,7 @@ different SaveManager extension is implemented.</p>
 <li class="toctree-l1"><a class="reference internal" href="../Appendices/References.html">References</a></li>
 </ul>
 
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -287,7 +287,7 @@ different SaveManager extension is implemented.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
