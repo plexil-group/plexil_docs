@@ -3,7 +3,7 @@
 Node State Diagrams
 ===================
 
-*19 Mar 2024*
+*1 Jul 2025*
 
 These illustrations describe the node state transition semantics of
 |PLEXIL| nodes for PLEXIL releases 4.x.
