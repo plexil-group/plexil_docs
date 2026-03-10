@@ -1,6 +1,7 @@
 # Plexil Documentation Source
 
-This repository serves to present the Plexil documentation built with Sphinx.
+This repository serves to present the Plexil documentation built with
+[Sphinx](https://www.sphinx-doc.org).
 
 There currently exists a built version in `docs` folder. Open
 `index.html` with your favorite browser and check the current compiled
@@ -12,7 +13,7 @@ project page, at: https://github.com/plexil-group/plexil
 
 ## Build instructions
 
-1. Install prerequisites: 
+1. Install prerequisites:
  * Python 3
  * pip
 
