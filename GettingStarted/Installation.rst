@@ -3,7 +3,7 @@
 Installation
 =============
 
-*13 May 2021*
+*Updated 22 Apr 2026*
 
 This page describes how to get and install |PLEXIL|. Familiarity with a
 Unix-like operating system (e.g. Linux, macOS) is assumed.
@@ -17,40 +17,15 @@ Getting PLEXIL
 
 There are two ways to get |PLEXIL|:
 
--  Download a compressed archive (*tarball*) of the sources and prebuilt
-   Java jars.
 -  Clone the source code from the ``git`` repository hosted here on
-   GitHub.
+   GitHub, and then build the system.
+-  Download a compressed archive (*tarball*) of the sources and prebuilt
+   Java jar files.
 
-In either case, the |PLEXIL| Executive must be compiled from source. The
-tarball format includes prebuilt Java jars for the Standard |PLEXIL| and
-Plexilscript compilers, the |PLEXIL| Viewer, and the |PLEXIL| static
-checker; therefore it is the recommended distribution format for
-exploring |PLEXIL| for the first time.
-
-.. _Tarbal:
-
-Tarball
-~~~~~~~
-
-The most recent tarball (compressed source archive file) is available
-for download
-`here <https://sourceforge.net/projects/plexil/files/latest/download>`_.
-It is built with the GNU ``tar`` utility.
-
-The archive may be expanded by the archive utility on your platform, or
-at the command line:
-
-::
-
-    tar xzf plexil-4.5.0RC3.tar.gz
-
-This will expand to a directory named ``plexil-4.5.0RC3`` with all the
-source and example files. This is the directory to use as
-``PLEXIL_HOME`` in the procedures below.
-
-Note that as the released version number changes, the directory name in
-the archive will change accordingly.
+In either case, the |PLEXIL| Executive and other C++ based tools must
+be compiled from source. The tarball format includes prebuilt Java jar
+files for the Standard |PLEXIL| and Plexilscript compilers, the
+|PLEXIL| Viewer, and the |PLEXIL| static checker;
 
 .. _git:
 
@@ -61,22 +36,34 @@ git
 GitHub.
 
 The following command will get the latest stable version of the source
-code (currently the ``releases/plexil-4`` branch):
+code (currently the ``releases/plexil-6`` branch):
 
 ::
 
-    git clone -b releases/plexil-4 https://github.com/plexil-group/plexil.git plexil
+    git clone -b releases/plexil-6 https://github.com/plexil-group/plexil.git plexil
 
 This will create a directory named ``plexil`` with all the source files.
 
-.. _subversion_svn:
+.. _Tarball:
 
-Subversion (svn)
-~~~~~~~~~~~~~~~~
+Tarball
+~~~~~~~
 
-The original Subversion repository still exists, but has not been
-updated since the git repository was established. If you have been using
-SVN, we recommend you switch to git.
+A tarball (compressed source archive file) will be made available soon.
+
+The archive may be expanded by the archive utility on your platform, or
+at the command line:
+
+::
+
+    tar xzf <tarball>
+
+This will expand to a directory named ``plexil-6.1.2`` with all the
+source and example files. This is the directory to use as
+``PLEXIL_HOME`` in the procedures below.
+
+Note that as the released version number changes, the directory name in
+the archive will change accordingly.
 
 .. _installing_plexil:
 
@@ -103,7 +90,7 @@ These instructions presume a POSIX-compliant shell and GNU make.
 
 .. note::
 
-    Plexil may not build correctly if installed in a directory that 
+    Plexil may not build correctly if installed in a directory that
     is a symbolic link, such as ``/tmp`` in macOS.
 
 * Change into the source directory.

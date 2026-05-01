@@ -3,11 +3,11 @@
 References
 ==========
 
-24 February, 2022
+*Updated Apr 29, 2026*
 
-The following is a bibliography of PLEXIL-related publications,
-organized by category. Entries beginning with '[...]' are cited in this
-wiki.
+The following is a partial bibliography of PLEXIL-related publications
+from the PLEXIL teams at NASA and its collaborators, organized by
+category. Entries beginning with '[...]' are cited in this user guide.
 
 .. contents::
 

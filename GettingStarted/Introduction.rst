@@ -5,16 +5,17 @@ Introduction
 
 Welcome to |PLEXIL|!
 
-This is the reference manual for the |PLEXIL| language and related tools
-included in the software distribution. The latest version of this manual
-is always found online at https://plexil-group.github.io/plexil_docs.
+This is the reference manual for the |PLEXIL| language (Release 6.x)
+and related tools included in the software distribution. The latest
+version of this manual is always found online at
+https://plexil-group.github.io/plexil_docs.
 
 We are striving to make the language and system increasingly usable
-and better documented, so any feedback you have is greatly
-appreciated.  Comments and questions are welcome. If you encounter any
-material you find confusing, or is inadequate for your needs, please
-contact ``plexil-support (at) groups (dot) io`` and we'll do our best to
-help you and to improve the manual.
+and better documented, so any feedback is greatly appreciated.
+Comments and questions are welcome. If you encounter any material you
+find confusing, or is inadequate for your needs, please contact
+``plexil-support (at) groups (dot) io`` and we'll do our best to help
+you and to improve the manual.
 
 We hope you enjoy using |PLEXIL| and find it well-suited to your needs.
 
@@ -31,7 +32,7 @@ Part B: The |PLEXIL| Langauge
 
 -  Chapter 3: :ref:`Overview <PLEXILOverview>`
 
--  Chapter 4: :ref:`Plexil Reference <PLEXILReferences>`
+-  Chapter 4: :ref:`Plexil Reference <PLEXILReference>`
 
 -  Chapter 5: :ref:`Detailed Semantics <PLEXILSemantics>`
 
