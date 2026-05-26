@@ -3,7 +3,7 @@
 Requirements
 =============
 
-*Updated Apr 29, 2026*
+*Updated May 26, 2026*
 
 This page describes the hardware and software required to build and run
 the PLEXIL Executive and its supporting programs.
@@ -28,18 +28,16 @@ build fully.
 Operating systems
 ~~~~~~~~~~~~~~~~~
 
-PLEXIL applications have been recently built on the
-following known platforms:
+PLEXIL has been recently built on the following platforms:
 
--  Ubuntu Linux (versions 18-22) on Intel x86-64 and AMD64 hardware
--  MacOS 10.14 and 10.15, on x86-64 and Apple Silicon Macs
+-  Ubuntu Linux 22.04 LTS on Intel x86-64 and AMD64 hardware
+-  MacOS 15 Sequoia, on x86-64 and Apple Silicon Macs
 
-Less recently, PLEXIL applications (at least the Executive) hav been
-successfully built on these additional platforms.
+In the past PLEXIL has been built on these additional platforms:
 
 -  Linux (Red Hat Enterprise Linux, versions 5 and newer; Ubuntu
    releases since 12.04 LTS) on Intel x86-64 and AMD64 hardware
--  macOS versions 10.8 and newer, on x86-64 Macs
+-  MacOS versions 10.8 and newer, on x86-64 Macs
 -  Windows Subsystem for Linux 2 (WSL 2); see the :download:`detailed
    instructions
    <../_static/images/Using_PLEXIL_with_WSL_2_Install_Instructions.pdf>`
