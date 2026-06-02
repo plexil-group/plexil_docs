@@ -3,7 +3,7 @@
 Tutorial
 ========
 
-*Updated 22 Apr 2026*
+*Updated 2 June 2026*
 Originally written by Bryce Campbell (2020)
 
 .. contents::
@@ -69,7 +69,7 @@ in one of these two locations:
 2. Your first node and command
 ------------------------------
 
-Let's start by making a PLEXIL file. inside
+Let's start by making a PLEXIL file. Inside
 ``$PLEXIL_HOME/examples/robosim/plans``, create a new file called
 ``Drive.ple``.
 
@@ -84,7 +84,7 @@ create it now.
 
    }
 
-We named this node ``Drive``. Now lets make our program do something!
+We named this node ``Drive``. Now let's make our program do something!
 PLEXIL programs interact with their environment using commands provided
 by the system you are automating. Let's declare and use the utility
 command ``pprint()``.

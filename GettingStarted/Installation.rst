@@ -5,7 +5,7 @@ Installation
 
 *Updated 22 Apr 2026*
 
-This page describes how to get and install |PLEXIL|. Familiarity with a
+This page describes how to get and install PLEXIL. Familiarity with a
 Unix-like operating system (e.g. Linux, macOS) is assumed.
 
 .. contents::
@@ -15,24 +15,24 @@ Unix-like operating system (e.g. Linux, macOS) is assumed.
 Getting PLEXIL
 --------------
 
-There are two ways to get |PLEXIL|:
+There are two ways to get PLEXIL:
 
 -  Clone the source code from the ``git`` repository hosted here on
    GitHub, and then build the system.
 -  Download a compressed archive (*tarball*) of the sources and prebuilt
-   Java jar files.
+   Java jar files. (NOTE: not available as of June 2, 2026).
 
-In either case, the |PLEXIL| Executive and other C++ based tools must
+In either case, the PLEXIL Executive and other C++ based tools must
 be compiled from source. The tarball format includes prebuilt Java jar
-files for the Standard |PLEXIL| and Plexilscript compilers, the
-|PLEXIL| Viewer, and the |PLEXIL| static checker;
+files for the Standard PLEXIL and Plexilscript compilers, the
+PLEXIL Viewer, and the PLEXIL static checker;
 
 .. _git:
 
 git
 ~~~
 
-|PLEXIL| source code may be checked out from the repository on
+PLEXIL source code may be checked out from the repository on
 GitHub.
 
 The following command will get the latest stable version of the source
@@ -49,7 +49,9 @@ This will create a directory named ``plexil`` with all the source files.
 Tarball
 ~~~~~~~
 
-A tarball (compressed source archive file) will be made available soon.
+NOTE: A tarball (compressed source archive file) as described here
+will hopefully be made available soon.  At present, please clone the
+PLEXIL repository and build the system from sources.
 
 The archive may be expanded by the archive utility on your platform, or
 at the command line:
@@ -70,14 +72,14 @@ the archive will change accordingly.
 Installing PLEXIL
 -----------------
 
-The |PLEXIL| Executive and its examples are buildable with either `GNU
+The PLEXIL Executive and its examples are buildable with either `GNU
 Make <https://www.gnu.org/software/make/>`_ or
 `CMake <https://cmake.org/>`_. The C and C++ code complies with the
 applicable language standards. See :ref:`Requirements <requirements>` for
 details.
 
 The top level ``README`` has additional information on configuring,
-building, and running |PLEXIL|.
+building, and running PLEXIL.
 
 .. _basic_installation:
 
@@ -106,11 +108,11 @@ These instructions presume a POSIX-compliant shell and GNU make.
 
 * Build the desired components:
 
-   #. For the |PLEXIL| Executive (universalExec), TestExec, compilers,
-      checker, and |PLEXIL| Viewer: ``make tools``
+   #. For the PLEXIL Executive (universalExec), TestExec, compilers,
+      checker, and PLEXIL Viewer: ``make tools``
    #. For all the above plus examples: ``make everything``
 
-* The |PLEXIL| Executive and related programs will be installed into
+* The PLEXIL Executive and related programs will be installed into
    ``$PLEXIL_HOME/bin`` ; libraries are installed into ``$PLEXIL_HOME/lib``, and
    include files to ``$PLEXIL_HOME/include``. There are additional scripts
    (e.g. plexilexec, plexilc) in ``$PLEXIL_HOME/scripts`` .
@@ -120,6 +122,6 @@ These instructions presume a POSIX-compliant shell and GNU make.
 Advanced installation
 ~~~~~~~~~~~~~~~~~~~~~
 
-The |PLEXIL| Executive can be configured for a wide variety of
+The PLEXIL Executive can be configured for a wide variety of
 applications and environments using either the GNU autotools or CMake.
 See the top level README file for an outline.
