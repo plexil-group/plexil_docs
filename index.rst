@@ -1,17 +1,11 @@
 This is the main page of the PLEXIL User's Guide. It documents PLEXIL
-Release 4.6, which is the version of PLEXIL found on its
-``releases/plexil-4.6`` Git branch.
-
-Most, but not all, of this documentation also applies to PLEXIL
-Release 6.  Documentation specific to Release 6 is in development.
+Release 6, which is the version of PLEXIL found on its
+``releases/plexil-6`` Git branch.
 
 For PLEXIL's main project page, which has downloads and other
 information, go to https://github.com/plexil-group/plexil.
 
-This user guide supercedes the previous version that was hosted on
-Sourceforge.
-
-*Updated 14 May 2025*
+*Updated 23 Apr 2026*
 
 .. contents::
 
@@ -322,14 +316,6 @@ Image Credit: NASA/Ames
    Implementing Custom Interfaces <Interfacing/ImplementingCustomInterfaces>
    Implementing Custom Applications <Interfacing/ImplementingCustomApplications>
    API Reference <Interfacing/APIReference>
-
-
-.. toctree::
-   :caption: Release Notes
-   :maxdepth: 1
-   :hidden:
-
-   PLEXIL-4 Release Notes <ReleaseNotes/PLEXIL4ReleaseNotes>
 
 .. toctree::
    :titlesonly:

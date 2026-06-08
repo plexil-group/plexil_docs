@@ -3,10 +3,10 @@
 Node State Diagrams
 ===================
 
-*1 Jul 2025*
+*Updated Apr 28, 2026*
 
-These illustrations describe the node state transition semantics of
-|PLEXIL| nodes for PLEXIL releases 4.x.
+These illustrations describe the node state transition semantics for
+PLEXIL v6.
 
 .. contents::
 
@@ -24,23 +24,11 @@ Nodes of all types in the INACTIVE state behave as follows.
 WAITING state
 -------------
 
-There is a small but significant difference in the transition
-semantics for the WAITING state between Plexil 4 and Plexil 6.
-In Plexil 4, the node's Exit Condition is checked in this state, and
-transitions the node to FINISHED if true.
-
-.. figure:: ../_static/images/Waiting-plexil4.png
-
-   Waiting state for all node types in Plexil 4
-
-In Plexil 6, the Exit Condition is *not* checked when the node is
-waiting; this was actually the intended semantics when the Exit
-Condition was introduced.
-
 .. figure:: ../_static/images/Waiting-plexil6.png
 
-   Waiting state for all node types in Plexil 6
+   Waiting state for all node types.
 
+   
 .. _executing_state:
 
 EXECUTING state

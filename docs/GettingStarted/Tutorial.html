@@ -46,7 +46,8 @@
             
   <section id="tutorial">
 <span id="id1"></span><h1><a class="toc-backref" href="#id11" role="doc-backlink">Tutorial</a><a class="headerlink" href="#tutorial" title="Link to this heading">¶</a></h1>
-<p><em>10 Apr 2021</em></p>
+<p><em>Updated 2 June 2026</em>
+Originally written by Bryce Campbell (2020)</p>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -72,15 +73,16 @@
 </li>
 </ul>
 </nav>
-<p><em>PLEXIL</em> is a language used to represent
-plans of automation. To help new users learn the language without having
-a system to automate, we have created the Robosim simulator. This
-tutorial will guide you through learning <em>PLEXIL</em> using this simulator.</p>
-<p>Throughout this tutorial links to the <span class="xref std std-ref">PLEXIL Documentation</span>
-will be provided so you can read more about the topics we explore.</p>
+<p>PLEXIL is a language for encoding plans of automation. To help new
+users learn the language without having a system to automate, we have
+created the Robosim simulator. This tutorial will guide you through
+learning PLEXIL using this simulator.</p>
+<p>Throughout this tutorial links to the <a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#plexilreference"><span class="std std-ref">PLEXIL Documentation</span></a> will be provided so you can read more about the
+topics we explore.</p>
 <section id="starting-the-simulation">
 <span id="id2"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink">1. Starting the simulation</a><a class="headerlink" href="#starting-the-simulation" title="Link to this heading">¶</a></h2>
-<p>Once you have <em>PLEXIL</em> <a class="reference internal" href="Installation.html#installation"><span class="std std-ref">installed</span></a> you can navigate to <code class="docutils literal notranslate"><span class="pre">$PLEXIL_HOME/examples/robosim</span></code> and run:</p>
+<p>Once you have PLEXIL <a class="reference internal" href="Installation.html#installation"><span class="std std-ref">installed</span></a> you can navigate
+to <code class="docutils literal notranslate"><span class="pre">$PLEXIL_HOME/examples/robosim</span></code> and run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./robosim start
 </pre></div>
 </div>
@@ -108,11 +110,11 @@ run</p>
 </section>
 <section id="your-first-node-and-command">
 <span id="id3"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink">2. Your first node and command</a><a class="headerlink" href="#your-first-node-and-command" title="Link to this heading">¶</a></h2>
-<p>Let’s start by making a <em>PLEXIL</em> file. inside
+<p>Let’s start by making a PLEXIL file. Inside
 <code class="docutils literal notranslate"><span class="pre">$PLEXIL_HOME/examples/robosim/plans</span></code>, create a new file called
 <code class="docutils literal notranslate"><span class="pre">Drive.ple</span></code>.</p>
-<p>A <em>PLEXIL</em> program is made up of nodes that consist of a pair of curly
-braces: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>. Each <em>PLEXIL</em> plan should have one root node, let’s
+<p>A PLEXIL program is made up of nodes that consist of a pair of curly
+braces: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>. Each PLEXIL plan should have one root node, let’s
 create it now.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Drive</span><span class="p">:</span>
 <span class="p">{</span>
@@ -120,8 +122,8 @@ create it now.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>We named this node <code class="docutils literal notranslate"><span class="pre">Drive</span></code>. Now lets make our program do something!
-<em>PLEXIL</em> programs interact with their environment using commands provided
+<p>We named this node <code class="docutils literal notranslate"><span class="pre">Drive</span></code>. Now let’s make our program do something!
+PLEXIL programs interact with their environment using commands provided
 by the system you are automating. Let’s declare and use the utility
 command <code class="docutils literal notranslate"><span class="pre">pprint()</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Command</span> <span class="n">pprint</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
@@ -135,7 +137,7 @@ command <code class="docutils literal notranslate"><span class="pre">pprint()</s
 </section>
 <section id="compile-and-run-a-plexil-plan">
 <span id="id4"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink">3. Compile and run a PLEXIL plan</a><a class="headerlink" href="#compile-and-run-a-plexil-plan" title="Link to this heading">¶</a></h2>
-<p>To run a <em>PLEXIL</em> program you must first compile it:</p>
+<p>To run a PLEXIL program you must first compile it:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ plexilc Drive.ple
 </pre></div>
 </div>
@@ -171,7 +173,7 @@ and see the commands supported by the robosim <a class="reference internal" href
 </pre></div>
 </div>
 <p>Next we declare and initialize a variable of type String to hold the
-name of the robot we want to control. <em>PLEXIL</em> supports several data types
+name of the robot we want to control. PLEXIL supports several data types
 that can be found <a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#variables"><span class="std std-ref">here</span></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Move</span><span class="p">(</span><span class="n">robotName</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
@@ -269,7 +271,9 @@ direction to move in.</p>
     <span class="o">//</span> <span class="n">Loop</span> <span class="n">through</span> <span class="n">every</span> <span class="n">direction</span> <span class="n">we</span> <span class="n">could</span> <span class="n">go</span>
     <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">direction</span> <span class="ow">is</span> <span class="n">unoccupied</span> <span class="ow">and</span> <span class="n">has</span> <span class="n">the</span> <span class="n">highest</span> <span class="n">energy</span> <span class="n">value</span> <span class="n">we</span> <span class="n">save</span> <span class="n">it</span> <span class="n">into</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">direction</span>
+        <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">direction</span> <span class="ow">is</span> <span class="n">unoccupied</span> <span class="ow">and</span> <span class="n">has</span> <span class="n">the</span> <span class="n">highest</span>
+        <span class="o">//</span> <span class="n">energy</span> <span class="n">value</span> <span class="n">we</span> <span class="n">save</span> <span class="n">it</span> <span class="n">into</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">direction</span><span class="o">.</span>
+
         <span class="k">if</span><span class="p">(</span><span class="n">visibilityVals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">energyVals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">maxVal</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">maxVal</span> <span class="o">=</span> <span class="n">energyVals</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -277,7 +281,8 @@ direction to move in.</p>
         <span class="p">}</span>
         <span class="n">endif</span>
     <span class="p">}</span>
-    <span class="o">//</span> <span class="n">If</span> <span class="n">our</span> <span class="nb">next</span> <span class="n">move</span> <span class="n">will</span> <span class="n">take</span> <span class="n">us</span> <span class="n">to</span> <span class="n">an</span> <span class="n">energy</span> <span class="n">source</span> <span class="n">we</span> <span class="n">can</span> <span class="n">stop</span> <span class="n">the</span> <span class="n">run</span>
+
+    <span class="o">//</span> <span class="n">If</span> <span class="n">our</span> <span class="nb">next</span> <span class="n">move</span> <span class="n">will</span> <span class="n">take</span> <span class="n">us</span> <span class="n">to</span> <span class="n">an</span> <span class="n">energy</span> <span class="n">source</span> <span class="n">we</span> <span class="n">can</span> <span class="n">stop</span> <span class="n">the</span> <span class="n">run</span><span class="o">.</span>
     <span class="k">if</span><span class="p">(</span><span class="n">maxVal</span><span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">run</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
 <span class="p">}</span>
@@ -303,7 +308,9 @@ direction to move in.</p>
     <span class="n">String</span> <span class="n">robotName</span> <span class="o">=</span> <span class="s2">&quot;RobotYellow&quot;</span><span class="p">;</span>
     <span class="n">Boolean</span> <span class="n">run</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">run</span><span class="p">)</span>
-    <span class="n">Concurrence</span> <span class="o">//</span> <span class="n">this</span> <span class="n">tells</span> <span class="n">our</span> <span class="n">nodes</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">concurrently</span> <span class="n">allowing</span> <span class="n">us</span> <span class="n">to</span> <span class="n">read</span> <span class="n">both</span> <span class="n">sensors</span> <span class="n">at</span> <span class="n">the</span> <span class="n">same</span> <span class="n">time</span>
+    <span class="n">Concurrence</span> <span class="o">//</span> <span class="n">this</span> <span class="n">tells</span> <span class="n">our</span> <span class="n">nodes</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">concurrently</span>
+                <span class="o">//</span> <span class="n">allowing</span> <span class="n">us</span> <span class="n">to</span> <span class="n">read</span> <span class="n">both</span> <span class="n">sensors</span> <span class="n">at</span> <span class="n">the</span> <span class="n">same</span> <span class="n">time</span>
+
     <span class="p">{</span>
         <span class="n">Real</span> <span class="n">energyVals</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="o">//</span> <span class="n">Declare</span> <span class="n">arrays</span> <span class="n">to</span> <span class="n">hold</span> <span class="n">our</span> <span class="n">query</span> <span class="n">data</span>
         <span class="n">Integer</span> <span class="n">visibilityVals</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
@@ -333,7 +340,10 @@ direction to move in.</p>
             <span class="o">//</span> <span class="n">Loop</span> <span class="n">through</span> <span class="n">every</span> <span class="n">direction</span> <span class="n">we</span> <span class="n">could</span> <span class="n">go</span>
             <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">direction</span> <span class="ow">is</span> <span class="n">unoccupied</span> <span class="ow">and</span> <span class="n">has</span> <span class="n">the</span> <span class="n">highest</span> <span class="n">energy</span> <span class="n">value</span> <span class="n">we</span> <span class="n">save</span> <span class="n">it</span> <span class="n">into</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">direction</span>
+                <span class="o">//</span> <span class="n">If</span> <span class="n">the</span> <span class="n">direction</span> <span class="ow">is</span> <span class="n">unoccupied</span> <span class="ow">and</span> <span class="n">has</span> <span class="n">the</span>
+                <span class="o">//</span> <span class="n">highest</span> <span class="n">energy</span> <span class="n">value</span> <span class="n">we</span> <span class="n">save</span> <span class="n">it</span> <span class="n">into</span> <span class="n">the</span> <span class="n">variable</span>
+                <span class="o">//</span> <span class="n">direction</span><span class="o">.</span>
+
                 <span class="k">if</span><span class="p">(</span><span class="n">visibilityVals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">energyVals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">maxVal</span><span class="p">)</span>
                 <span class="p">{</span>
                     <span class="n">maxVal</span> <span class="o">=</span> <span class="n">energyVals</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -357,27 +367,32 @@ direction to move in.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Now you can watch your work in node! Compile and run the code on the
-robosim and watch the robot path to the nearest energy source. If you
-want you can show the detection range of the energy sources in the sim
-by pressing ‘e’ the goal by pressing ‘g’ and the flags by pressing ‘f’.</p>
+<p>Compile and run the code on the robosim and watch the robot path to
+the nearest energy source. If you want you can show the detection
+range of the energy sources in the sim by pressing ‘e’ the goal by
+pressing ‘g’ and the flags by pressing ‘f’.</p>
 </section>
 <section id="library-calls">
 <span id="id9"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink">6. Library calls</a><a class="headerlink" href="#library-calls" title="Link to this heading">¶</a></h2>
 <p>Abstraction is a key idea when programming that allows the creation of
-more organized less error prone code. In <em>PLEXIL</em> abstraction is achieved
+more organized less error prone code. In PLEXIL abstraction is achieved
 through <a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#library-call"><span class="std std-ref">library calls</span></a>.
 In our example we would like our robot to move to several different
 objects, the energy sources, the flags, and the goals. To avoid copied
 code we will write a library node that determines the best direction to
 go for any of these objects.</p>
-<p>Because each <em>PLEXIL</em> file may only have one top level node we will write
+<p>Because each PLEXIL file may only have one top level node we will write
 our library node in a new file called <code class="docutils literal notranslate"><span class="pre">BestDirection.ple</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BestDirection</span><span class="p">:</span>
 <span class="p">{</span>
-    <span class="n">In</span> <span class="n">Real</span> <span class="n">directionVals</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>   <span class="o">//</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">moving</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">direction</span> <span class="p">(</span><span class="n">Read</span> <span class="n">Only</span><span class="p">)</span>
-    <span class="n">In</span> <span class="n">Integer</span> <span class="n">visibilityVals</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>  <span class="o">//</span> <span class="n">The</span> <span class="n">visibility</span> <span class="n">value</span> <span class="n">of</span> <span class="n">each</span> <span class="n">direction</span> <span class="p">(</span><span class="n">Read</span> <span class="n">Only</span><span class="p">)</span>
-    <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">maxDirection</span><span class="p">;</span> <span class="o">//</span> <span class="n">An</span> <span class="n">out</span><span class="o">-</span><span class="n">parameter</span> <span class="n">used</span> <span class="n">to</span> <span class="k">return</span> <span class="n">the</span> <span class="n">best</span> <span class="n">direction</span> <span class="n">to</span> <span class="n">the</span> <span class="n">calling</span> <span class="n">node</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">moving</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">direction</span> <span class="p">(</span><span class="n">Read</span> <span class="n">Only</span><span class="p">)</span>
+    <span class="n">In</span> <span class="n">Real</span> <span class="n">directionVals</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+    <span class="o">//</span> <span class="n">The</span> <span class="n">visibility</span> <span class="n">value</span> <span class="n">of</span> <span class="n">each</span> <span class="n">direction</span> <span class="p">(</span><span class="n">Read</span> <span class="n">Only</span><span class="p">)</span>
+    <span class="n">In</span> <span class="n">Integer</span> <span class="n">visibilityVals</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+    <span class="o">//</span> <span class="n">An</span> <span class="n">out</span><span class="o">-</span><span class="n">parameter</span> <span class="n">used</span> <span class="n">to</span> <span class="k">return</span> <span class="n">the</span> <span class="n">best</span> <span class="n">direction</span> <span class="n">to</span> <span class="n">the</span> <span class="n">calling</span> <span class="n">node</span><span class="o">.</span>
+    <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">maxDirection</span><span class="p">;</span>
 
     <span class="n">Real</span> <span class="n">maxVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Track</span> <span class="n">the</span> <span class="nb">max</span> <span class="n">val</span> <span class="n">just</span> <span class="n">like</span> <span class="n">before</span>
 
@@ -398,7 +413,7 @@ our library node in a new file called <code class="docutils literal notranslate"
 <p>Our library node will accept an array of reals representing the goal,
 energy, or flag values in each of the 4 directions and return through
 the out parameter <code class="docutils literal notranslate"><span class="pre">maxDirection</span></code> the direction with the largest value.</p>
-<p>Now lets use this library node in a plan that will path our robot to the
+<p>Now let’s use this library node in a plan that will path our robot to the
 goal, picking up energy sources along the way if need be.</p>
 <p>First we declare our robosim Commands and our library node:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Real</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">Command</span> <span class="n">QueryGoalSensor</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">);</span>
@@ -412,7 +427,7 @@ goal, picking up energy sources along the way if need be.</p>
     <span class="n">InOut</span> <span class="n">Integer</span> <span class="n">maxDirection</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Next lets create our main loop and read the sensors:</p>
+<p>Next let’s create our main loop and read the sensors:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Drive:
 {
     String robotName = &quot;RobotYellow&quot;;
@@ -558,7 +573,9 @@ Drive:
                     visibilityVals=visibilityVals,
                     maxDirection=direction);
             endif
-            // If we have energy or we are not in range to detect any move towards the goal.
+            // If we have energy or we are not in range to detect
+            // any move towards the goal.
+
             if(!isKnown(direction))
                 LibraryCall BestDirection(directionVals=goalVals,
                     visibilityVals=visibilityVals,
@@ -597,12 +614,10 @@ your library node</em>.</p>
 <ul class="simple">
 <li><p>Can you make the robot pick up the flag and take it to the goal?</p></li>
 <li><p>Can you control two robots at once?</p></li>
-<li><p>Explore some more advanced feature of the language like <a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#external-state-lookups"><span class="std std-ref">lookups</span></a>
-or the other types of
-<a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#nodes"><span class="std std-ref">nodes</span></a>
-not covered here.</p></li>
+<li><p>Explore some more advanced feature of the language like
+<a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#external-state-lookups"><span class="std std-ref">lookups</span></a> or the other types of
+<a class="reference internal" href="../PLEXILLanguage/PLEXILReference.html#nodes"><span class="std std-ref">nodes</span></a> not covered here.</p></li>
 </ul>
-<p>Originally Written by Bryce Campbell (2020)</p>
 </section>
 </section>
 
@@ -658,10 +673,6 @@ not covered here.</p></li>
 <li class="toctree-l1"><a class="reference internal" href="../Interfacing/ImplementingCustomInterfaces.html">Implementing Custom Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Interfacing/ImplementingCustomApplications.html">Implementing Custom Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Interfacing/APIReference.html">API Reference</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/PLEXIL4ReleaseNotes.html">PLEXIL-4 Release Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul>
